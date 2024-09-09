@@ -1,1 +1,1 @@
-Another change in step 5
+Make another change to the conflictTest.md file on GitHub and commit the change.
