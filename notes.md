@@ -1,38 +1,28 @@
 # Notes
 
-## GitHub Basics
+## GitHub
 
-### Creating and Cloning a Repository
-- **Create a Repository:**
-  - Log in to GitHub.
-  - Go to the Repositories tab and select "New repository."
-  - Provide a unique name, description, and set it to public.
-  - Add a README.md file and choose a license.
+### Cloning a Repository
 - **Clone a Repository:**
-  - Use `git clone <repository-url>` to clone the repository to your local environment.
+  - When you clone a repository it is placed in a subdirectory named with the name of the repository. So make sure you are in the directory where you keep all of your source repositories before you run the command.
+  - Use `git clone <repository-url>` to clone a repository.
 
-### Making Changes and Syncing
+### Making Changes
 - **Make Changes:**
-  - Modify files and use `git add <file>` to stage changes.
-  - Commit changes with `git commit -m "commit message"`.
+  **This is the pattern that you want to make a reflexive part of your development process.**
+  1. Pull the repository's latest changes from GitHub `git pull <file>`
+  2. change files and use `git add <file>` to stage changes.
+  3. Commit changes with `git commit -m "commit message"`.
   - Push changes using `git push`.
 - **Pull Updates:**
   - Fetch updates with `git fetch`.
-  - Use `git pull` to integrate updates into your local repository.
+  - Use `git pull` to get the latest changes from the repository and add them to a local enviroment (vscode)
 
 ### Handling Merge Conflicts
-- **Simulate a Merge Conflict:**
-  - Make changes to the same line in a file both locally and on GitHub.
-  - Pull changes and resolve conflicts in the file.
-  - Commit the resolution and push the merged changes.
-
-### README.md and Notes.md
-- **README.md:**
-  - Describe the project and modifications.
-  - Use Markdown syntax to format the content.
-- **notes.md:**
-  - Track what you’ve learned.
-  - Organize content and reference other `.md` files if needed.
+  1. Open the problem file and resolve the conflicts by editing the problem line/lines.
+  2. Mark the file as resolved by adding it to the staging area with git add <filename>.
+  3. Commit the resolution with a message explaining the merge.
+  4. Push the merged changes back to GitHub with git push.
 
 ## Useful Links
 - [GitHub Documentation](https://docs.github.com/en/github)

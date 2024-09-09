@@ -1,5 +1,5 @@
 
 
-# Resources
+# My notes
 
-- [Notes on GitHub and Markdown](notes.md)# startup
+- [Notes on GitHub](notes.md)
