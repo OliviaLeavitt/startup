@@ -1,1 +1,1 @@
-This is an update to conflictTest.md from github
+Another change in step 5
