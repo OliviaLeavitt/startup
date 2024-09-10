@@ -27,3 +27,27 @@
 ## Useful Links
 - [GitHub Documentation](https://docs.github.com/en/github)
 - [Markdown Guide](https://www.markdownguide.org/)
+
+## AWS EC2 Instance Setup
+
+### Steps
+
+1. **Create AWS EC2 Instance**
+   - Start a new EC2 instance using the following AMI ID: ami-0b009f6c56cdd83ed
+   - Selected instance type: `t3.micro` (or `t2.micro` if free).
+   - Set up security to allow SSH, HTTP, and HTTPS access.
+   - Create a key pair and save it to a safe location for future logins.
+
+2. **Assign Elastic IP**
+   - Get an elastic IP to keep the same public IP address
+   - Attach the elastic IP to the instance
+
+3. **Testing the Web Server**
+   - Open a browser and enter http://<public-ip>.
+   - Check to see that the page loads correctly.
+
+4. **SSH into your server**
+   - Open a console and enter: 
+     ```bash
+     ssh -i [key pair file] ubuntu@[public_ip]
+     ```
