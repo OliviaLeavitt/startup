@@ -51,3 +51,27 @@
      ```bash
      ssh -i [key pair file] ubuntu@[public_ip]
      ```
+
+
+# Amazon Web Services - Route 53 Notes
+
+## Steps to Buy a Domain
+1. Log in to AWS Console > Route 53.
+2. Navigate to **Domains > Registered domains** > **Register Domain**.
+3. Search for a domain, select one, and **Add to cart**.
+4. Fill out contact details and complete the order.
+5. AWS will create a **hosted zone** for your domain.
+
+## Create DNS Records
+1. Get the public IP address of your EC2 instance.
+2. Log in to AWS Console > Route 53 > **Hosted zones**.
+3. Create an **A Record** for your root domain (use your server's IP address).
+4. Create a **Wildcard Record** (`*`) for any subdomain (use your server's IP).
+
+## Test DNS
+- Navigate to your domain name in the browser (example: `http://yourdomain.com`).
+
+## Common Issues
+- **Domain not accessible:** Wait 10 minutes for DNS records to propagate.
+- **Site doesn't display:** Check if you're using HTTPS, or if the browser added `www.`.
+- **Email verification:** Ensure you responded to AWS verification email (check spam).
