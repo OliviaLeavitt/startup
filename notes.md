@@ -65,7 +65,7 @@
 1. Get the public IP address of your EC2 instance.
 2. Log in to AWS Console > Route 53 > **Hosted zones**.
 3. Create an **A Record** for your root domain (use your server's IP address).
-4. Create a **Wildcard Record** (`*`) for any subdomain (use your server's IP).
+4. Create another **A Record** (`*`) for any subdomain (use your server's IP).
 
 ### Test DNS
 - Navigate to your domain name in the browser (example: `http://yourdomain.com`).
