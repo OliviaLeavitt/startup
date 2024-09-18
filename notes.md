@@ -148,3 +148,55 @@ We demonstrate the use of each element with the following HTML document. It star
     <div>Footer - <span>Span</span></div>
   </footer>
 </body>
+
+# Key Points: HTML Input Elements
+
+- **Form**
+  - Container for input elements.
+  - `<form action="url" method="post"> ... </form>`
+
+- **Fieldset**
+  - Groups related inputs with a label.
+  - `<fieldset><legend>...</legend> ... </fieldset>`
+
+- **Input Types**
+  - `text`, `password`, `email`, `tel`, `url`, `number`, `range`, `color`, `file`, `submit`
+  - `<input type="..." />`
+
+- **Select & Option**
+  - Creates dropdown menus.
+  - `<select><option>...</option></select>`
+
+- **Optgroup**
+  - Groups options in a dropdown.
+  - `<optgroup label="..."><option>...</option></optgroup>`
+
+- **Textarea**
+  - Multiline text input.
+  - `<textarea></textarea>`
+
+- **Label**
+  - Labels an input element.
+  - `<label for="id">...</label>`
+
+- **Output**
+  - Displays results of calculations or actions.
+  - `<output for="id">...</output>`
+
+- **Meter**
+  - Displays a value within a known range.
+  - `<meter min="0" max="100" value="..."></meter>`
+
+- **Common Attributes**
+  - `name`, `disabled`, `value`, `required`
+
+- **Validation**
+  - Use `required` and `pattern` for input validation.
+
+### Example Form
+```html
+<form action="submission.html" method="post">
+  <label for="ta">TextArea: </label>
+  <textarea id="ta" name="ta-id">Some text</textarea>
+  <button type="submit">Submit</button>
+</form>
