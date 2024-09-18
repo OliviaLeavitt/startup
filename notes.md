@@ -74,3 +74,97 @@
 - **Domain not accessible:** Wait 10 minutes for DNS records to propagate.
 - **Site doesn't display:** Check if you're using HTTPS, or if the browser added `www.`.
 - **Email verification:** Ensure you responded to AWS verification email (check spam).
+
+# HTML Structure Elements Tutorial
+
+## Overview
+
+The two major purposes of HTML are to provide **structure** and **content** to your web application. Some of the common HTML structural elements include:
+- `body`
+- `header`
+- `footer`
+- `main`
+- `section`
+- `aside`
+- `p`
+- `table`
+- `ol` / `ul`
+- `div`
+- `span`
+
+We demonstrate the use of each element with the following HTML document. It starts with the top-level content `body`. The `body` has three children: a `header`, `main`, and `footer`. Each of these elements contains other structural content.
+
+- **Header** contains a paragraph with a `span`, and a `nav` containing multiple `div` elements.
+- **Main** contains multiple `section` elements, which include an unordered list (`ul`) and a table. `Main` also contains an `aside` for content that doesn’t fit the main content flow.
+- **Footer** has a `div` with a single `span`.
+
+## HTML Structure Elements Tutorial
+
+### Overview
+
+The two major purposes of HTML are to provide **structure** and **content** to a web application. Common HTML structural elements are:
+- `body`
+- `header`
+- `footer`
+- `main`
+- `section`
+- `aside`
+- `p`
+- `table`
+- `ol` / `ul`
+- `div`
+- `span`
+
+It starts with the top-level content `body`. The `body` has three children: a `header`, `main`, and `footer`. Each of these elements contains other structural content.
+
+- **Header** contains a paragraph with a `span`, and a `nav` containing multiple `div` elements.
+- **Main** contains multiple `section` elements, which include an unordered list (`ul`) and a table. `Main` also contains an `aside` for content that doesn’t fit the main content flow.
+- **Footer** has a `div` with a single `span`.
+
+### Example HTML Structure
+
+```html
+<body>
+  <p>Body</p>
+  <header>
+    <p>Header - <span>Span</span></p>
+    <nav>
+      Navigation
+      <div>Div</div>
+      <div>Div</div>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <p>Section</p>
+      <ul>
+        <li>List</li>
+        <li>List</li>
+        <li>List</li>
+      </ul>
+    </section>
+    <section>
+      <p>Section</p>
+      <table>
+        <tr>
+          <th>Table</th>
+          <th>Table</th>
+          <th>Table</th>
+        </tr>
+        <tr>
+          <td>table</td>
+          <td>table</td>
+          <td>table</td>
+        </tr>
+      </table>
+    </section>
+    <aside>
+      <p>Aside</p>
+    </aside>
+  </main>
+
+  <footer>
+    <div>Footer - <span>Span</span></div>
+  </footer>
+</body>
