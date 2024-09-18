@@ -98,6 +98,9 @@ We demonstrate the use of each element with the following HTML document. It star
 - **Main** contains multiple `section` elements, which include an unordered list (`ul`) and a table. `Main` also contains an `aside` for content that doesn’t fit the main content flow.
 - **Footer** has a `div` with a single `span`.
 
+## W3schools has a bunch of resources on how to do things in html, css, bootstrap, react and javascript
+- [W3Schools](https://www.w3schools.com/html/)
+
 ### Example HTML Structure
 
 ```html
