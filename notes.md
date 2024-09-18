@@ -65,7 +65,7 @@
 1. Get the public IP address of your EC2 instance.
 2. Log in to AWS Console > Route 53 > **Hosted zones**.
 3. Create an **A Record** for your root domain (use your server's IP address).
-4. Create a **Wildcard Record** (`*`) for any subdomain (use your server's IP).
+4. Create another **A Record** (`*`) for any subdomain (use your server's IP).
 
 ### Test DNS
 - Navigate to your domain name in the browser (example: `http://yourdomain.com`).
@@ -75,9 +75,9 @@
 - **Site doesn't display:** Check if you're using HTTPS, or if the browser added `www.`.
 - **Email verification:** Ensure you responded to AWS verification email (check spam).
 
-# HTML Structure Elements Tutorial
+## HTML Structure Elements Tutorial
 
-## Overview
+### Overview
 
 The two major purposes of HTML are to provide **structure** and **content** to your web application. Some of the common HTML structural elements include:
 - `body`
@@ -93,29 +93,6 @@ The two major purposes of HTML are to provide **structure** and **content** to y
 - `span`
 
 We demonstrate the use of each element with the following HTML document. It starts with the top-level content `body`. The `body` has three children: a `header`, `main`, and `footer`. Each of these elements contains other structural content.
-
-- **Header** contains a paragraph with a `span`, and a `nav` containing multiple `div` elements.
-- **Main** contains multiple `section` elements, which include an unordered list (`ul`) and a table. `Main` also contains an `aside` for content that doesn’t fit the main content flow.
-- **Footer** has a `div` with a single `span`.
-
-## HTML Structure Elements Tutorial
-
-### Overview
-
-The two major purposes of HTML are to provide **structure** and **content** to a web application. Common HTML structural elements are:
-- `body`
-- `header`
-- `footer`
-- `main`
-- `section`
-- `aside`
-- `p`
-- `table`
-- `ol` / `ul`
-- `div`
-- `span`
-
-It starts with the top-level content `body`. The `body` has three children: a `header`, `main`, and `footer`. Each of these elements contains other structural content.
 
 - **Header** contains a paragraph with a `span`, and a `nav` containing multiple `div` elements.
 - **Main** contains multiple `section` elements, which include an unordered list (`ul`) and a table. `Main` also contains an `aside` for content that doesn’t fit the main content flow.
