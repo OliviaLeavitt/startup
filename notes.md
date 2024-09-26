@@ -200,3 +200,110 @@ We demonstrate the use of each element with the following HTML document. It star
   <textarea id="ta" name="ta-id">Some text</textarea>
   <button type="submit">Submit</button>
 </form>
+
+## CSS Notes
+
+### 1. Universal Selector `*`
+- **Usage:** Quickly apply base styles across all elements on a page.
+- **Example:** Setting a global font or text color.
+
+    ```css
+    * {
+      font-family: sans-serif;
+      color: white;
+    }
+    ```
+
+### 2. Body Styling
+- **Usage:** Define background color for the entire page. Use dark colors for high contrast themes or light for minimalist designs.
+
+    ```css
+    body {
+      background-color: #111; /* Dark background */
+    }
+    ```
+
+### 3. Header and Section Styling
+- **Usage:** Set background colors, padding, margins, and rounded corners for containers like `header` and `section` to make them visually distinct.
+- Apply this structure to other containers like `div`, `main`, or `article` for consistent layout designs.
+
+    ```css
+    header, section {
+      background-color: #444; /* Change based on use case */
+      padding: 1em;
+      margin: 1em 0;
+      border-radius: 5px;
+    }
+    ```
+
+### 4. Text Styling (Headings and Paragraphs)
+- **Usage:** Customize headings with different font weights, colors, and borders. Use for creating distinct sections on a webpage.
+- Apply similar styles to `p`, `span`, or other inline elements as needed.
+
+    ```css
+    h1 {
+      color: hsl(200, 50%, 80%); /* Use HSL for flexible color adjustments */
+      border-bottom: solid white thin;
+    }
+
+    h2 {
+      font-weight: 100; /* Light weight for subtler headings */
+    }
+    ```
+
+### 5. Tables
+- **Usage:** Style tables to ensure data is visually organized and easy to read. You can use this pattern for any tabular data.
+- Customize further for different table themes.
+
+    ```css
+    #table-data {
+      background-color: #eee;
+      width: 300px;
+    }
+
+    td, th {
+      color: black;
+      text-align: center;
+      border: black solid thin;
+      padding: 1em;
+    }
+    ```
+
+### 6. Footer and Italics Styling
+- **Usage:** Style footers or any secondary text with different font sizes, italics, or alignment. Useful for creating emphasis or de-emphasizing content.
+
+    ```css
+    footer {
+      font-style: italic;
+      font-size: 1.5em;
+      text-align: end; /* Aligns text to the right */
+      padding: 0 1em;
+    }
+    ```
+
+### 7. List Customization
+- **Usage:** Customize list bullets with different `list-style` types, like square or circle. This can be used for any list (`ul` or `ol`) to match the theme of the page.
+
+    ```css
+    li {
+      list-style: square; /* Options: circle, decimal, none, etc. */
+    }
+    ```
+
+### 8. Animations
+- **Usage:** Apply smooth animations to elements using `@keyframes`. This can be used to animate movement or transitions for interactive elements.
+
+    ```css
+    .fly-in {
+      animation: fly-from-left 1s ease-out;
+    }
+
+    @keyframes fly-from-left {
+      0% {
+        transform: translateX(-200%);
+      }
+      100% {
+        transform: translateX(0%);
+      }
+    }
+    ```
