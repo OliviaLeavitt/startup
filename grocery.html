@@ -1,106 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <!-- Tell browsers not to scale the viewport automatically -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simon</title>
-    <link rel="icon" href="favicon.ico" />
-  </head>
-  <body>
-    <!-- Use header, main, and footer elements to give semantic structure -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MealMate - Grocery List</title>
+</head>
+<body>
+    <!-- Navigation Bar -->
     <header>
-      <h1>Simon<sup>&reg;</sup></h1>
-
-      <!-- Navigation elements -->
-      <nav>
-        <!-- Menu is a semantic alternative to <ul> that represents an interaction -->
-        <menu>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="play.html">Play</a></li>
-          <li><a href="scores.html">Scores</a></li>
-          <li><a href="about.html">About</a></li>
-        </menu>
-      </nav>
-
-      <!-- Since we don't have the ability to style we use old style HTML to give some visual formatting -->
-      <hr />
+        <div>MealMate</div>
+        <nav>
+            <ul>
+                <li><a href="#">Recipes</a></li>
+                <li><a href="#">Meal Planning</a></li>
+                <li><a href="#">Grocery List</a></li>
+                <li><a href="#">Notifications</a></li>
+                <li><a href="#">Login</a></li>
+            </ul>
+        </nav>
     </header>
 
+    <!-- Main Content -->
     <main>
-      <div class="players">
-        Player:
-        <span class="player-name">Mystery player</span>
-      </div>
-      <ul class="notification">
-        <li class="player-name">Tim started a new game</li>
-        <li class="player-name">Ada started a new game</li>
-        <li class="player-name">Tim scored 337</li>
-      </ul>
+        <section>
+            <h1>Grocery List</h1>
 
-      <!-- More formatting with old style HTML -->
-      <br />
+            <!-- Add New Item Section -->
+            <div>
+                <h2>Add New Item</h2>
+                <label for="itemName">Item Name:</label>
+                <input type="text" id="itemName" placeholder="Enter item name">
 
-      <div>
-        <label for="count">Score</label>
-        <input type="text" id="count" value="--" readonly />
-      </div>
+                <label for="itemQuantity">Quantity:</label>
+                <input type="text" id="itemQuantity" placeholder="e.g., 32 oz can, 1 bunch">
 
-      <br />
+                <button>Add Item</button>
+            </div>
 
-      <div>
-        <button>Reset</button>
-      </div>
+            <!-- Add Recipe to Shopping List Section -->
+            <div>
+                <h2>Add Recipe Items</h2>
+                <label for="recipeSelect">Select a Recipe:</label>
+                <select id="recipeSelect">
+                    <option value="">Select a recipe</option>
+                    <option value="savedRecipe1">Saved Recipe 1</option>
+                    <option value="savedRecipe2">Saved Recipe 2</option>
+                    <option value="savedRecipe3">Saved Recipe 3</option>
+                </select>
+                <button>Add Recipe Items</button> 
+            </div>
 
-      <br />
+            <!-- Item List Section -->
+            <h2>Items</h2>
+            <div>
+                <div>
+                    <strong>Name</strong>
+                    <strong>Quantity</strong>
+                </div>
+                <ul>
+                    <li>
+                        <input type="checkbox">
+                        <span>Item 1</span>
+                        <span>1 bunch</span>
+                        <button>Remove</button>
+                    </li>
+                    <li>
+                        <input type="checkbox">
+                        <span>Item 2</span>
+                        <span>32 oz can</span>
+                        <button>Remove</button>
+                    </li>
+                    <li>
+                        <input type="checkbox">
+                        <span>Item 3</span>
+                        <span>1 16 oz bag</span>
+                        <button>Remove</button>
+                    </li>
+                    <!-- Add more items here -->
+                </ul>
+            </div>
 
-      <div>
-        <table>
-          <tr>
-            <td>
-              <button>
-                <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
-                  <!-- SVG
-                    M move <to x,y>
-                    Q quadratic curve <control point x,y> <to x,y>
-                -->
-                  <path d="M 95,5 95,95 5,95 Q 5,5 95,5" fill="green" />
-                </svg>
-              </button>
-            </td>
-            <td>
-              <button>
-                <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
-                  <path d="M5,5 5,95 95,95 Q 95,5 5,5" fill="red" />
-                </svg>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <button>
-                <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
-                  <path d="M5,5 95,5 95,95 Q 5,95 5,5" fill="blue" />
-                </svg>
-              </button>
-            </td>
-            <td>
-              <button>
-                <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
-                  <path d="M95,5 5,5 5,95 Q 95,95 95,5" fill="yellow" />
-                </svg>
-              </button>
-            </td>
-          </tr>
-        </table>
-      </div>
+            <!-- Finalize Button -->
+            <div>
+                <button>Finalize Shopping List</button>
+            </div>
+        </section>
     </main>
-
-    <footer>
-      <hr />
-      <span class="text-reset">Author Name(s)</span>
-      <br />
-      <a href="https://github.com/webprogramming260/simon-html">GitHub</a>
-    </footer>
-  </body>
+</body>
 </html>
