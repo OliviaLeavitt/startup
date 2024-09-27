@@ -43,44 +43,71 @@ Introducing MealMate, a go-to solution for smart meal planning and organization.
 
 
 ## HTML Pages
-The application consists of the following HTML pages:
 
-### 1. `index.html`
-- **Main entry point** (home page) that provides an overview of MealMate and links to other sections.
+### Home Page (`index.html`)
 
-### 2. `grocery.html`
-- **Grocery List Management**: Users can add new items, select recipe ingredients to add to the grocery list, and finalize the shopping list.
-- **Placeholders**:
-  - Placeholder for integration of third-party services to fetch grocery items.
-  - Placeholder for database content to show saved grocery items.
-  - Placeholder for WebSocket functionality for real-time collaboration on grocery lists.
+#### Modifications:
+- I created the main home page layout with a hero section and an introduction to MealMate.
+- A clickable MealMate logo was added to return users to the home page.
+- Incorporated a unique **hero section** with action buttons for quick navigation to key features (e.g., "How it Works" and "Plan Now").
+- Added the **"Simplify Meal Planning"** section, showcasing the app's core features with links to relevant pages.
 
-### 3. `login.html`
-- **User Login Page**: Users can enter their credentials to access their accounts.
-- **Placeholders**:
-  - Placeholder for displaying the username once logged in.
-  - Placeholder for future WebSocket notifications regarding user logins.
+#### Features:
+- **Hero Section**: Contains a personalized welcome message and call-to-action buttons ("How it Works" and "Plan Now").
+- **Introduction to Features**: A section describing MealMate's core functionality (Meal Planning, Grocery List, and Personalization), each with a "Learn more" link to the corresponding pages.
+- **Unique Visuals**: Features a large banner image related to meal planning, which is absent from other pages.
 
-### 4. `signup.html`
-- **User Sign-Up Page**: Allows new users to create an account by providing a username, email, and password.
-- **Placeholders**:
-  - Placeholder for backend verification of user registration.
-  - Placeholder for displaying feedback messages upon successful or failed sign-up.
 
-### 5. `mealplan.html` (if applicable)
-- **Meal Planning Interface**: Allows users to plan their meals for the week.
-- **Placeholders**:
-  - Placeholder for integrating a calendar service.
-  - Placeholder for displaying user-specific meal plans fetched from the database.
+### Recipes Page (`recipes.html`)
 
-## Textual Content
-The pages contain textual content guiding users through the features of the application
+#### Modifications:
+- Created a recipe search and filter interface.
+- Added filtering options for **Cuisine** and **Dietary Preferences** for recipe discovery.
+- Designed a **Recommended Recipes** section, displaying recipe cards with images and an "Add to my recipes" button.
 
-## Application Images
-Images have been added to the application
+#### Features:
+- **Search Section**: Allows users to search for recipes by name with a text input field.
+- **Filter Options**: Includes drop-down menus for filtering recipes by cuisine type (e.g., Italian, Mexican) and dietary preferences (e.g., Vegan, Gluten-Free).
+- **Recommended Recipes**: Displays a set of recipes in a card format, with each card featuring an image, title, and an "Add to my recipes" button for saving.
 
-## Modifications and Additions
-- Created HTML structure for each component of the application (grocery list, login, sign-up, meal planning).
-- Implemented navigation links between the HTML pages.
-- Added user authentication forms for login and sign-up.
-- Included placeholders for future integration of third-party services and database/WebSocket functionality.
+
+### Meal Planning Page (`mealplan.html`)
+
+#### Modifications:
+- Created the base HTML for a **meal calendar** where users can plan meals by dragging and dropping recipes for each day.
+- Added the base HTML for a **recipe sharing feature** and the ability to generate a shopping list directly from the meal plan.
+- Added the base HTML for a **calendar navigation system** with date range and arrow buttons for switching between weeks.
+
+#### Features:
+- **My Recipes Section**: Displays saved recipes with options to share them, including images for visual appeal.
+- **Weekly Meal Calendar**: Interactive calendar that allows users to assign meals to specific days by dropping recipes into day slots.
+- **Action Buttons**: Features "Make Shopping List" and "Invite Friend" buttons to simplify collaborative meal planning and grocery shopping.
+- **Date Navigation**: Includes left/right arrows to navigate through different weeks and view meal plans for the selected range.
+
+
+### Grocery List Page (`grocery.html`)
+
+#### Modifications:
+- Added base HTML for a **interactive grocery list** feature allowing users to add items manually or from selected recipes.
+- Added base HTML for a **real-time updates section** that will reflect changes in the grocery list dynamically.
+- Added base HTML to **finalize the shopping list** for seamless grocery shopping.
+
+#### Features:
+- **Add New Item Section**: Users can input item names and quantities to create a personalized grocery list.
+- **Add Recipe Items Section**: Allows users to select from saved recipes to automatically add necessary ingredients to the grocery list.
+- **Item List**: Displays added items with checkboxes for marking off items as purchased and options to remove items from the list.
+- **Real-Time Updates**: Placeholder for live updates on the grocery list, showing users instant changes as items are added or removed (planning to incorporate WebSocket).
+- **Finalize Shopping List Button**: A dedicated button to prepare the final version of the grocery list for shopping, ensuring users have everything they need.
+
+### Login and Signup Pages (`login.html` and `signup.html`)
+
+#### Modifications:
+- Created dedicated **Login** and **Signup** pages to manage user authentication.
+
+#### Features:
+##### Login Page (`login.html`):
+- **User Credentials Input**: Fields for users to enter their email/username and password.
+
+##### Signup Page (`signup.html`):
+- **User Registration Form**: Fields for entering personal details, including username, email, password, and confirmation password.
+- **Successful Registration Confirmation**: Users will receive a message or redirection upon successful signup, reassuring them that their account has been created.
