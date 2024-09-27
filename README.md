@@ -9,7 +9,7 @@ Introducing MealMate, a go-to solution for smart meal planning and organization.
 - **Recipe Discovery:** Explore recipes from various cuisines.
 - **Collaborative Planning:** Share and plan meals with family and friends in real-time.
 - **Personalized Recommendations:** Receive meal suggestions based on your dietary preferences and past choices.
-- **User Authentication:** Securely login and manage your profile.
+- **User Authentication:** Securely log in and manage your profile.
 - **Real-Time Updates:** Get live updates on shared meal plans and grocery lists.
 - **Persistent Data Storage:** Save your meal plans, grocery lists, and preferences for future use.
 
@@ -42,72 +42,82 @@ Introducing MealMate, a go-to solution for smart meal planning and organization.
 
 
 
-## HTML Pages
+
+## MealMate - HTML Deliverable
+
 
 ### Home Page (`index.html`)
 
-#### Modifications:
+**Modifications:**
 - I created the main home page layout with a hero section and an introduction to MealMate.
 - A clickable MealMate logo was added to return users to the home page.
-- Incorporated a unique **hero section** with action buttons for quick navigation to key features (e.g., "How it Works" and "Plan Now").
-- Added the **"Simplify Meal Planning"** section, showcasing the app's core features with links to relevant pages.
+- Implemented a unique hero section with action buttons for quick navigation ("How it Works" and "Plan Now").
+- Introduced the "Simplify Meal Planning" section with links to relevant pages.
 
-#### Features:
-- **Hero Section**: Contains a personalized welcome message and call-to-action buttons ("How it Works" and "Plan Now").
-- **Introduction to Features**: A section describing MealMate's core functionality (Meal Planning, Grocery List, and Personalization), each with a "Learn more" link to the corresponding pages.
-- **Unique Visuals**: Features a large banner image related to meal planning, which is absent from other pages.
+**Features:**
+- **Hero Section**: Displays a personalized welcome message and call-to-action buttons ("How it Works" and "Plan Now").
+- **Introduction to Features**: Describes how MealMate works (Meal Planning, Grocery List, Personalization), with links to corresponding pages.
+- **Unique Visuals**: Includes an image related to meal planning.
 
+---
 
 ### Recipes Page (`recipes.html`)
 
-#### Modifications:
-- Created a recipe search and filter interface.
-- Added filtering options for **Cuisine** and **Dietary Preferences** for recipe discovery.
-- Designed a **Recommended Recipes** section, displaying recipe cards with images and an "Add to my recipes" button.
+**Modifications:**
+- Created recipe search and filter options.
+- Filtering options for Cuisine and Dietary Preferences were added.
+- Designed a Recommended Recipes section displaying recipe cards with images and an "Add to my recipes" button.
 
-#### Features:
-- **Search Section**: Allows users to search for recipes by name with a text input field.
-- **Filter Options**: Includes drop-down menus for filtering recipes by cuisine type (e.g., Italian, Mexican) and dietary preferences (e.g., Vegan, Gluten-Free).
-- **Recommended Recipes**: Displays a set of recipes in a card format, with each card featuring an image, title, and an "Add to my recipes" button for saving.
+**Features:**
+- **Search and Filter Interface**: Users can search for recipes by name and filter by cuisine or dietary preference.
+- **Recommended Recipes**: Displays a list of recipes, each with an image and an "Add to my recipes" button.
 
+---
 
 ### Meal Planning Page (`mealplan.html`)
 
-#### Modifications:
-- Created the base HTML for a **meal calendar** where users can plan meals by dragging and dropping recipes for each day.
-- Added the base HTML for a **recipe sharing feature** and the ability to generate a shopping list directly from the meal plan.
-- Added the base HTML for a **calendar navigation system** with date range and arrow buttons for switching between weeks.
+**Modifications:**
+- Built the base HTML for a meal calendar, allowing users to plan meals by dragging and dropping recipes.
+- Added base HTML for a recipe-sharing feature and a shopping list generation feature.
+- Added the base HTML for a calendar navigation system.
 
-#### Features:
-- **My Recipes Section**: Displays saved recipes with options to share them, including images for visual appeal.
-- **Weekly Meal Calendar**: Interactive calendar that allows users to assign meals to specific days by dropping recipes into day slots.
-- **Action Buttons**: Features "Make Shopping List" and "Invite Friend" buttons to simplify collaborative meal planning and grocery shopping.
-- **Date Navigation**: Includes left/right arrows to navigate through different weeks and view meal plans for the selected range.
+**Features:**
+- **My Recipes Section**: Displays saved recipes with share options and visual elements.
+- **Weekly Meal Calendar**: Interactive calendar allowing users to assign meals to days.
+- **Action Buttons**: Includes "Make Shopping List" and "Invite Friend" buttons to improve planning.
+- **Date Navigation**: Arrows are used to navigate between weeks.
 
+---
 
 ### Grocery List Page (`grocery.html`)
 
-#### Modifications:
-- Added base HTML for a **interactive grocery list** feature allowing users to add items manually or from selected recipes.
-- Added base HTML for a **real-time updates section** that will reflect changes in the grocery list dynamically.
-- Added base HTML to **finalize the shopping list** for seamless grocery shopping.
+**Modifications:**
+- Created an interactive grocery list feature with options to add items manually or from recipes.
+- Added a placeholder for real-time updates that reflect changes to the grocery list.
 
-#### Features:
-- **Add New Item Section**: Users can input item names and quantities to create a personalized grocery list.
-- **Add Recipe Items Section**: Allows users to select from saved recipes to automatically add necessary ingredients to the grocery list.
-- **Item List**: Displays added items with checkboxes for marking off items as purchased and options to remove items from the list.
-- **Real-Time Updates**: Placeholder for live updates on the grocery list, showing users instant changes as items are added or removed (planning to incorporate WebSocket).
-- **Finalize Shopping List Button**: A dedicated button to prepare the final version of the grocery list for shopping, ensuring users have everything they need.
+**Features:**
+- **Add New Item Section**: Input for manually adding items with quantities.
+- **Add Recipe Items Section**: Allows users to automatically add ingredients from saved recipes.
+- **Real-Time Updates**: Placeholder for WebSocket implementation, showing live updates of the grocery list.
+- **Finalize Shopping List**: A button will be used to finalize the grocery shopping list.
+
+---
 
 ### Login and Signup Pages (`login.html` and `signup.html`)
 
-#### Modifications:
-- Created dedicated **Login** and **Signup** pages to manage user authentication.
+**Modifications:**
+- Created dedicated login and signup pages for user authentication.
 
-#### Features:
-##### Login Page (`login.html`):
-- **User Credentials Input**: Fields for users to enter their email/username and password.
+**Features:**
+- **Login Page**: Includes input fields for email/username and password.
+- **Signup Page**: Allows users to register with fields for username, email, password, and confirmation. Provides feedback upon successful registration.
 
-##### Signup Page (`signup.html`):
-- **User Registration Form**: Fields for entering personal details, including username, email, password, and confirmation password.
-- **Successful Registration Confirmation**: Users will receive a message or redirection upon successful signup, reassuring them that their account has been created.
+---
+
+### Data Handling
+
+- **Application Data**: Structure for displaying recipes, meal plans, and grocery lists.
+- **Authentication**: Created input fields for user login and signup, with plans to display user names post-login.
+- **Database Data**: Recipes and meal plans will be dynamically fetched and displayed using data from a database.
+- **WebSocket Data**: Planning to implement real-time updates for grocery list changes using WebSockets.
+
