@@ -1,25 +1,29 @@
+                        <div>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MealMate - Grocery List</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MealMate - Grocery List</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <header>
-        <div>MealMate</div>
-        <nav>
-            <ul>
-                <li><a href="#">Recipes</a></li>
-                <li><a href="#">Meal Planning</a></li>
-                <li><a href="#">Grocery List</a></li>
-                <li><a href="#">Notifications</a></li>
-                <li><a href="#">Login</a></li>
-            </ul>
-        </nav>
-    </header>
+
+  <!-- Navigation Bar -->
+  <header class="navBar">
+    <a href="index.html" class="logo">MealMate</a> <!-- Made the logo clickable -->
+    <nav>
+      <ul>
+        <li><a href="recipes.html">Recipes</a></li>
+        <li><a href="mealplan.html">Meal Planning</a></li>
+        <li><a href="grocery.html">Grocery List</a></li>
+        <li><i class="fa-solid fa-bell notification-icon"></i></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+</body>
+</html>
 
     <!-- Main Content -->
     <main>
@@ -81,11 +85,25 @@
                 </ul>
             </div>
 
+            <!-- Real-Time Updates Placeholder -->
+            <div>
+                <h2>Real-Time Updates</h2>
+                <p>Live updates will show here when items are added or removed:</p>
+                <div id="realtime-updates">
+                    <!-- Placeholder for WebSocket data -->
+                    <p>No updates yet. This will show real-time changes.</p>
+                </div>
+            </div>
+
             <!-- Finalize Button -->
             <div>
                 <button>Finalize Shopping List</button>
             </div>
         </section>
     </main>
+
+    <script>
+        // WebSocket code would go here to connect and handle real-time communication.
+    </script>
 </body>
 </html>

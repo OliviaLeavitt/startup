@@ -1,91 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MealMate - Recipes</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MealMate - Home</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
-    <!-- Navigation Bar -->
-    <header class="navBar">
-        <div class="logo">MealMate</div>
-        <nav>
-            <ul>
-                <li><a href="recipes.html">Recipes</a></li>
-                <li><a href="meal-planning.html">Meal Planning</a></li>
-                <li><a href="grocery-list.html">Grocery List</a></li>
-                <li><a href="notifications.html">Notifications<img src="bell-icon.png" alt="Notifications Icon"></a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- Navigation Bar -->
+  <header class="navBar">
+    <a href="index.html" class="logo">MealMate</a>
+    <nav>
+      <ul>
+        <li><a href="recipes.html">Recipes</a></li>
+        <li><a href="mealplan.html">Meal Planning</a></li>
+        <li><a href="grocery.html">Grocery List</a></li>
+        <li><i class="fa-solid fa-bell notification-icon"></i></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <!-- Search Section -->
-    <section class="search-section">
-        <h2>Search for Recipes</h2>
-        <ul>
-            <li>
-                <label for="recipeSearch">Find Recipe: </label>
-                <input type="text" id="recipeSearch" placeholder="Find Recipe..." />
-            </li>
-            <li>
-                <label for="cuisineSelect">Filter by Cuisine: </label>
-                <select id="cuisineSelect">
-                    <option value="">Select Cuisine</option>
-                    <option value="italian">Italian</option>
-                    <option value="mexican">Mexican</option>
-                    <option value="chinese">Chinese</option>
-                    <option value="indian">Indian</option>
-                    <option value="american">American</option>
-                </select>
-            </li>
-            <li>
-                <label for="dietarySelect">Filter by Dietary: </label>
-                <select id="dietarySelect">
-                    <option value="">Select Dietary Preference</option>
-                    <option value="vegetarian">Vegetarian</option>
-                    <option value="vegan">Vegan</option>
-                    <option value="glutenFree">Gluten-Free</option>
-                    <option value="paleo">Paleo</option>
-                    <option value="keto">Keto</option>
-                </select>
-            </li>
-        </ul>
-    </section>
+  <!-- Search Section -->
+  <section class="search-section">
+    <h2>Search for Recipes</h2>
+    <ul>
+      <li>
+        <label for="recipeSearch">Find Recipe: </label>
+        <input type="text" id="recipeSearch" placeholder="Find Recipe..." />
+      </li>
+      <li>
+        <label for="cuisineSelect">Filter by Cuisine: </label>
+        <select id="cuisineSelect">
+          <option value="">Select Cuisine</option>
+          <option value="italian">Italian</option>
+          <option value="mexican">Mexican</option>
+          <option value="chinese">Chinese</option>
+          <option value="indian">Indian</option>
+          <option value="american">American</option>
+        </select>
+      </li>
+      <li>
+        <label for="dietarySelect">Filter by Dietary: </label>
+        <select id="dietarySelect">
+          <option value="">Select Dietary Preference</option>
+          <option value="vegetarian">Vegetarian</option>
+          <option value="vegan">Vegan</option>
+          <option value="glutenFree">Gluten-Free</option>
+          <option value="paleo">Paleo</option>
+          <option value="keto">Keto</option>
+        </select>
+      </li>
+    </ul>
+  </section>
 
+  <!-- Recommended Recipes Section -->
+  <section class="recommended-recipes-section">
+    <h2>Recommended Recipes</h2>
+    <div>
+      <div class="recipe-card">
+        <h3>Recipe Title</h3>
+        <img src="recipe-image.jpg" alt="Recipe Image" />
+        <button>➕</button>
+        <span>Add to my recipes</span>
+      </div>
+      <div class="recipe-card">
+        <h3>Recipe Title</h3>
+        <img src="recipe-image.jpg" alt="Recipe Image" />
+        <button>➕</button>
+        <span>Add to my recipes</span>
+      </div>
+      <div class="recipe-card">
+        <h3>Recipe Title</h3>
+        <img src="recipe-image.jpg" alt="Recipe Image" />
+        <button>➕</button>
+        <span>Add to my recipes</span>
+      </div>
+    </div>
+  </section>
 
-    <!-- Recommended Recipes Section -->
-    <section class="recommended-recipes-section">
-        <h2>Recommended Recipes</h2>
-        <div>
-            <div class="recipe-card">
-                <h3>Recipe Title</h3>
-                <img src="recipe-image.jpg" alt="Recipe Image" />
-                <button>➕</button>
-                <span>Add to my recipes</span>
-            </div>
-            <div class="recipe-card">
-                <h3>Recipe Title</h3>
-                <img src="recipe-image.jpg" alt="Recipe Image" />
-                <button>➕</button>
-                <span>Add to my recipes</span>
-            </div>
-            <div class="recipe-card">
-                <h3>Recipe Title</h3>
-                <img src="recipe-image.jpg" alt="Recipe Image" />
-                <button>➕</button>
-                <span>Add to my recipes</span>
-            </div>
-            <!-- Add more recipe cards as needed -->
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>Created by Olivia Leavitt</p>
-        <a href="https://github.com/OliviaLeavitt">GitHub Repository</a>
-    </footer>
+  <!-- Footer -->
+  <footer>
+    <p>Created by Olivia Leavitt</p>
+    <a href="https://github.com/OliviaLeavitt">GitHub Repository</a>
+  </footer>
 
 </body>
 </html>
