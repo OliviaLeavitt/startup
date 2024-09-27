@@ -1,51 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About</title>
-    <link rel="icon" href="favicon.ico" />
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MealMate - Meal Planning</title>
+</head>
+<body>
+    <!-- Navigation Bar -->
     <header>
-      <h1>Simon<sup>&reg;</sup></h1>
-
-      <nav>
-        <menu>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="play.html">Play</a></li>
-          <li><a href="scores.html">Scores</a></li>
-          <li><a href="about.html">About</a></li>
-        </menu>
-      </nav>
-
-      <hr />
+        <div>MealMate</div>
+        <nav>
+            <ul>
+                <li><a href="#">Recipes</a></li>
+                <li><a href="#">Meal Planning</a></li>
+                <li><a href="#">Grocery List</a></li>
+                <li><a href="#">Notifications</a></li>
+                <li><a href="#">Login</a></li>
+            </ul>
+        </nav>
     </header>
 
+    <!-- Main Content -->
     <main>
-      <div id="picture" class="picture-box"><img width="400px" src="placeholder.jpg" alt="random" /></div>
+        <section>
+            <!-- Left Column: My Recipes -->
+            <div>
+                <h2>My Recipes</h2>
+                <ul>
+                    <!-- Recipe Cards -->
+                    <li>
+                        <div>
+                            <h3>Recipe Title 1</h3>
+                            <button>Share</button>
+                            <img src="recipe1.jpg" alt="Recipe Image" width="50">
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <h3>Recipe Title 2</h3>
+                            <button>Share</button>
+                            <img src="recipe2.jpg" alt="Recipe Image" width="50">
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <h3>Recipe Title 3</h3>
+                            <button>Share</button>
+                            <img src="recipe3.jpg" alt="Recipe Image" width="50">
+                        </div>
+                    </li>
+                    <!-- Add more recipe cards here as needed -->
+                </ul>
+            </div>
 
-      <p>
-        Simon is a repetitive memory game where you follow the demonstrated color sequence until you make a mistake. The
-        longer the sequence you repeat, the greater your score.
-      </p>
+            <!-- Right Column: Calendar Section -->
+            <div>
+                <!-- Header Section with Arrows and Buttons -->
+                <div>
+                    <!-- Left and Right Arrows -->
+                    <div>
+                        <button>&lt;</button>
+                        <button>&gt;</button>
+                    </div>
 
-      <p>
-        The name Simon is a registered trademark of Milton-Bradley. Our use of the name and the game is for non-profit
-        educational use only. No part of this code or program should be used outside of that definition.
-      </p>
+                    <!-- Date Section -->
+                    <div>
+                        <p>Sep 8-14</p>
+                    </div>
 
-      <div id="quote">
-        <div>Words are cheap. Show me the code.</div>
-        <div>- Linus Torvalds</div>
-      </div>
+                    <!-- Buttons: Make Shopping List & Invite Friend -->
+                    <div>
+                        <button>Make Shopping List</button>
+                        <button>Invite Friend</button>
+                    </div>
+                </div>
+
+                <!-- Calendar Section -->
+                <div>
+                    <!-- Each column represents a day in the week -->
+                    <div>
+                        <div>Sun 09/08</div>
+                        <div>Drop recipe here</div>
+                    </div>
+                    <div>
+                        <div>Mon 09/09</div>
+                        <div>Drop recipe here</div>
+                    </div>
+                    <div>
+                        <div>Tue 09/10</div>
+                        <div>Drop recipe here</div>
+                    </div>
+                    <div>
+                        <div>Wed 09/11</div>
+                        <div>Drop recipe here</div>
+                    </div>
+                    <div>
+                        <div>Thu 09/12</div>
+                        <div>Drop recipe here</div>
+                    </div>
+                    <div>
+                        <div>Fri 09/13</div>
+                        <div>Drop recipe here</div>
+                    </div>
+                    <div>
+                        <div>Sat 09/14</div>
+                        <div>Drop recipe here</div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-
-    <footer>
-      <hr />
-      <span class="text-reset">Author Name(s)</span>
-      <br />
-      <a href="https://github.com/webprogramming260/simon-html">GitHub</a>
-    </footer>
-  </body>
+</body>
 </html>
