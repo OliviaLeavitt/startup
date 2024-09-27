@@ -22,18 +22,27 @@
     </nav>
   </header>
 
-    <main>
-        <h2>Login</h2>
-        <form>
-            <label>Username:</label>
-            <input placeholder="Enter your username" required>
+  <main>
+    <h2>Login</h2>
 
-            <label>Password:</label>
-            <input placeholder="Enter your password" required>
+    <!-- Login Form -->
+    <form action="#" method="POST">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" placeholder="Enter your username" required>
 
-            <button>Login</button>
-        </form>
-        <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
-    </main>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+      <button type="submit">Login</button>
+    </form>
+
+    <p>Don't have an account? <a href="#signup">Sign Up</a></p>
+
+    <!-- Placeholder for displaying logged-in user's name -->
+    <div id="welcomeMessage">
+      <h4>Welcome, [Username]!</h4>
+    </div>
+  </main>
+
 </body>
 </html>
