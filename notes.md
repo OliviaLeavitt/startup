@@ -148,6 +148,7 @@ We demonstrate the use of each element with the following HTML document. It star
     <div>Footer - <span>Span</span></div>
   </footer>
 </body>
+```
 
 # Key Points: HTML Input Elements
 
@@ -200,6 +201,7 @@ We demonstrate the use of each element with the following HTML document. It star
   <textarea id="ta" name="ta-id">Some text</textarea>
   <button type="submit">Submit</button>
 </form>
+```
 
 ## CSS Notes
 
