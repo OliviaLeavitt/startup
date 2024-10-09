@@ -7,45 +7,42 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="index.css">
-</head>
-<body>
-
-
+  
   <!-- Navigation Bar -->
   <header>
-  <nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand no-hover" href="index.html">MealMate</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <i class="fas fa-bars"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link no-hover" href="#" title="Notifications" id="notificationBell">
-            <i class="fa-solid fa-bell notification-icon"></i>
-          </a>
-          <!-- Notification Dropdown -->
-          <div class="notification-dropdown" id="notificationDropdown">
-            <div class="notification">[Friend's Name] added lettuce to grocery list</div>
-            <div class="notification">[Friend's Name] added tomatoes to grocery list</div>
-            <div class="notification">[Friend's Name] shared a recipe</div>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="recipes.html">Recipes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="mealplan.html">Meal Planning</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="grocery.html">Grocery List</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link rounded-3" href="login.html">Login</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+    <nav class="navbar navbar-expand-lg">
+      <a class="navbar-brand no-hover" href="index.html">MealMate</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link no-hover" href="#" title="Notifications" id="notificationBell">
+              <i class="fa-solid fa-bell notification-icon"></i>
+            </a>
+            <!-- Notification Dropdown -->
+            <div class="notification-dropdown" id="notificationDropdown">
+              <div class="notification">[Friend's Name] added lettuce to grocery list</div>
+              <div class="notification">[Friend's Name] added tomatoes to grocery list</div>
+              <div class="notification">[Friend's Name] shared a recipe</div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="recipes.html">Recipes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="mealplan.html">Meal Planning</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="grocery.html">Grocery List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link rounded-3" href="login.html">Login</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
   </header>
 
   <!-- Hero Section -->
@@ -54,35 +51,50 @@
       <h1>Welcome, [username]!</h1>
       <p>Plan, shop, and enjoy delicious meals with MealMate.</p>
       <div class="hero-buttons">
-        <button>How it Works</button>
-        <button>Plan Now</button>
+        <button class="btn btn-primary">How it Works</button>
+        <button class="btn btn-secondary">Plan Now</button>
       </div>
     </div>
   </section>
 
-  <!-- Simplify Meal Planning Section -->
-  <section class="how-it-works-section">
-    <h2>Simplify Meal Planning</h2>
-    <div>
-      <div>
-        <div>
-          <h3>Effortless Meal Planning</h3>
-          <p>Easily manage your meals by adding recipes to your meal calendar.</p>
-          <a href="mealplan.html">Learn more →</a>
+  <!-- How it works section -->
+  <section class="how-it-works-section py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">Simplify Meal Planning</h2>
+      <div class="row">
+        <!-- Card 1 -->
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <img src="meal-plan-image.png" class="card-img-top" alt="Effortless Meal Planning">
+            <div class="card-body">
+              <h3>Effortless Meal Planning</h3>
+              <p>Easily manage your meals by adding recipes to your meal calendar.</p>
+              <a href="mealplan.html" class="btn btn-custom">Learn more →</a>
+            </div>
+          </div>
         </div>
-        <div>
-          <h3>Seamless Grocery Shopping</h3>
-          <p>MealMate automatically creates a shopping list based on your meal plan.</p>
-          <a href="grocery.html">Learn more →</a>
+        <!-- Card 2 -->
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <img src="grocery-image.jpg" class="card-img-top" alt="Seamless Grocery Shopping">
+            <div class="card-body">
+              <h3>Seamless Grocery Shopping</h3>
+              <p>MealMate automatically creates a shopping list based on your meal plan.</p>
+              <a href="grocery.html" class="btn btn-custom">Learn more →</a>
+            </div>
+          </div>
         </div>
-        <div>
-          <h3>Personalization and Collaboration</h3>
-          <p>Share your meals with family, receive personalized meal recommendations.</p>
-          <a href="recipes.html">Learn more →</a>
+        <!-- Card 3 -->
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <img src="family-meal-image.png" class="card-img-top" alt="Personalization and Collaboration">
+            <div class="card-body">
+              <h3>Personalization and Collaboration</h3>
+              <p>Share your meals with family, receive personalized meal recommendations.</p>
+              <a href="recipes.html" class="btn btn-custom">Learn more →</a>
+            </div>
+          </div>
         </div>
-      </div>
-      <div>
-        <img src="meal-planning-image.jpg" alt="Meal Planning Image">
       </div>
     </div>
   </section>
