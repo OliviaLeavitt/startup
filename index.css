@@ -1,8 +1,8 @@
 /* Nav Bar */
 
 .navbar.navbar-expand-lg {
-    background-color: #A5B68D !important;
-}
+    background-color: #95a480 !important;
+} 
 
 .navbar-nav .nav-link {
     color: white; 
@@ -90,4 +90,41 @@
 .btn-custom:hover {
     background-color: rgba(194, 118, 80, 1);
     color: white; 
+}
+
+/* Hero section */
+
+.hero {
+  background-color: #FCFAEE; 
+  height: 60vh;
+  padding: 2rem 0;
+}
+
+.hero .display-4, 
+.hero .lead {
+  color: #333333; 
+}
+
+/* How it Works Button */
+.how-it-works-btn {
+  color: #FFFFFF;
+  background-color: #D35400; /* Green color */
+  border: none;
+}
+
+.how-it-works-btn:hover {
+  background-color: #ad4601; /* Darker green on hover */
+  color: white;
+}
+
+/* Plan Now Button */
+.plan-now-btn {
+  color: #FFFFFF;
+  background-color: #DA8359; /* Orange color */
+  border: none;
+}
+
+.plan-now-btn:hover {
+  background-color: #C27650; /* Darker orange on hover */
+  color: white;
 }
