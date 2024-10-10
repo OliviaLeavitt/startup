@@ -12,76 +12,95 @@
 
   <!-- Navigation Bar -->
   <header>
-  <nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand no-hover" href="index.html">MealMate</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <i class="fas fa-bars"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link no-hover" href="#" title="Notifications" id="notificationBell">
-            <i class="fa-solid fa-bell notification-icon"></i>
-          </a>
-          <!-- Notification Dropdown -->
-          <div class="notification-dropdown" id="notificationDropdown">
-            <div class="notification">[Friend's Name] added lettuce to grocery list</div>
-            <div class="notification">[Friend's Name] added tomatoes to grocery list</div>
-            <div class="notification">[Friend's Name] shared a recipe</div>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="recipes.html">Recipes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="mealplan.html">Meal Planning</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="grocery.html">Grocery List</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link rounded-3" href="login.html">Login</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+    <nav class="navbar navbar-expand-lg">
+      <a class="navbar-brand no-hover" href="index.html">MealMate</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link no-hover" href="#" title="Notifications" id="notificationBell">
+              <i class="fa-solid fa-bell notification-icon"></i>
+            </a>
+            <div class="notification-dropdown" id="notificationDropdown">
+              <div class="notification">[Friend's Name] added lettuce to grocery list</div>
+              <div class="notification">[Friend's Name] added tomatoes to grocery list</div>
+              <div class="notification">[Friend's Name] shared a recipe</div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="recipes.html">Recipes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="mealplan.html">Meal Planning</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="grocery.html">Grocery List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link rounded-3" href="login.html">Login</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
   </header>
 
   <!-- Recommended Recipes Section -->
-  <section class="recommended-recipes-section">
-    <h2>Recommended Recipes</h2>
-    <p>These recipes are fetched from our database based on your preferences.</p>
-    <div>
-      <div class="recipe-card">
-        <h3><a href="recipe-instructions.html">Recipe Title 1</a></h3>
-        <img src="recipe-image.jpg" alt="Recipe Image" />
-        <button>➕</button>
-        <span>Add to my recipes</span>
-      </div>
-      <div class="recipe-card">
-        <h3><a href="recipe-instructions.html">Recipe Title 2</a></h3>
-        <img src="recipe-image.jpg" alt="Recipe Image" />
-        <button>➕</button>
-        <span>Add to my recipes</span>
-      </div>
-      <div class="recipe-card">
-        <h3><a href="recipe-instructions.html">Recipe Title 3</a></h3>
-        <img src="recipe-image.jpg" alt="Recipe Image" />
-        <button>➕</button>
-        <span>Add to my recipes</span>
+  <section class="recommended-recipes-section py-5">
+    <div class="container text-center">
+      <h2 class="mb-4">Recommended Recipes</h2>
+      <p class="mb-5">These recipes are fetched from our database based on your preferences.</p>
+      <div class="d-flex align-items-center justify-content-center">
+        <button class="btn btn-secondary d-none d-md-block" id="prevButton"><i class="fas fa-chevron-left"></i></button>
+        <div class="recipe-cards-container overflow-auto">
+          <div class="card-group">
+            <div class="card mx-2">
+              <img src="recipe-image.jpg" class="card-img-top" alt="Recipe Image 1">
+              <div class="card-body">
+                <h5 class="card-title">Recipe Title 1</h5>
+                <button class="btn btn-add">Add to my recipes</button>
+              </div>
+            </div>
+            <div class="card mx-2">
+              <img src="recipe-image.jpg" class="card-img-top" alt="Recipe Image 2">
+              <div class="card-body">
+                <h5 class="card-title">Recipe Title 2</h5>
+                <button class="btn btn-add">Add to my recipes</button> 
+              </div>
+            </div>
+            <div class="card mx-2">
+              <img src="recipe-image.jpg" class="card-img-top" alt="Recipe Image 3">
+              <div class="card-body">
+                <h5 class="card-title">Recipe Title 3</h5>
+                <button class="btn btn-add">Add to my recipes</button>
+              </div>
+            </div>
+            <div class="card mx-2">
+              <img src="recipe-image.jpg" class="card-img-top" alt="Recipe Image 4">
+              <div class="card-body">
+                <h5 class="card-title">Recipe Title 4</h5>
+                <button class="btn btn-add">Add to my recipes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-secondary d-none d-md-block" id="nextButton"><i class="fas fa-chevron-right"></i></button>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer>
-    <p>Created by Olivia Leavitt</p>
-    <a href="https://github.com/OliviaLeavitt">GitHub Repository</a>
+  <footer class="text-white text-center py-4">
+    <div class="container">
+      <p class="mb-2">Created by Olivia Leavitt</p>
+      <a href="https://github.com/OliviaLeavitt" class="text-light" target="_blank">GitHub Repository</a>
+    </div>
   </footer>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+  <script src="recipes.js"></script>
 </body>
 </html>
