@@ -6,14 +6,13 @@ html {
 /* Nav Bar */
 .navbar.navbar-expand-lg {
     background-color: #95a480 !important;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); 
 }
 
 .navbar-nav .nav-link {
     color: #FCFAEE;
     transition: color 0.3s ease;
     font-weight: 500;
-    font-size: 1.1rem; 
 }
 
 .navbar-nav .nav-link:hover:not(.no-hover) {
@@ -26,7 +25,7 @@ html {
 .navbar-brand {
     color: #FCFAEE;
     font-weight: 700;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
 }
 
 .navbar-brand:hover {
@@ -52,7 +51,7 @@ html {
     color: #FCFAEE;
     width: 250px;
     border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); 
     z-index: 1000;
     padding: 0;
 }
@@ -62,7 +61,6 @@ html {
     padding: 10px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     font-weight: 400;
-    font-size: 1rem;
 }
 
 .notification:last-child {
