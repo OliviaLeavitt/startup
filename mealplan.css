@@ -7,10 +7,10 @@ html {
 }
 
 body {
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
-    background-color: #FCFAEE; /* Set background color */
-    height: 100%; /* Ensure the body takes full height */
+    margin: 0;
+    padding: 0;
+    background-color: #FCFAEE;
+    height: 100%;
 }
 
 .hero h2 {
@@ -39,7 +39,6 @@ body {
     border-radius: 5px;
 }
 
-/* Logo Styles */
 .navbar-brand {
     color: #FCFAEE;
     font-weight: 700;
@@ -51,7 +50,6 @@ body {
     text-decoration: none;
 }
 
-/* Navbar Toggler Styles */
 .navbar-toggler {
     border-color: rgba(255, 255, 255, 0.5);
 }
@@ -74,7 +72,6 @@ body {
     padding: 0;
 }
 
-/* Individual Notification Styles */
 .notification {
     padding: 10px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -91,181 +88,169 @@ body {
 
 /* Calendar Styles */
 .calendar {
-    display: flex; /* Align columns in a row */
-    flex-wrap: wrap; /* Allow wrapping of columns */
-    border: 2px solid #da84595b; /* Border around the entire calendar */
-    border-radius: 5px; /* Rounded corners for the calendar */
+    display: flex;
+    flex-wrap: wrap;
+    border: 2px solid #da84595b;
+    border-radius: 5px;
     background-color: #FCFAEE;
 }
 
 .day {
-    border: 1px solid #da84595b; /* Add border for each day box */
-    border-radius: 0; /* Remove rounded corners to make boxes touch */
-    padding: 10px; /* Add padding inside each day box */
-    background-color: #fffefc; /* Light background color for day box */
-    flex: 1 0 calc(100% / 7); /* Make each day take up equal space */
-    box-sizing: border-box; /* Include padding and border in the element's total width */
+    border: 1px solid #da84595b;
+    border-radius: 0;
+    padding: 10px;
+    background-color: #fffefc;
+    flex: 1 0 calc(100% / 7);
+    box-sizing: border-box;
     min-height: 500px;
 }
 
-/* mealplan.css */
-
-/* Styles for the Prev button */
-#prevWeek {
-    background-color: #DA8359; /* Your desired button background color */
-    color: white; /* Text color */
-    border: none; /* Remove default border */
-    padding: 10px 15px; /* Reduced padding for smaller size */
-    font-size: 1 rem; /* Smaller font size */
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+/* Button Styles */
+#prevWeek, #nextWeek {
+    background-color: #DA8359;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
 }
 
-#prevWeek:hover {
-    background-color: #C27650; /* Darker shade for hover effect */
-    color: white; /* Maintain text color on hover */
+#prevWeek:hover, #nextWeek:hover {
+    background-color: #C27650;
+    color: white;
 }
 
 .navigation.mb-3 {
-  text-align: center;
-}
-
-/* Styles for the Next button */
-#nextWeek {
-    background-color: #DA8359; /* Your desired button background color */
-    color: white; /* Text color */
-    border: none; /* Remove default border */
-    padding: 10px 15px; /* Reduced padding for smaller size */
-    font-size: 1 rem; /* Smaller font size */
-    border-radius: 5px; /* Optional: rounded corners */
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
-}
-
-#nextWeek:hover {
-    background-color: #C27650; /* Darker shade for hover effect */
-    color: white; /* Maintain text color on hover */
+    text-align: center;
 }
 
 /* Meal Box Styles */
 .meal-box {
     border: 1px solid #ccc;
     padding: 5px;
-    margin: 5px 0; /* Margin between meal boxes */
+    margin: 5px 0;
     border-radius: 5px;
     background-color: #f8f9fa;
-    text-align: center; /* Center text within the meal box */
+    text-align: center;
 }
 
 /* Sidebar Styles */
 #sidebar {
-    max-width: 300px; /* Limit sidebar width */
-    height: 100vh; /* Set the sidebar height */
-    overflow-y: auto; /* Enable scrolling */
-    background-color: #fffefc; /* Light gray for contrast */
-    padding: 20px; /* Add padding inside the sidebar */
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 300px;
+    height: 100vh;
+    overflow-y: auto;
+    background-color: #fffefc;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Sidebar Link Styles */
 .sidebar-link {
-    display: block; /* Make links block-level elements */
-    padding: 10px; /* Space around each link */
-    margin: 10px 0; /* Space between links */
-    color: #333; /* Darker text for readability */
-    text-decoration: none; /* Remove underline */
-    border-radius: 5px; /* Slightly rounded corners */
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    display: block;
+    padding: 10px;
+    margin: 10px 0;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
-/* button styles sidebar */
+.sidebar-link:hover {
+    background-color: rgba(218, 131, 89, 0.3);
+}
+
+.sidebar-section {
+    font-weight: bold;
+    margin: 20px 0 10px;
+    color: #555;
+}
+
+/* Button Styles in Sidebar */
+.btn-share, .btn-calendar {
+    color: #fff;
+}
+
 .btn-share {
-    background-color: #D35400; /* Example color: Red */
-    color: #fff; /* White text */
+    background-color: #D35400;
+}
+
+.btn-share:hover {
+    background-color: #ad4601;
 }
 
 .btn-calendar {
-    background-color: #DA8359; /* Example color: Green */
-    color: #fff; /* White text */
-}
-
-/* side bar hover effects */
-.btn-share:hover {
-    background-color: #ad4601; 
-    color: #fff;
+    background-color: #DA8359;
 }
 
 .btn-calendar:hover {
-    background-color: #C27650; 
-    color: #fff;
-}
-
-/* Hover Effect for Links */
-.sidebar-link:hover {
-    background-color: rgba(218, 131, 89, 0.3); /* Light highlight on hover */
-}
-
-/* Section Headings in Sidebar */
-.sidebar-section {
-    font-weight: bold; /* Bold headings */
-    margin: 20px 0 10px; /* Space above and below */
-    color: #555; /* Slightly lighter than link color */
+    background-color: #C27650;
 }
 
 /* Main Content Styles */
 main {
-    flex-grow: 1; /* Allow main content to grow and take available space */
+    flex-grow: 1;
     background-color: #FCFAEE;
 }
 
 .recipe-card {
-    margin-bottom: 20px; /* Space between recipe cards */
+    margin-bottom: 20px;
 }
 
-/* Image Styles */
 .recipe-card img {
-    height: 150px; /* Set a shorter height for recipe images */
-    object-fit: cover; /* Cover the card area without stretching */
+    height: 150px;
+    object-fit: cover;
 }
 
 /* Container Styles */
 .container-fluid {
-    margin-top: 20px; /* Space above the container */
+    margin-top: 20px;
     background-color: #FCFAEE;
 }
 
+/* Action Button Styles */
+.btn.btn-primary.btn-block.mb-2, .btn.btn-secondary.btn-block {
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    padding: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
 
-
-/* Action Button Styling for add friend and make list */
 .btn.btn-primary.btn-block.mb-2 {
-    background-color: #a08375; /* Primary color */
-    border: none; /* No border */
-    border-radius: 8px; /* Rounded corners */
-    color: white; /* Text color */
-    font-weight: bold; /* Bold text */
-    padding: 12px; /* Padding for a better look */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
-    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+    background-color: #a08375;
 }
 
-/* Hover effect for primary button */
 .btn.btn-primary.btn-block.mb-2:hover {
-    background-color: #897165; /* Darker shade on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Slightly bigger shadow on hover */
+    background-color: #897165;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* Secondary Button Styling */
 .btn.btn-secondary.btn-block {
-    background-color: #b1907f98; /* Secondary color */
-    border: none; /* No border */
-    border-radius: 8px; /* Rounded corners */
-    color: white; /* Text color */
-    font-weight: bold; /* Bold text */
-    padding: 12px; /* Padding for a better look */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
-    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+    background-color: #b1907f98;
 }
 
-/* Hover effect for secondary button */
 .btn.btn-secondary.btn-block:hover {
-    background-color: #9c7f7198; /* Darker shade on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Slightly bigger shadow on hover */
+    background-color: #9c7f7198;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer Styles */
+footer {
+    background-color: #95a480;
+    color: #FCFAEE;
+}
+
+footer p {
+    margin: 0;
+    color: #FCFAEE;
+}
+
+footer a {
+    text-decoration: underline;
+    color: #FCFAEE;
+}
+
+footer a:hover {
+    color: #DA8359;
 }

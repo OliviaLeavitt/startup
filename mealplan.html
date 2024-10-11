@@ -11,6 +11,7 @@
 </head>
 
 <body>
+
   <!-- Navigation Bar -->
   <header>
     <nav class="navbar navbar-expand-lg">
@@ -24,7 +25,6 @@
             <a class="nav-link no-hover" href="#" title="Notifications" id="notificationBell">
               <i class="fa-solid fa-bell notification-icon"></i>
             </a>
-            <!-- Notification Dropdown -->
             <div class="notification-dropdown" id="notificationDropdown">
               <div class="notification">[Friend's Name] added lettuce to grocery list</div>
               <div class="notification">[Friend's Name] added tomatoes to grocery list</div>
@@ -56,20 +56,7 @@
       <nav id="sidebar" class="col-md-3 d-none d-md-block sidebar">
         <div class="sidebar-sticky">
           <h4>My Recipes</h4>
-          <div class="recipe-container" style="max-height: 400px; overflow-y: auto;"> <!-- Wrapper for scrolling -->
-
-            <!-- Placeholder Recipe Cards -->
-            <div class="card recipe-card">
-              <img src="recipe-image.jpg" class="card-img-top" alt="Placeholder Recipe">
-              <div class="card-body">
-                <h5 class="card-title">Recipe Name</h5>
-                <p class="card-text">A delicious placeholder description of the recipe.</p>
-                <div class="d-flex justify-content-between">
-                  <button class="btn btn-share btn-sm mr-2">Share Recipe</button>
-                  <button class="btn btn-calendar btn-sm">Add to Calendar</button>
-                </div>
-              </div>
-            </div>
+          <div class="recipe-container" style="max-height: 400px; overflow-y: auto;">
 
             <div class="card recipe-card">
               <img src="recipe-image.jpg" class="card-img-top" alt="Placeholder Recipe">
@@ -95,12 +82,23 @@
               </div>
             </div>
 
-            <!-- Make this add more cards later with javascript -->
+            <div class="card recipe-card">
+              <img src="recipe-image.jpg" class="card-img-top" alt="Placeholder Recipe">
+              <div class="card-body">
+                <h5 class="card-title">Recipe Name</h5>
+                <p class="card-text">A delicious placeholder description of the recipe.</p>
+                <div class="d-flex justify-content-between">
+                  <button class="btn btn-share btn-sm mr-2">Share Recipe</button>
+                  <button class="btn btn-calendar btn-sm">Add to Calendar</button>
+                </div>
+              </div>
+            </div>
+
           </div>
-                    <!-- Action Buttons -->
+
           <div class="mt-3">
-            <button class="btn btn-primary btn-block mb-2">Make Shopping List</button>  <!-- Will eventually make a shopping list based on recipes in meal plan -->
-            <button class="btn btn-secondary btn-block">Invite Friend</button> <!-- Will invite friends to meal plan with you -->
+            <button class="btn btn-primary btn-block mb-2">Make Shopping List</button>
+            <button class="btn btn-secondary btn-block">Invite Friend</button>
           </div>
 
         </div>
@@ -112,7 +110,6 @@
           <h2>Your Meal Planner</h2>
         </div>
 
-        <!-- Navigation for weeks -->
         <div class="navigation mb-3 d-flex justify-content-between align-items-center">
           <button class="btn btn-secondary" id="prevWeek">Prev</button>
           <span class="week-date" style="font-weight: bold;">Week of Oct 7 - Oct 13</span>
@@ -182,9 +179,18 @@
     </div>
   </div>
 
+  <!-- Footer -->
+  <footer class="text-white text-center py-4">
+    <div class="container">
+      <p class="mb-2">Created by Olivia Leavitt</p>
+      <a href="https://github.com/OliviaLeavitt" class="text-light" target="_blank">GitHub Repository</a>
+    </div>
+  </footer>
+
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="recipes.js"></script>
 </body>
 
 </html>
