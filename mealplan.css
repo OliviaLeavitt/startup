@@ -13,6 +13,19 @@ body {
     height: 100%;
 }
 
+h4 {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #333333;
+}
+
+h5 {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #333333;
+}
+
+/* Hero Styles */
 .hero h2 {
     text-align: center;
     font-family: 'Afacad Flux', sans-serif;
@@ -86,6 +99,25 @@ body {
     display: block;
 }
 
+/* Sidebar Styles */
+#sidebar {
+    max-width: 300px;
+    height: 100vh;
+    overflow-y: auto;
+    background-color: #fffefc;
+    padding: 15px;
+}
+
+.sidebar-sticky {
+    position: sticky;
+    top: 0;
+}
+
+/* Recipe Card Styles */
+.recipe-card {
+    margin-bottom: 15px;
+}
+
 /* Calendar Styles */
 .calendar {
     display: flex;
@@ -106,6 +138,50 @@ body {
 }
 
 /* Button Styles */
+
+.btn.btn-block.mb-2 {
+    background-color: #ad4601;
+}
+
+.btn.btn-block {
+    background-color: #DA8359;
+}
+
+
+
+.btn {
+    font-weight: 700;
+    font-size: 1rem;
+    color: white;
+    border: none;
+    background-color: aqua;
+}
+
+.btn:hover {
+    font-weight: 700;
+    font-size: 1rem;
+    color: white;
+}
+
+.btn-calendar {
+    background-color: #DA8359;
+}
+
+.btn-share {
+    background-color: #ad4601;
+}
+
+.btn-calendar:hover,
+.btn.btn-block:hover {
+    background-color: #bd724d;
+}
+
+.btn-share:hover,
+.btn.btn-block.mb-2:hover {
+    background-color: #963d01;
+}
+
+
 #prevWeek,
 #nextWeek {
     background-color: #DA8359;
@@ -136,135 +212,34 @@ body {
     text-align: center;
 }
 
-/* Sidebar Styles */
-#sidebar {
-    max-width: 300px;
-    height: 100vh;
-    overflow-y: auto;
-    background-color: #fffefc;
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.sidebar-link {
-    display: block;
-    padding: 10px;
-    margin: 10px 0;
-    color: #333;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.sidebar-link:hover {
-    background-color: rgba(218, 131, 89, 0.3);
-}
-
-.sidebar-section {
-    font-weight: bold;
-    margin: 20px 0 10px;
-    color: #555;
-}
-
-/* Button Styles in Sidebar */
+/* Button Styles */
 .btn-share,
 .btn-calendar {
-    color: #fff;
-}
-
-.btn-share {
-    background-color: #D35400;
-    color:#FCFAEE;
-}
-
-.btn-share:hover {
-    background-color: #ad4601;
-    color: #FCFAEE;
-}
-
-.btn-calendar {
-    background-color: #DA8359;
-    color: #FCFAEE;
-}
-
-.btn-calendar:hover {
-    background-color: #C27650;
-    color: #FCFAEE;
-}
-
-/* Main Content Styles */
-main {
-    flex-grow: 1;
-    background-color: #FCFAEE;
-}
-
-.recipe-card {
-    margin-bottom: 20px;
-}
-
-.recipe-card img {
-    height: 150px;
-    object-fit: cover;
-}
-
-/* Container Styles */
-.container-fluid {
-    margin-top: 20px;
-    background-color: #FCFAEE;
-}
-
-/* Action Button Styles */
-.btn.btn-primary.btn-block.mb-2,
-.btn.btn-secondary.btn-block {
-    border: none;
-    border-radius: 8px;
-    color: white;
-    font-weight: 700;
-    padding: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-.btn.btn-primary.btn-block.mb-2 {
-    background-color: #a08375;
-}
-
-.btn {
-    font-weight: 700;
     font-size: 1rem;
-    color: #FCFAEE;
-}
-
-.btn.btn-primary.btn-block.mb-2:hover {
-    background-color: #897165;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-.btn.btn-secondary.btn-block {
-    background-color: #b1907f98;
-}
-
-.btn.btn-secondary.btn-block:hover {
-    background-color: #9c7f7198;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Footer Styles */
 footer {
     background-color: #95a480;
-    color: #FCFAEE;
 }
 
-footer p {
-    margin: 0;
-    color: #FCFAEE;
+/* Additional Utility Classes */
+.text-light {
+    color: #FCFAEE !important;
 }
 
-footer a {
-    text-decoration: underline;
-    color: #FCFAEE;
-}
+/* Responsive Styles */
+@media (max-width: 768px) {
+    #sidebar {
+        position: relative;
+        height: auto; 
+    }
 
-footer a:hover {
-    color: #DA8359;
+    .calendar {
+        flex-direction: column; 
+    }
+
+    .day {
+        flex: 1 0 auto; 
+    }
 }

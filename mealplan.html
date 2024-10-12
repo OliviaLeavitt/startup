@@ -2,196 +2,192 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MealMate - Meal Planning</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="mealplan.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MealMate - Meal Planning</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="mealplan.css">
 </head>
 
 <body>
 
-
- <!-- Navigation Bar -->
-  <header>
-    <nav class="navbar navbar-expand-lg">
-      <a class="navbar-brand no-hover" href="index.html">MealMate</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link no-hover" href="#" title="Notifications" id="notificationBell">
-              <i class="fa-solid fa-bell notification-icon"></i>
-            </a>
-            <div class="notification-dropdown" id="notificationDropdown">
-              <div class="notification">[Friend's Name] added lettuce to grocery list</div>
-              <div class="notification">[Friend's Name] added tomatoes to grocery list</div>
-              <div class="notification">[Friend's Name] shared a recipe</div>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand no-hover" href="index.html">MealMate</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link no-hover" href="#" title="Notifications" id="notificationBell">
+                            <i class="fa-solid fa-bell notification-icon"></i>
+                        </a>
+                        <div class="notification-dropdown" id="notificationDropdown">
+                            <div class="notification">[Friend's Name] added lettuce to grocery list</div>
+                            <div class="notification">[Friend's Name] added tomatoes to grocery list</div>
+                            <div class="notification">[Friend's Name] shared a recipe</div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="recipes.html">Recipes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mealplan.html">Meal Planning</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="grocery.html">Grocery List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link rounded-3" href="login.html">Login</a>
+                    </li>
+                </ul>
             </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="recipes.html">Recipes</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="mealplan.html">Meal Planning</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="grocery.html">Grocery List</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link rounded-3" href="login.html">Login</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </header>
+        </nav>
+    </header>
 
-  <!-- Main Content -->
-  <div class="container-fluid">
-    <div class="row">
+    <!-- Main Content -->
+    <div class="container-fluid">
+        <div class="row">
 
-      <!-- Sidebar for Recipes -->
-      <nav id="sidebar" class="col-md-3 d-none d-md-block sidebar">
-        <div class="sidebar-sticky">
-          <h4>My Recipes</h4>
-          <div class="recipe-container" style="max-height: 400px; overflow-y: auto;">
+            <!-- Sidebar for Recipes -->
+            <nav id="sidebar" class="col-md-3 sidebar">
+                <div class="sidebar-sticky">
+                    <h4>My Recipes</h4>
+                    <div class="recipe-container" style="max-height: 400px; overflow-y: auto;">
 
-            <div class="card recipe-card">
-              <img src="recipe-image.jpg" class="card-img-top" alt="Placeholder Recipe">
-              <div class="card-body">
-                <h5 class="card-title">Recipe Name</h5>
-                <p class="card-text">A delicious placeholder description of the recipe.</p>
-                <div class="d-flex justify-content-between">
-                  <button class="btn btn-share btn-sm mr-2">Share Recipe</button>
-                  <button class="btn btn-calendar btn-sm">Add to Calendar</button>
+                        <div class="card recipe-card">
+                            <img src="recipe-image.jpg" class="card-img-top" alt="Placeholder Recipe">
+                            <div class="card-body">
+                                <h5 class="card-title">Recipe Name</h5>
+                                <div class="d-flex justify-content-between">
+                                    <button class="btn btn-share btn-sm mr-2">Share Recipe</button>
+                                    <button class="btn btn-calendar btn-sm">Add to Calendar</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card recipe-card">
+                            <img src="recipe-image.jpg" class="card-img-top" alt="Placeholder Recipe">
+                            <div class="card-body">
+                                <h5 class="card-title">Recipe Name</h5>
+                                <div class="d-flex justify-content-between">
+                                    <button class="btn btn-share btn-sm mr-2">Share Recipe</button>
+                                    <button class="btn btn-calendar btn-sm">Add to Calendar</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card recipe-card">
+                            <img src="recipe-image.jpg" class="card-img-top" alt="Placeholder Recipe">
+                            <div class="card-body">
+                                <h5 class="card-title">Recipe Name</h5>
+                                <div class="d-flex justify-content-between">
+                                    <button class="btn btn-share btn-sm mr-2">Share Recipe</button>
+                                    <button class="btn btn-calendar btn-sm">Add to Calendar</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="mt-3">
+                        <button class="btn btn-block mb-2">Make Shopping List</button>
+                        <button class="btn btn-block">Invite Friend</button>
+                    </div>
+
                 </div>
-              </div>
-            </div>
+            </nav>
 
-            <div class="card recipe-card">
-              <img src="recipe-image.jpg" class="card-img-top" alt="Placeholder Recipe">
-              <div class="card-body">
-                <h5 class="card-title">Recipe Name</h5>
-                <p class="card-text">A delicious placeholder description of the recipe.</p>
-                <div class="d-flex justify-content-between">
-                  <button class="btn btn-share btn-sm mr-2">Share Recipe</button>
-                  <button class="btn btn-calendar btn-sm">Add to Calendar</button>
+            <main class="col-md-9 ml-sm-auto col-lg-9 px-4">
+                <div class="hero">
+                    <h2>Your Meal Planner</h2>
                 </div>
-              </div>
-            </div>
 
-            <div class="card recipe-card">
-              <img src="recipe-image.jpg" class="card-img-top" alt="Placeholder Recipe">
-              <div class="card-body">
-                <h5 class="card-title">Recipe Name</h5>
-                <p class="card-text">A delicious placeholder description of the recipe.</p>
-                <div class="d-flex justify-content-between">
-                  <button class="btn btn-share btn-sm mr-2">Share Recipe</button>
-                  <button class="btn btn-calendar btn-sm">Add to Calendar</button>
+                <div class="navigation mb-3 d-flex justify-content-between align-items-center">
+                    <button class="btn btn-secondary" id="prevWeek">Prev</button>
+                    <span class="week-date" style="font-weight: bold;">Week of Oct 7 - Oct 13</span>
+                    <button class="btn btn-secondary" id="nextWeek">Next</button>
                 </div>
-              </div>
-            </div>
 
-          </div>
-
-          <div class="mt-3">
-            <button class="btn btn-primary btn-block mb-2">Make Shopping List</button>
-            <button class="btn btn-secondary btn-block">Invite Friend</button>
-          </div>
-
+                <!-- Calendar Section -->
+                <div class="calendar">
+                    <div class="day">
+                        <h5>Sunday</h5>
+                        <div class="meal-box">Breakfast</div>
+                        <div class="meal-box">Lunch</div>
+                        <div class="meal-box">Dinner</div>
+                        <div class="meal-box">Snacks</div>
+                        <div class="meal-box">Dessert</div>
+                    </div>
+                    <div class="day">
+                        <h5>Monday</h5>
+                        <div class="meal-box">Breakfast</div>
+                        <div class="meal-box">Lunch</div>
+                        <div class="meal-box">Dinner</div>
+                        <div class="meal-box">Snacks</div>
+                        <div class="meal-box">Dessert</div>
+                    </div>
+                    <div class="day">
+                        <h5>Tuesday</h5>
+                        <div class="meal-box">Breakfast</div>
+                        <div class="meal-box">Lunch</div>
+                        <div class="meal-box">Dinner</div>
+                        <div class="meal-box">Snacks</div>
+                        <div class="meal-box">Dessert</div>
+                    </div>
+                    <div class="day">
+                        <h5>Wednesday</h5>
+                        <div class="meal-box">Breakfast</div>
+                        <div class="meal-box">Lunch</div>
+                        <div class="meal-box">Dinner</div>
+                        <div class="meal-box">Snacks</div>
+                        <div class="meal-box">Dessert</div>
+                    </div>
+                    <div class="day">
+                        <h5>Thursday</h5>
+                        <div class="meal-box">Breakfast</div>
+                        <div class="meal-box">Lunch</div>
+                        <div class="meal-box">Dinner</div>
+                        <div class="meal-box">Snacks</div>
+                        <div class="meal-box">Dessert</div>
+                    </div>
+                    <div class="day">
+                        <h5>Friday</h5>
+                        <div class="meal-box">Breakfast</div>
+                        <div class="meal-box">Lunch</div>
+                        <div class="meal-box">Dinner</div>
+                        <div class="meal-box">Snacks</div>
+                        <div class="meal-box">Dessert</div>
+                    </div>
+                    <div class="day">
+                        <h5>Saturday</h5>
+                        <div class="meal-box">Breakfast</div>
+                        <div class="meal-box">Lunch</div>
+                        <div class="meal-box">Dinner</div>
+                        <div class="meal-box">Snacks</div>
+                        <div class="meal-box">Dessert</div>
+                    </div>
+                </div>
+            </main>
         </div>
-      </nav>
-
-      <!-- Main Content Area -->
-      <main class="col-md-9 ml-sm-auto col-lg-9 px-4">
-        <div class="hero">
-          <h2>Your Meal Planner</h2>
-        </div>
-
-        <div class="navigation mb-3 d-flex justify-content-between align-items-center">
-          <button class="btn btn-secondary" id="prevWeek">Prev</button>
-          <span class="week-date" style="font-weight: bold;">Week of Oct 7 - Oct 13</span>
-          <button class="btn btn-secondary" id="nextWeek">Next</button>
-        </div>
-
-        <!-- Calendar Section -->
-        <div class="calendar">
-          <div class="day">
-            <h5>Sunday</h5>
-            <div class="meal-box">Breakfast</div>
-            <div class="meal-box">Lunch</div>
-            <div class="meal-box">Dinner</div>
-            <div class="meal-box">Snacks</div>
-            <div class="meal-box">Dessert</div>
-          </div>
-          <div class="day">
-            <h5>Monday</h5>
-            <div class="meal-box">Breakfast</div>
-            <div class="meal-box">Lunch</div>
-            <div class="meal-box">Dinner</div>
-            <div class="meal-box">Snacks</div>
-            <div class="meal-box">Dessert</div>
-          </div>
-          <div class="day">
-            <h5>Tuesday</h5>
-            <div class="meal-box">Breakfast</div>
-            <div class="meal-box">Lunch</div>
-            <div class="meal-box">Dinner</div>
-            <div class="meal-box">Snacks</div>
-            <div class="meal-box">Dessert</div>
-          </div>
-          <div class="day">
-            <h5>Wednesday</h5>
-            <div class="meal-box">Breakfast</div>
-            <div class="meal-box">Lunch</div>
-            <div class="meal-box">Dinner</div>
-            <div class="meal-box">Snacks</div>
-            <div class="meal-box">Dessert</div>
-          </div>
-          <div class="day">
-            <h5>Thursday</h5>
-            <div class="meal-box">Breakfast</div>
-            <div class="meal-box">Lunch</div>
-            <div class="meal-box">Dinner</div>
-            <div class="meal-box">Snacks</div>
-            <div class="meal-box">Dessert</div>
-          </div>
-          <div class="day">
-            <h5>Friday</h5>
-            <div class="meal-box">Breakfast</div>
-            <div class="meal-box">Lunch</div>
-            <div class="meal-box">Dinner</div>
-            <div class="meal-box">Snacks</div>
-            <div class="meal-box">Dessert</div>
-          </div>
-          <div class="day">
-            <h5>Saturday</h5>
-            <div class="meal-box">Breakfast</div>
-            <div class="meal-box">Lunch</div>
-            <div class="meal-box">Dinner</div>
-            <div class="meal-box">Snacks</div>
-            <div class="meal-box">Dessert</div>
-          </div>
-        </div>
-      </main>
     </div>
-  </div>
 
-  <!-- Footer -->
-  <footer class="text-white text-center py-4">
-    <div class="container">
-      <p class="mb-2">Created by Olivia Leavitt</p>
-      <a href="https://github.com/OliviaLeavitt" class="text-light" target="_blank">GitHub Repository</a>
-    </div>
-  </footer>
+    <!-- Footer -->
+    <footer class="text-white text-center py-4">
+        <div class="container">
+            <p class="mb-2">Created by Olivia Leavitt</p>
+            <a href="https://github.com/OliviaLeavitt" class="text-light" target="_blank">GitHub Repository</a>
+        </div>
+    </footer>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="recipes.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="recipes.js"></script>
 </body>
 
 </html>
