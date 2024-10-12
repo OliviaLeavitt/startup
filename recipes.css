@@ -1,3 +1,4 @@
+/* General Styles */
 body {
     background-color: #FCFAEE;
 }
@@ -58,66 +59,58 @@ p {
     width: 600px;
 }
 
-#search-button {
+/* Button Styles */
+#search-button,
+#filter-button,
+#nextButton,
+#prevButton {
     background-color: #DA8359;
-    border: None;
+    border: none;
     color: #FCFAEE;
     font-weight: 700;  
-    font-size: 1.2rem; 
+    font-size: 1rem; 
     font-family: 'Afacad Flux', sans-serif;
-}
-
-#filter-button {
-    background-color: #DA8359;
-    border: None;
-    color: #FCFAEE;
-    font-weight: 700;  
-    font-size: 1.2rem; 
-    font-family: 'Afacad Flux', sans-serif;
-}
-
-#nextButton, #prevButton {
-    background-color: #DA8359;
-    border: None;
-    color: #FCFAEE;
 }
 
 .btn.btn-primary {
     background-color: #D35400;
-    border: None;
+    border: none;
     color: #FCFAEE;
 }
 
+/* Card Styles */
 .card.mx-2 {
-    border: none;/* Remove default border */
-    border-radius: 8px; /* Optional: add rounded corners */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Shadow effect */
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transition for effects */
+    border: none; 
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.2s ease, box-shadow 0.2s ease; 
 }
 
 .card a {
-    text-decoration: underline, gray; /* Remove underline from links */
-    color: inherit; /* Maintain the original text color */
+    text-decoration: none; 
+    color: inherit; 
 }
 
 .card a:hover {
-    text-decoration: underline, gray; /* Ensure no underline on hover */
+    text-decoration: underline; 
 }
 
 .card.mx-2:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); 
 }
 
-        .wrapper {
-            border: none; /* Darker border for contrast */
-            border-radius: 10px; /* Slightly larger rounded corners */
-            padding: 20px; /* Spacing inside the wrapper */
-            background-color: #ffffff; /* White background color */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Increased shadow effect */
-            margin-bottom: 20px; /* Space between sections */
-            transition: transform 0.2s, box-shadow 0.2s; /* Smooth transition for effects */
-        }
+/* Wrapper Styles */
+.wrapper {
+    border: none;
+    border-radius: 10px; 
+    padding: 20px; 
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
+    margin-bottom: 20px; 
+    transition: transform 0.2s, box-shadow 0.2s; 
+}
+
 /* Navbar Styles */
 .navbar.navbar-expand-lg {
     background-color: #95a480 !important;
@@ -183,7 +176,7 @@ p {
     display: block;
 }
 
-/* Footer */
+/* Footer Styles */
 footer {
     background-color: #95a480; 
     color: #FCFAEE;
@@ -203,7 +196,12 @@ footer a:hover {
     color: #DA8359; 
 }
 
+/* Button Focus Styles */
 .btn.btn-primary.mt-3.mb-2.btn:focus {
     outline: none; 
     box-shadow: none; 
+}
+
+.btn {
+    font-weight: 700;
 }

@@ -106,16 +106,18 @@ body {
 }
 
 /* Button Styles */
-#prevWeek, #nextWeek {
+#prevWeek,
+#nextWeek {
     background-color: #DA8359;
     color: white;
     border: none;
     padding: 10px 15px;
-    font-size: 1rem;
+    font-size: 1.2rem;
     transition: background-color 0.3s ease;
 }
 
-#prevWeek:hover, #nextWeek:hover {
+#prevWeek:hover,
+#nextWeek:hover {
     background-color: #C27650;
     color: white;
 }
@@ -165,24 +167,29 @@ body {
 }
 
 /* Button Styles in Sidebar */
-.btn-share, .btn-calendar {
+.btn-share,
+.btn-calendar {
     color: #fff;
 }
 
 .btn-share {
     background-color: #D35400;
+    color:#FCFAEE;
 }
 
 .btn-share:hover {
     background-color: #ad4601;
+    color: #FCFAEE;
 }
 
 .btn-calendar {
     background-color: #DA8359;
+    color: #FCFAEE;
 }
 
 .btn-calendar:hover {
     background-color: #C27650;
+    color: #FCFAEE;
 }
 
 /* Main Content Styles */
@@ -207,11 +214,12 @@ main {
 }
 
 /* Action Button Styles */
-.btn.btn-primary.btn-block.mb-2, .btn.btn-secondary.btn-block {
+.btn.btn-primary.btn-block.mb-2,
+.btn.btn-secondary.btn-block {
     border: none;
     border-radius: 8px;
     color: white;
-    font-weight: bold;
+    font-weight: 700;
     padding: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s, box-shadow 0.3s;
@@ -219,6 +227,12 @@ main {
 
 .btn.btn-primary.btn-block.mb-2 {
     background-color: #a08375;
+}
+
+.btn {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #FCFAEE;
 }
 
 .btn.btn-primary.btn-block.mb-2:hover {

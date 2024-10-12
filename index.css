@@ -3,10 +3,10 @@ html {
     font-family: 'Afacad Flux', sans-serif;
 }
 
-/* Nav Bar */
+/* Nav Bar*/
 .navbar.navbar-expand-lg {
     background-color: #95a480 !important;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .navbar-nav .nav-link {
@@ -51,12 +51,11 @@ html {
     color: #FCFAEE;
     width: 250px;
     border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     z-index: 1000;
     padding: 0;
 }
 
-/* Individual Notification/Border Separator */
 .notification {
     padding: 10px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -73,7 +72,7 @@ html {
 
 /* Cards */
 .card {
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .card:hover {
@@ -103,7 +102,7 @@ html {
 .btn-custom {
     background-color: rgba(218, 131, 89, 1);
     color: #FCFAEE;
-    font-weight: 600;
+    font-weight: 700;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
@@ -117,7 +116,7 @@ html {
     background-color: #FCFAEE;
     height: 60vh;
     padding: 2rem 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .hero .display-4 {
@@ -148,13 +147,13 @@ html {
     font-weight: 400;
 }
 
-/* How It Works Button */
+/* How It Works Button  */
 .how-it-works-btn {
     color: #FFFFFF;
     background-color: #D35400;
     border: none;
     font-weight: 600;
-    padding: 10px 20px; 
+    padding: 10px 20px;
     border-radius: 8px;
     transition: background-color 0.3s ease, transform 0.3s ease;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -163,18 +162,22 @@ html {
 .how-it-works-btn:hover {
     background-color: #ad4601;
     color: #FCFAEE;
-    transform: translateY(-2px); 
+    transform: translateY(-2px);
 }
 
+.btn {
+    font-weight: 700;
+    font-size: 1rem;
+}
 
 /* Plan Now Button */
 .plan-now-btn {
     color: #FFFFFF;
     background-color: #DA8359;
-    font-weight: 600;
-    padding: 10px 20px; 
+    font-weight: 700;
+    padding: 10px 20px;
     border-radius: 8px;
-    border: none; 
+    border: none;
     transition: background-color 0.3s ease, transform 0.3s ease;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
@@ -182,26 +185,24 @@ html {
 .plan-now-btn:hover {
     background-color: #C27650;
     color: #FCFAEE;
-    transform: translateY(-2px); 
 }
 
 /* Footer */
 footer {
-    background-color: #95a480; 
+    background-color: #95a480;
     color: #FCFAEE;
 }
 
 footer p {
     margin: 0;
-    color: #FCFAEE; 
+    color: #FCFAEE;
 }
 
 footer a {
-    text-decoration: underline; 
-    color: #FCFAEE; 
+    text-decoration: underline;
+    color: #FCFAEE;
 }
 
 footer a:hover {
-    color: #DA8359; 
+    color: #DA8359;
 }
-

@@ -11,6 +11,43 @@
 </head>
 <body>
 
+      <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand no-hover" href="index.html">MealMate</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link no-hover" href="#" title="Notifications" id="notificationBell">
+                            <i class="fa-solid fa-bell notification-icon"></i>
+                        </a>
+                        <!-- Notification Dropdown -->
+                        <div class="notification-dropdown" id="notificationDropdown">
+                            <div class="notification">[Friend's Name] added lettuce to grocery list</div>
+                            <div class="notification">[Friend's Name] added tomatoes to grocery list</div>
+                            <div class="notification">[Friend's Name] shared a recipe</div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="recipes.html">Recipes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mealplan.html">Meal Planning</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="grocery.html">Grocery List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link rounded-3" href="login.html">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
   <!-- Recipe Details Section -->
   <section id="recipe-details" class="container mt-5">
     <h1 id="recipe-title" class="text-center">Test Recipe: Simple Pasta</h1>
@@ -35,6 +72,14 @@
       5. Serve hot, garnished with fresh basil leaves.
     </p>
   </section>
+
+  <!-- Footer -->
+  <footer class="text-white text-center py-4">
+    <div class="container">
+      <p class="mb-2">Created by Olivia Leavitt</p>
+      <a href="https://github.com/OliviaLeavitt" class="text-light" target="_blank">GitHub Repository</a>
+    </div>
+  </footer>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>

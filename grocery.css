@@ -13,19 +13,23 @@ body {
     height: 100%;
 }
 
+/* Heading Styles */
 h2 {
     font-family: 'Afacad Flux', sans-serif;
     color: #333333;
     font-weight: 700;
     font-size: 2rem;
 }
+
+/* Label Styles */
 label {
+    font-weight: 400;  
+    font-size: 1.2rem; 
     font-family: 'Afacad Flux', sans-serif;
-    color: #333333;
-    font-weight: 700;
-    font-size: 1rem;
+    color: #666666;   
 }
 
+/* Hero Section Styles */
 .hero h2 {
     color: #333333;
     font-weight: 700; 
@@ -40,14 +44,26 @@ label {
     text-align: center;
 }
 
-
-.form-control {
-    font-family: 'Afacad Flux', sans-serif;
-
-
-    font-size: 1rem;
+/* Wrapper Styles */
+.wrapper {
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
+/* Form Control Styles */
+.form-control {
+    font-weight: 400;  
+    font-size: 1.2rem; 
+    font-family: 'Afacad Flux', sans-serif;
+    color: #666666; 
+}
+
+/* Column Styles */
 .col {
     font-family: 'Afacad Flux', sans-serif;
     color: #333333;
@@ -55,12 +71,12 @@ label {
     font-size: 1rem;
 }
 
+/* Span Styles */
 span {
     font-family: 'Afacad Flux', sans-serif;
     color: #333333;
     font-size: 1rem;
 }
-
 
 /* Navbar Styles */
 .navbar.navbar-expand-lg {
@@ -147,7 +163,6 @@ span {
 }
 
 /* Button Styles */
-
 .btn.btn-sm.btn-success {
     background-color: #95a480;
     font-family: 'Afacad Flux', sans-serif;
@@ -163,6 +178,11 @@ span {
     font-weight: 700;
     font-size: 1rem;
     border: none;
+}
+
+.btn {
+    font-weight: 700;
+    font-size: 1rem;
 }
 
 #addMealPlanItemsBtn {
@@ -202,4 +222,3 @@ footer a {
 footer a:hover {
     color: #DA8359;
 }
-
