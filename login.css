@@ -8,11 +8,19 @@ body {
     background-color: #fffefc;
 }
 
-/* Text Center Styles */
+/* Text Styles */
 .text-center.mt-3 {
     font-weight: 700;
     font-size: 1.2rem;
     color: #333333;
+    font-family: 'Afacad Flux', sans-serif;
+}
+
+#welcomeMessage {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #333333;
+    font-family: 'Afacad Flux', sans-serif;
 }
 
 /* Button Custom Styles */
@@ -22,6 +30,7 @@ body {
     color: #fffefc;
     font-weight: 700;
     font-size: 1rem;
+    font-family: 'Afacad Flux', sans-serif;
 }
 
 /* Card Styles */
@@ -40,6 +49,7 @@ body {
 .btn {
     font-weight: 700;
     font-size: 1rem;
+    font-family: 'Afacad Flux', sans-serif;
 }
 
 /* Heading Styles */
@@ -47,6 +57,7 @@ h2 {
     color: #333333;
     font-weight: 700;
     font-size: 3rem;
+    font-family: 'Afacad Flux', sans-serif;
 }
 
 /* Label Styles */
