@@ -1,136 +1,168 @@
-                        <div>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MealMate - Grocery List</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="grocery.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 <body>
 
  <!-- Navigation Bar -->
   <header>
-  <nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand no-hover" href="index.html">MealMate</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <i class="fas fa-bars"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link no-hover" href="#" title="Notifications" id="notificationBell">
-            <i class="fa-solid fa-bell notification-icon"></i>
-          </a>
-          <!-- Notification Dropdown -->
-          <div class="notification-dropdown" id="notificationDropdown">
-            <div class="notification">[Friend's Name] added lettuce to grocery list</div>
-            <div class="notification">[Friend's Name] added tomatoes to grocery list</div>
-            <div class="notification">[Friend's Name] shared a recipe</div>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="recipes.html">Recipes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="mealplan.html">Meal Planning</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="grocery.html">Grocery List</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link rounded-3" href="login.html">Login</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+    <nav class="navbar navbar-expand-lg">
+      <a class="navbar-brand no-hover" href="index.html">MealMate</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link no-hover" href="#" title="Notifications" id="notificationBell">
+              <i class="fa-solid fa-bell notification-icon"></i>
+            </a>
+            <div class="notification-dropdown" id="notificationDropdown">
+              <div class="notification">[Friend's Name] added lettuce to grocery list</div>
+              <div class="notification">[Friend's Name] added tomatoes to grocery list</div>
+              <div class="notification">[Friend's Name] shared a recipe</div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="recipes.html">Recipes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="mealplan.html">Meal Planning</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="grocery.html">Grocery List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link rounded-3" href="login.html">Login</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
   </header>
 
-    <!-- Main Content -->
-    <main>
-        <section>
-            <h1>Grocery List</h1>
 
-            <!-- Add New Item Section -->
-            <div>
-                <h2>Add New Item</h2>
-                <label for="itemName">Item Name:</label>
-                <input type="text" id="itemName" placeholder="Enter item name">
+  <main class="container my-4">
+    <section>
 
-                <label for="itemQuantity">Quantity:</label>
-                <input type="text" id="itemQuantity" placeholder="e.g., 32 oz can, 1 bunch">
+      <!-- Page Hero -->
+      <div class="hero">
+        <h2 class="mb-4">Grocery List</h2>
+        <p class="mb-5">Create your grocery list or generate one from the recipes in your meal plan</p>
+      </div>
 
-                <button>Add Item</button>
+      <!-- Add Item Section -->
+      <div class="mb-4">
+        <h2 class="add-item-header">Add Item</h2>
+        <div class="form-group">
+          <label for="itemName">Item Name:</label>
+          <input type="text" class="form-control" id="itemName" placeholder="Enter item name">
+        </div>
+        <div class="form-group">
+          <label for="itemQuantity">Item Quantity:</label>
+          <input type="text" class="form-control" id="itemQuantity" placeholder="Enter quantity">
+        </div>
+        <button class="btn btn-primary" id="addItemBtn">Add Item</button>
+      </div>
+
+      <!-- Add Items from Meal Plan Recipes Section -->
+      <div class="mb-4">
+        <h2>Add Items from Meal Plan Recipes</h2>
+        <div class="form-group">
+          <label for="recipeSelect">Select a Recipe:</label>
+          <select class="form-control" id="recipeSelect">
+            <option value="">--Choose a Recipe--</option>
+            <option value="recipe1">Recipe 1</option>
+            <option value="recipe2">Recipe 2</option>
+            <option value="recipe3">Recipe 3</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" id="addMealPlanItemsBtn">Add All Items from Selected Recipe</button>
+      </div>
+
+      <!-- Grocery List Section -->
+      <div>
+        <h2>Items</h2>
+        <div class="row font-weight-bold mb-2">
+          <div class="col">Name</div>
+          <div class="col">Quantity</div>
+          <div class="col">Actions</div>
+        </div>
+        <ul id="groceryList" class="list-group">
+          <!-- Item 1 -->
+          <li class="list-group-item">
+            <div class="row align-items-center">
+              <div class="col">
+                <input type="checkbox" class="mr-2">
+                <span>Apples</span>
+              </div>
+              <div class="col">
+                <span>6</span>
+              </div>
+              <div class="col">
+                <button class="btn btn-sm btn btn-sm btn-success">Edit</button>
+                <button class="btn btn-sm btn-danger">Remove</button>
+              </div>
             </div>
+          </li>
 
-            <!-- Add Recipe to Shopping List Section -->
-            <div>
-                <h2>Add Recipe Items</h2>
-                <label for="recipeSelect">Select a Recipe:</label>
-                <select id="recipeSelect">
-                    <option value="">Select a recipe</option>
-                    <option value="savedRecipe1">Saved Recipe 1</option>
-                    <option value="savedRecipe2">Saved Recipe 2</option>
-                    <option value="savedRecipe3">Saved Recipe 3</option>
-                </select>
-                <button>Add Recipe Items</button> 
+          <!-- Item 2 -->
+          <li class="list-group-item">
+            <div class="row align-items-center">
+              <div class="col">
+                <input type="checkbox" class="mr-2">
+                <span>Milk</span>
+              </div>
+              <div class="col">
+                <span>1 gallon</span>
+              </div>
+              <div class="col">
+                <button class="btn btn-sm btn btn-sm btn-success">Edit</button>
+                <button class="btn btn-sm btn-danger">Remove</button>
+              </div>
             </div>
+          </li>
 
-            <!-- Item List Section -->
-            <h2>Items</h2>
-            <div>
-                <div>
-                    <strong>Name</strong>
-                    <strong>Quantity</strong>
-                </div>
-                <ul>
-                    <li>
-                        <input type="checkbox">
-                        <span>Item 1</span>
-                        <span>1 bunch</span>
-                        <button>Remove</button>
-                    </li>
-                    <li>
-                        <input type="checkbox">
-                        <span>Item 2</span>
-                        <span>32 oz can</span>
-                        <button>Remove</button>
-                    </li>
-                    <li>
-                        <input type="checkbox">
-                        <span>Item 3</span>
-                        <span>1 16 oz bag</span>
-                        <button>Remove</button>
-                    </li>
-                    <!-- Add more items here -->
-                </ul>
+          <!-- Item 3 -->
+          <li class="list-group-item">
+            <div class="row align-items-center">
+              <div class="col">
+                <input type="checkbox" class="mr-2">
+                <span>Eggs</span>
+              </div>
+              <div class="col">
+                <span>12 pack</span>
+              </div>
+              <div class="col">
+                <button class="btn btn-sm btn-success">Edit</button>
+                <button class="btn btn-sm btn-danger">Remove</button>
+              </div>
             </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
 
-            <!-- Real-Time Updates Placeholder -->
-            <div>
-                <h2>Real-Time Updates</h2>
-                <p>Live updates will show here when items are added or removed:</p>
-                <div id="realtime-updates">
-                    <!-- Placeholder for WebSocket data -->
-                    <p>No updates yet. This will show real-time changes. The bell icon in the nav bar will show these updates</p>
-                </div>
-            </div>
+    <!-- Footer -->
+  <footer class="text-white text-center py-4">
+    <div class="container">
+      <p class="mb-2">Created by Olivia Leavitt</p>
+      <a href="https://github.com/OliviaLeavitt" class="text-light" target="_blank">GitHub Repository</a>
+    </div>
+  </footer>
 
-            <!-- Finalize Button -->
-            <div>
-                <button>Finalize Shopping List</button>
-            </div>
-        </section>
-    </main>
-
-    <script>
-        // WebSocket code would go here to connect and handle real-time communication.
-    </script>
-
+  <!-- JS Libraries -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
