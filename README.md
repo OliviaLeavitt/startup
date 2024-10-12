@@ -121,3 +121,14 @@ Introducing MealMate, a go-to solution for smart meal planning and organization.
 - **Database Data**: Recipes and meal plans will be dynamically fetched and displayed using data from a database.
 - **WebSocket Data**: Planning to implement real-time updates for grocery list changes using WebSockets.
 
+## CSS Startup
+** Modifications ** 
+For this assignment, I styled my project using Bootstrap as the framework. This allowed me to make the pages responsive fairly easily. My navigation and footer elements are consistent throughout the application, enabling users to navigate between pages effortlessly. I added hover effects to the links, providing feedback when users interact with the navigation, making it more engaging.
+
+To ensure the pages were responsive, I utilized Bootstrap's grid system, which automatically adjusts the layout based on the screen size, ensuring a pleasant experience on mobile and desktop devices. Additionally, I incorporated Bootstrap's classes for margins, padding, and text alignment, which helped maintain consistent spacing and alignment across different screens. I also implemented responsive navigation elements that collapse into a hamburger menu on smaller screens, allowing for easy access to different sections of the application without overcrowding the interface.
+
+For the "Properly styled CSS application elements" criteria, I ensured that all components, such as buttons and input fields, were visually consistent. By utilizing Bootstrap classes, I implemented a uniform design that improves usability and enhances user interaction, making the application intuitive and engaging.
+
+For the "Properly styled CSS application text content" criteria, I focused on ensuring that all text elements, including headings, paragraphs, and labels, were styled for clarity and readability. I used appropriate font sizes, weights, and colors to create a visually appealing effect, making it easy for users to navigate and understand the application.
+
+I ensured that all images in my application were responsive and maintained proper ratios for different screen sizes. I styled the placeholder data in the login form and home screen to say "Welcome, username!" to improve user experience and provide clear guidance. In the navigation bar, you will notice a bell icon; when you hover over this icon, you will see my placeholder for WebSocket data, showing the different activities other users are doing in the application.
