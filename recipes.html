@@ -1,107 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MealMate - Meal Planning</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="recipes.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MealMate - Recipe Discovery</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="recipes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .btn-custom {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+            transition: box-shadow 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        .btn-custom:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
+        }
+    </style>
 </head>
+
 <body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand no-hover" href="index.html">MealMate</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link no-hover" href="#" title="Notifications" id="notificationBell">
+                            <i class="fa-solid fa-bell notification-icon"></i>
+                        </a>
+                        <!-- Notification Dropdown -->
+                        <div class="notification-dropdown" id="notificationDropdown">
+                            <div class="notification">[Friend's Name] added lettuce to grocery list</div>
+                            <div class="notification">[Friend's Name] added tomatoes to grocery list</div>
+                            <div class="notification">[Friend's Name] shared a recipe</div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="recipes.html">Recipes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mealplan.html">Meal Planning</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="grocery.html">Grocery List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link rounded-3" href="login.html">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-  <!-- Navigation Bar -->
-  <header>
-    <nav class="navbar navbar-expand-lg">
-      <a class="navbar-brand no-hover" href="index.html">MealMate</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link no-hover" href="#" title="Notifications" id="notificationBell">
-              <i class="fa-solid fa-bell notification-icon"></i>
-            </a>
-            <!-- Notification Dropdown -->
-            <div class="notification-dropdown" id="notificationDropdown">
-              <div class="notification">[Friend's Name] added lettuce to grocery list</div>
-              <div class="notification">[Friend's Name] added tomatoes to grocery list</div>
-              <div class="notification">[Friend's Name] shared a recipe</div>
+    <main class="container mt-4">
+        <!-- Discover Recipes Section with wrapper -->
+        <section class="discover-recipes mb-4">
+            <div class="wrapper text-center">
+                <h1>Discover Delicious Recipes</h1>
+                <p class="lead">Explore a variety of cuisines and dietary options tailored to your taste.</p>
+                <div class="input-group mb-3 mx-auto">
+                    <input type="text" class="form-control" id="recipe-search" placeholder="Search for recipes...">
+                    <div class="input-group-append">
+                        <button class="btn btn-custom" id="search-button">Search</button>
+                    </div>
+                </div>
             </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="recipes.html">Recipes</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="mealplan.html">Meal Planning</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="grocery.html">Grocery List</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link rounded-3" href="login.html">Login</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </header>
+        </section>
 
-  <!-- Recommended Recipes Section -->
-  <section class="recommended-recipes-section py-5">
-    <div class="container text-center">
-      <h2 class="mb-4">Recommended Recipes</h2>
-      <p class="mb-5">These recipes are fetched from our database based on your preferences.</p>
-      <div class="d-flex align-items-center justify-content-center">
-        <button class="btn btn-secondary d-none d-md-block" id="prevButton"><i class="fas fa-chevron-left"></i></button>
-        <div class="recipe-cards-container overflow-auto">
-          <div class="card-group">
-            <div class="card mx-2">
-              <img src="recipe-image.jpg" class="card-img-top" alt="Recipe Image 1">
-              <div class="card-body">
-                <h5 class="card-title">Recipe Title 1</h5>
-                <button class="btn btn-add">Add to my recipes</button>
-              </div>
+        <!-- Filters section with wrapper -->
+        <section class="filters mb-4">
+            <div class="wrapper">
+                <h2>Filter Recipes</h2>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="cuisine">Cuisine:</label>
+                        <select id="cuisine" class="form-control">
+                            <option value="all">All</option>
+                            <option value="italian">Italian</option>
+                            <option value="mexican">Mexican</option>
+                            <option value="asian">Asian</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="dietary-preference">Dietary Preference:</label>
+                        <select id="dietary-preference" class="form-control">
+                            <option value="all">All</option>
+                            <option value="vegan">Vegan</option>
+                            <option value="vegetarian">Vegetarian</option>
+                            <option value="gluten-free">Gluten-Free</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn btn-secondary" id="filter-button">Filter</button>
             </div>
-            <div class="card mx-2">
-              <img src="recipe-image.jpg" class="card-img-top" alt="Recipe Image 2">
-              <div class="card-body">
-                <h5 class="card-title">Recipe Title 2</h5>
-                <button class="btn btn-add">Add to my recipes</button> 
-              </div>
-            </div>
-            <div class="card mx-2">
-              <img src="recipe-image.jpg" class="card-img-top" alt="Recipe Image 3">
-              <div class="card-body">
-                <h5 class="card-title">Recipe Title 3</h5>
-                <button class="btn btn-add">Add to my recipes</button>
-              </div>
-            </div>
-            <div class="card mx-2">
-              <img src="recipe-image.jpg" class="card-img-top" alt="Recipe Image 4">
-              <div class="card-body">
-                <h5 class="card-title">Recipe Title 4</h5>
-                <button class="btn btn-add">Add to my recipes</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <button class="btn btn-secondary d-none d-md-block" id="nextButton"><i class="fas fa-chevron-right"></i></button>
-      </div>
-    </div>
-  </section>
+        </section>
 
-  <!-- Footer -->
-  <footer class="text-white text-center py-4">
-    <div class="container">
-      <p class="mb-2">Created by Olivia Leavitt</p>
-      <a href="https://github.com/OliviaLeavitt" class="text-light" target="_blank">GitHub Repository</a>
-    </div>
-  </footer>
+        <!-- Filtered Recipes Section with wrapper -->
+        <section class="filtered-recipes-section py-5">
+            <div class="wrapper">
+                <div class="container text-center">
+                    <h2 class="mb-4">Filtered Recipes</h2>
+                    <p class="mb-5">Explore filtered recipes tailored just for you, making your cooking experience effortless!</p>
+                    <div class="d-flex align-items-center justify-content-center">
+                        <button class="btn btn-secondary d-none d-md-block" id="prevButton" style="margin: 0 10px;"><i class="fas fa-chevron-left"></i></button>
+                        <div class="recipe-cards-container overflow-auto">
+                            <div class="card-group">
+                                <div class="card mx-2 text-decoration-none">
+                                    <a href="recipe-instructions.html">
+                                        <img src="recipe-image.jpg" class="card-img-top" alt="Recipe Image 1">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Recipe Title 1</h5>
+                                        </div>
+                                    </a>
+                                    <button class="btn btn-primary mt-3 mb-2" style="font-size: 0.9rem; padding: 0.4rem 1rem; margin: 0 10px;">Add to My Recipes</button>
+                                </div>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="recipes.js"></script>
+                                <div class="card mx-2 text-decoration-none">
+                                    <a href="recipe-instructions.html">
+                                        <img src="recipe-image.jpg" class="card-img-top" alt="Recipe Image 2">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Recipe Title 2</h5>
+                                        </div>
+                                    </a>
+                                    <button class="btn btn-primary mt-3 mb-2" style="font-size: 0.9rem; padding: 0.4rem 1rem; margin: 0 10px;">Add to My Recipes</button>
+                                </div>
+
+                                <div class="card mx-2 text-decoration-none">
+                                    <a href="recipe-instructions.html">
+                                        <img src="recipe-image.jpg" class="card-img-top" alt="Recipe Image 3">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Recipe Title 3</h5>
+                                        </div>
+                                    </a>
+                                    <button class="btn btn-primary mt-3 mb-2" style="font-size: 0.9rem; padding: 0.4rem 1rem; margin: 0 10px;">Add to My Recipes</button>
+                                </div>
+
+                                <div class="card mx-2 text-decoration-none">
+                                    <a href="recipe-instructions.html">
+                                        <img src="recipe-image.jpg" class="card-img-top" alt="Recipe Image 4">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Recipe Title 4</h5>
+                                        </div>
+                                    </a>
+                                    <button class="btn btn-primary mt-3 mb-2" style="font-size: 0.9rem; padding: 0.4rem 1rem; margin: 0 10px;">Add to My Recipes</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary d-none d-md-block" id="nextButton" style="margin: 0 10px;"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommended Recipes Section with wrapper -->
+        <section class="recommended-recipes-section py-5">
+            <div class="wrapper">
+                <div class="container text-center">
+                    <h2 class="mb-4">Recommended Recipes</h2>
+                    <p class="mb-5">These recipes are fetched from our database based on your preferences.</p>
+                    <div class="d-flex align-items-center justify-content-center">
+                        <button class="btn btn-secondary d-none d-md-block" id="prevButton" style="margin: 0 10px;"><i class="fas fa-chevron-left"></i></button>
+                        <div class="recipe-cards-container overflow-auto">
+                            <div class="card-group">
+                                <div class="card mx-2 text-decoration-none">
+                                    <a href="recipe-instructions.html">
+                                        <img src="recipe-image.jpg" class="card-img-top" alt="Recipe Image 1">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Recipe Title 1</h5>
+                                        </div>
+                                    </a>
+                                    <button class="btn btn-primary mt-3 mb-2 btn-custom" style="font-size: 0.9rem; padding: 0.4rem 1rem; margin: 0 10px;">Add to My Recipes</button>
+                                </div>
+
+                                <div class="card mx-2 text-decoration-none">
+                                    <a href="recipe-instructions.html">
+                                        <img src="recipe-image.jpg" class="card-img-top" alt="Recipe Image 2">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Recipe Title 2</h5>
+                                        </div>
+                                    </a>
+                                    <button class="btn btn-primary mt-3 mb-2 btn-custom" style="font-size: 0.9rem; padding: 0.4rem 1rem; margin: 0 10px;">Add to My Recipes</button>
+                                </div>
+
+                                <div class="card mx-2 text-decoration-none">
+                                    <a href="recipe-instructions.html">
+                                        <img src="recipe-image.jpg" class="card-img-top" alt="Recipe Image 3">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Recipe Title 3</h5>
+                                        </div>
+                                    </a>
+                                    <button class="btn btn-primary mt-3 mb-2 btn-custom" style="font-size: 0.9rem; padding: 0.4rem 1rem; margin: 0 10px;">Add to My Recipes</button>
+                                </div>
+
+                                <div class="card mx-2 text-decoration-none">
+                                    <a href="recipe-instructions.html">
+                                        <img src="recipe-image.jpg" class="card-img-top" alt="Recipe Image 4">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Recipe Title 4</h5>
+                                        </div>
+                                    </a>
+                                    <button class="btn btn-primary mt-3 mb-2 btn-custom" style="font-size: 0.9rem; padding: 0.4rem 1rem; margin: 0 10px;">Add to My Recipes</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary d-none d-md-block" id="nextButton" style="margin: 0 10px;"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer class="bg-light text-center py-4">
+            <p class="mb-0">© 2024 MealMate. All rights reserved.</p>
+        </footer>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>

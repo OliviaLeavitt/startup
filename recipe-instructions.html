@@ -7,63 +7,34 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="recipe-instructions.css">
+
 </head>
 <body>
 
-  <!-- Navigation Bar -->
-  <header>
-  <nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand no-hover" href="index.html">MealMate</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <i class="fas fa-bars"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link no-hover" href="#" title="Notifications" id="notificationBell">
-            <i class="fa-solid fa-bell notification-icon"></i>
-          </a>
-          <!-- Notification Dropdown -->
-          <div class="notification-dropdown" id="notificationDropdown">
-            <div class="notification">[Friend's Name] added lettuce to grocery list</div>
-            <div class="notification">[Friend's Name] added tomatoes to grocery list</div>
-            <div class="notification">[Friend's Name] shared a recipe</div>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="recipes.html">Recipes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="mealplan.html">Meal Planning</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="grocery.html">Grocery List</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link rounded-3" href="login.html">Login</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  </header>
-
   <!-- Recipe Details Section -->
-  <section id="recipe-details">
-    <h1 id="recipe-title">Loading Recipe...</h1>
-    <img id="recipe-image" src="recipe-image.jpg" alt="Recipe Image" />
+  <section id="recipe-details" class="container mt-5">
+    <h1 id="recipe-title" class="text-center">Test Recipe: Simple Pasta</h1>
+    <img id="recipe-image" class="img-fluid my-3" src="recipe-image.jpg" alt="Recipe Image" />
     
     <h2>Ingredients</h2>
-    <ul id="ingredients-list"></ul>
+    <ul id="ingredients-list" class="list-unstyled">
+      <li>200g spaghetti</li>
+      <li>2 tablespoons olive oil</li>
+      <li>2 cloves garlic, minced</li>
+      <li>1 can diced tomatoes (400g)</li>
+      <li>Salt and pepper to taste</li>
+      <li>Fresh basil leaves for garnish</li>
+    </ul>
 
     <h2>Instructions</h2>
-    <p id="instructions"></p>
+    <p id="instructions">
+      1. Cook the spaghetti according to package instructions until al dente. Drain and set aside.<br>
+      2. In a large skillet, heat the olive oil over medium heat. Add the minced garlic and sauté for 1 minute.<br>
+      3. Add the diced tomatoes to the skillet and season with salt and pepper. Simmer for about 5-10 minutes, stirring occasionally.<br>
+      4. Add the cooked spaghetti to the sauce and toss to combine. Cook for an additional 2 minutes.<br>
+      5. Serve hot, garnished with fresh basil leaves.
+    </p>
   </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>Created by Olivia Leavitt</p>
-    <a href="https://github.com/OliviaLeavitt">GitHub Repository</a>
-  </footer>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
