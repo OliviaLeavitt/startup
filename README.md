@@ -122,12 +122,12 @@ Introducing MealMate, a go-to solution for smart meal planning and organization.
 - **WebSocket Data**: Planning to implement real-time updates for grocery list changes using WebSockets.
 
 ## CSS Startup
-For this assignment, I styled my project using Bootstrap, which made it easy for me to create responsive pages. I ensured that the header, footer, and main content body are consistently styled, allowing users to navigate the application easily. The navigation elements include hover effects to the links for feedback. 
-
-To ensure responsiveness, I used Bootstrap's grid system, which adjusts layouts based on screen size for a good experience on both mobile and desktop devices. I also used Bootstrap's classes for margins, padding, and text alignment to maintain consistent spacing across different screens. Additionally, I implemented a responsive navigation menu that collapses into a hamburger icon on smaller screens, allowing easy access to different sections without overcrowding the page. 
-
-For the application elements, I made sure that components like buttons and input fields are visually consistent. By using Bootstrap classes, I created a uniform design that improves usability. I also focused on clarity and readability for all text elements, including headings, paragraphs, and labels, using appropriate font sizes and colors. 
-
-All images in my application are responsive and maintain proper ratios for different screen sizes. I styled the placeholder data in the login form and home screen to say "Welcome, username!" to improve user experience. In the navigation bar, you will notice there is a bell icon that shows a placeholder for WebSocket data, displaying activities from other users in the application. 
-
-I designed the recommended recipes section in my CSS to serve as a placeholder for future data from a third-party web service. When the application is set up to connect to an external recipe service, this section will automatically update to display the recommended recipes. 
+For this deliverable, I properly styled the application into its final appearance.
+- Header, footer, and main content body: Consistent styling throughout for easy navigation.
+- Navigation elements: Used hover effects for links to provide user feedback.
+- Responsive to window resizing: Implemented Bootstrap's grid system for an optimal experience on all devices.
+- Application elements: Ensured buttons and input fields have a uniform design for better usability.
+- Application text content: Focused on clarity with consistent font sizes and colors for all text elements.
+- Application images: All images are responsive and maintain proper ratios.
+- Placeholder data: Styled the login form to display "Welcome, username!" and included a bell icon for WebSocket data.
+- Recommended recipes section: Designed as a placeholder for future data from a third-party web service.
