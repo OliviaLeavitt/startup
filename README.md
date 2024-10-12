@@ -125,9 +125,9 @@ Introducing MealMate, a go-to solution for smart meal planning and organization.
 For this deliverable, I properly styled the application into its final appearance.
 - Header, footer, and main content body: Consistent styling throughout for easy navigation.
 - Navigation elements: Used hover effects for links to provide user feedback.
-- Responsive to window resizing: Implemented Bootstrap's grid system for an optimal experience on all devices.
+- Responsive to window resizing: Implemented Bootstrap's grid system for a good experience on all devices.
 - Application elements: Ensured buttons and input fields have a uniform design for better usability.
 - Application text content: Focused on clarity with consistent font sizes and colors for all text elements.
 - Application images: All images are responsive and maintain proper ratios.
 - Placeholder data: Styled the login form to display "Welcome, username!" and included a bell icon for WebSocket data.
-- Recommended recipes section: Designed as a placeholder for future data from a third-party web service.
+- Recommended recipes section: I designed the recommended recipes section in my CSS to serve as a placeholder for future data from a third-party web service. When the application is set up to connect to an external recipe service, this section will automatically update to display the recommended recipes. 
