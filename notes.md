@@ -75,7 +75,28 @@
 - **Site doesn't display:** Check if you're using HTTPS, or if the browser added `www.`.
 - **Email verification:** Ensure you responded to AWS verification email (check spam).
 
+- 
+
 ## HTML Structure Elements Tutorial
+### HTML Definition: A protocol used for transferring hypertext requests and information on the internet.
+### Methods:
+- GET: Used to request data from a specified resource. No data is sent in the request body.
+Example: GET /index.html
+
+- POST: Used to send data to the server for processing. Data is included in the request body.
+Example: Submitting a form.
+
+- PUT: Used to update a resource. Sends the updated data to the server.
+Example: PUT /user/123
+
+- DELETE: Used to delete a specified resource.
+Example: DELETE /user/123
+
+### Status Codes: Important for understanding responses:
+- 200: OK - The request has succeeded.
+- 301: Moved Permanently - The resource has been moved to a new URL.
+- 404: Not Found - The requested resource could not be found.
+- 500: Internal Server Error - A generic error occurred on the server.
 
 ### Overview
 
@@ -149,6 +170,8 @@ We demonstrate the use of each element with the following HTML document. It star
   </footer>
 </body>
 ```
+
+
 
 # Key Points: HTML Input Elements
 
