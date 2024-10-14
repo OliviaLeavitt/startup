@@ -770,6 +770,314 @@ output
 done
 ```
 
+### extra
+In the following code, what does the link element do?
+The <link> element is used to connect an external resource, typically a stylesheet, to the HTML document.
+Example:
+
+html
+Copy code
+<link rel="stylesheet" href="styles.css">
+In the following code, what does a div tag do?
+The <div> tag is a block-level container used to group content and apply CSS styles.
+Example:
+
+html
+Copy code
+<div class="container">
+    <h1>Welcome!</h1>
+    <p>This is a paragraph inside a div.</p>
+</div>
+In the following code, what is the difference between the #title and .grid selector?
+#title targets an element with the specific ID of "title," while .grid targets all elements with the class "grid."
+Example:
+
+css
+Copy code
+#title {
+    color: blue; /* Targets the element with id="title" */
+}
+.grid {
+    display: flex; /* Targets all elements with class="grid" */
+}
+In the following code, what is the difference between padding and margin?
+Padding is the space inside an element's border, while margin is the space outside the element's border.
+Example:
+
+css
+Copy code
+.box {
+    padding: 20px; /* Space inside the element */
+    margin: 10px; /* Space outside the element */
+    border: 1px solid black;
+}
+Given this HTML and this CSS, how will the images be displayed using flex?
+Images will be arranged based on the flex properties defined in the CSS.
+Example:
+
+html
+Copy code
+<div class="image-container">
+    <img src="image1.jpg" alt="Image 1">
+    <img src="image2.jpg" alt="Image 2">
+</div>
+css
+Copy code
+.image-container {
+    display: flex;
+    justify-content: center; /* Center images horizontally */
+    align-items: center; /* Center images vertically */
+}
+What does the following padding CSS do?
+Padding CSS properties control the space between an element's content and its border.
+Example:
+
+css
+Copy code
+.padding-example {
+    padding: 15px; /* Adds 15 pixels of padding on all sides */
+}
+What does the following code using arrow syntax function declaration do?
+Arrow functions provide a more concise syntax for writing function expressions.
+Example:
+
+javascript
+Copy code
+const add = (a, b) => a + b; // Returns the sum of a and b
+console.log(add(2, 3)); // Output: 5
+What does the following code using map with an array output?
+The map() method creates a new array by transforming each element based on the provided function.
+Example:
+
+javascript
+Copy code
+const numbers = [1, 2, 3];
+const doubled = numbers.map(num => num * 2); // [2, 4, 6]
+console.log(doubled); // Output: [2, 4, 6]
+What does the following code output using getElementByID and addEventListener?
+This code allows an element to respond to a specific event (like a click).
+Example:
+
+html
+Copy code
+<button id="myButton">Click Me!</button>
+<script>
+    document.getElementById('myButton').addEventListener('click', () => {
+        console.log('Button clicked!'); // Output when button is clicked
+    });
+</script>
+What does the following line of Javascript do using a # selector?
+A line using a # selector selects an element by its ID for manipulation.
+Example:
+
+javascript
+Copy code
+const titleElement = document.querySelector('#title'); // Selects element with id="title"
+titleElement.style.color = 'red'; // Changes the text color to red
+Which of the following are true? (mark all that are true about the DOM)
+
+The DOM represents the structure of the document as a tree of objects.
+You can manipulate the DOM using JavaScript.
+The DOM is language-independent.
+Examples:
+javascript
+Copy code
+const newElement = document.createElement('div'); // Manipulating the DOM by creating a new element
+document.body.appendChild(newElement); // Adding the new element to the document body
+By default, the HTML span element has a default CSS display property value of:
+inline
+Example:
+
+html
+Copy code
+<span>This text is inline.</span>
+How would you use CSS to change all the div elements to have a background color of red?
+Example:
+css
+Copy code
+div {
+    background-color: red; /* Changes the background color of all divs to red */
+}
+How would you display an image with a hyperlink in HTML?
+Example:
+html
+Copy code
+<a href="https://example.com">
+    <img src="image.jpg" alt="Example Image">
+</a>
+In the CSS box model, what is the ordering of the box layers starting at the inside and working out?
+Ordering: Content, Padding, Border, Margin
+Example:
+css
+Copy code
+.box {
+    margin: 10px; /* Outer margin */
+    border: 2px solid black; /* Border */
+    padding: 15px; /* Inner padding */
+    content: "This is the content"; /* Actual content */
+}
+Given the following HTML, what CSS would you use to set the text "trouble" to green and leave the "double" text unaffected?
+Example:
+html
+Copy code
+<p>This is a double trouble.</p>
+css
+Copy code
+p {
+    color: black; /* Default color */
+}
+p::after {
+    content: "trouble"; /* Targets "trouble" specifically */
+    color: green; /* Changes color to green */
+}
+What will the following code output when executed using a for loop and console.log?
+Example:
+javascript
+Copy code
+for (let i = 0; i < 5; i++) {
+    console.log(i); // Outputs: 0, 1, 2, 3, 4
+}
+How would you use JavaScript to select an element with the id of “byu” and change the text color of that element to green?
+Example:
+javascript
+Copy code
+document.getElementById('byu').style.color = 'green'; // Changes text color to green
+What is the opening HTML tag for a paragraph, ordered list, unordered list, second level heading, first level heading, third level heading?
+Examples:
+html
+Copy code
+<p>This is a paragraph.</p> <!-- Paragraph -->
+<ol><li>First item</li></ol> <!-- Ordered List -->
+<ul><li>First item</li></ul> <!-- Unordered List -->
+<h2>This is a second-level heading.</h2> <!-- Second Level Heading -->
+<h1>This is a first-level heading.</h1> <!-- First Level Heading -->
+<h3>This is a third-level heading.</h3> <!-- Third Level Heading -->
+How do you declare the document type to be HTML?
+Example:
+html
+Copy code
+<!DOCTYPE html> <!-- Declares the document type -->
+What is valid javascript syntax for if, else, for, while, switch statements?
+Examples:
+javascript
+Copy code
+// If-Else Statement
+if (condition) {
+    // code to execute if condition is true
+} else {
+    // code to execute if condition is false
+}
+
+// For Loop
+for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
+
+// While Loop
+let j = 0;
+while (j < 5) {
+    console.log(j);
+    j++;
+}
+
+// Switch Statement
+switch (expression) {
+    case value1:
+        // code block
+        break;
+    case value2:
+        // code block
+        break;
+    default:
+        // code block
+}
+What is the correct syntax for creating a javascript object?
+Example:
+javascript
+Copy code
+const person = {
+    name: 'John Doe',
+    age: 30,
+    greet: function() {
+        console.log('Hello!');
+    }
+};
+Is it possible to add new properties to javascript objects?
+Example: Yes, you can add new properties to JavaScript objects.
+javascript
+Copy code
+person.email = 'john@example.com'; // Adds a new property 'email'
+If you want to include JavaScript on an HTML page, which tag do you use?
+Example:
+html
+Copy code
+<script src="script.js"></script> <!-- Links to an external JavaScript file -->
+Given the following HTML, what JavaScript could you use to set the text "animal" to "crow" and leave the "fish" text unaffected?
+Example:
+html
+Copy code
+<p><span id="animal">animal</span> fish</p>
+javascript
+Copy code
+document.getElementById('animal').innerText = 'crow'; // Changes 'animal' to 'crow'
+Which of the following correctly describes JSON?
+JSON (JavaScript Object Notation) is a lightweight data interchange format that is easy for humans to read and write and easy for machines to parse and generate. It is based on a subset of JavaScript.
+Example:
+json
+Copy code
+{
+    "name": "John",
+    "age": 30,
+    "isStudent": false
+}
+What does the console command chmod, pwd, cd, ls, vim, nano, mkdir, mv, rm, man, ssh, ps, wget, sudo do?
+chmod: Changes the permissions of a file or directory.
+pwd: Prints the current working directory.
+cd: Changes the current directory.
+ls: Lists files and directories in the current directory.
+vim: Opens the Vim text editor.
+nano: Opens the Nano text editor.
+mkdir: Creates a new directory.
+mv: Moves or renames files and directories.
+rm: Removes files or directories.
+man: Displays the manual for a command.
+ssh: Connects to a remote machine using SSH.
+ps: Displays information about running processes.
+wget: Downloads files from the web.
+sudo: Executes a command with superuser privileges.
+Which of the following console command creates a remote shell session?
+Example:
+ssh user@hostname creates a remote shell session on the specified host.
+
+Which of the following is true when the -la parameter is specified for the ls console command?
+It lists all files and directories, including hidden ones (those starting with a dot), and shows detailed information (permissions, owner, size, and modification date).
+
+Which of the following is true for the domain name banana.fruit.bozo.click, which is the top level domain, which is a subdomain, which is a root domain?
+
+Top Level Domain (TLD): click
+Subdomain: banana.fruit.bozo (or just banana in this context)
+Root Domain: bozo.click
+Is a web certificate necessary to use HTTPS?
+Yes, a web certificate (SSL/TLS certificate) is necessary to use HTTPS.
+
+Can a DNS A record can point to an IP address or another A record?
+A DNS A record points to an IP address, not another A record.
+
+Port 443, 80, 22 is reserved for which protocol?
+
+Port 443: HTTPS (Hypertext Transfer Protocol Secure)
+Port 80: HTTP (Hypertext Transfer Protocol)
+Port 22: SSH (Secure Shell)
+What will the following code using Promises output when executed?
+Example:
+javascript
+Copy code
+const promise = new Promise((resolve, reject) => {
+    setTimeout(() => resolve("Success!"), 1000);
+});
+
+promise.then(result => console.log(result)); // Output: "Success!" after 1 second
+
 
 ## Useful Links
 - [GitHub Documentation](https://docs.github.com/en/github)
