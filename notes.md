@@ -250,6 +250,108 @@ h2 {
   font-weight: 100;
 }
 ```
+# JavaScript Notes
+
+## Arrow Functions
+
+Arrow functions provide a concise syntax for writing function expressions in JavaScript. They were introduced in ECMAScript 6 (ES6) and have several important features and behaviors that differentiate them from traditional functions.
+
+### 1. Basic Syntax
+
+Arrow functions replace the traditional `function` keyword with an arrow (`=>`). The basic syntax is as follows:
+
+```javascript
+const functionName = (parameters) => {
+  // function body
+};
+```
+#### If there’s only one parameter, parentheses can be omitted:
+```
+const square = x => x * x; // No parentheses
+```
+#### For no parameters, use empty parentheses:
+```
+const sayHello = () => console.log('Hello!'); // Empty parentheses
+```
+### 2. Implicit Return
+Arrow functions automatically return the result of a single expression if there are no curly braces:
+```
+const add = (a, b) => a + b; // Implicit return
+console.log(add(2, 3)); // OUTPUT: 5
+```
+If curly braces are used, the return keyword must be explicitly stated:
+```
+const addExplicit = (a, b) => {
+  return a + b; // Explicit return
+};
+```
+### 3. Lexical this Binding
+One of the key features of arrow functions is their lexical scoping of the this keyword. Unlike traditional functions, arrow functions inherit this from the surrounding context. This is useful in situations like event handlers or methods in classes.
+Example of Lexical this:
+```
+function Person() {
+  this.age = 0;
+
+  setInterval(() => {
+    this.age++; // `this` refers to the Person object
+    console.log(this.age);
+  }, 1000);
+}
+
+const p = new Person(); // After 1 second, will log 1, then 2, etc.
+```
+### 4. No arguments Object
+Arrow functions do not have their own arguments object. To achieve similar functionality, the rest parameter syntax (...) can be used:
+```
+const sum = (...args) => {
+  return args.reduce((acc, curr) => acc + curr, 0);
+};
+```
+### 5. Restrictions
+Arrow functions cannot be used as constructors.
+They cannot be used with the new keyword.
+They do not have super or this bindings.
+
+## JavaScript Arrays
+JavaScript array objects represent a sequence of other objects and primitives. You can reference the members of the array using a zero-based index.
+
+Creating Arrays
+You can create an array using the Array constructor or array literal notation:
+
+```
+const a = [1, 2, 3];
+console.log(a[1]); // OUTPUT: 2
+console.log(a.length); // OUTPUT: 3
+```
+### Array Methods
+The Array object has several useful methods. Here are some of the key functions:
+| Function  | Meaning                                         | Example                           |
+|-----------|-------------------------------------------------|-----------------------------------|
+| `push`    | Add an item to the end of the array            | `a.push(4)`                      |
+| `pop`     | Remove an item from the end of the array       | `x = a.pop()`                    |
+| `slice`   | Return a sub-array                              | `a.slice(1, -1)`                 |
+| `sort`    | Sort an array in place                          | `a.sort((a, b) => b - a)`       |
+| `values`  | Creates an iterator for use with a for-of loop | `for (i of a.values()) {...}`    |
+| `find`    | Find the first item that satisfies a test function | `a.find(i => i < 2)`        |
+| `forEach` | Run a function on each array item               | `a.forEach(console.log)`         |
+| `reduce`  | Reduce array items to a single value           | `a.reduce((a, c) => a + c)`     |
+| `map`     | Map an array to a new array                     | `a.map(i => i + i)`             |
+| `filter`  | Filter items based on a condition               | `a.filter(i => i % 2)`          |
+| `every`   | Test if all items match a condition             | `a.every(i => i < 3)`           |
+| `some`    | Test if any items match a condition             | `a.some(i => i < 1)`            |
+
+### Example Usage
+```
+const a = [1, 2, 3];
+
+console.log(a.map((i) => i + i)); // OUTPUT: [2, 4, 6]
+console.log(a.reduce((v1, v2) => v1 + v2)); // OUTPUT: 6
+console.log(a.sort((v1, v2) => v2 - v1)); // OUTPUT: [3, 2, 1]
+
+a.push(4);
+console.log(a.length); // OUTPUT: 4
+```
+
 ## Useful Links
 - [GitHub Documentation](https://docs.github.com/en/github)
 - [Markdown Guide](https://www.markdownguide.org/)
