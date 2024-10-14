@@ -12,6 +12,7 @@
 - [CSS Notes](#css-notes)
 - [Useful Links](#useful-links)
 - [JavaScript Arrays](#javaScript-arrays)
+- [JavaScript Arrow Functions](#arrow-functions)
 
 ## Introduction
 This project aims to provide a comprehensive overview and setup instructions for using AWS services, along with HTML and CSS fundamentals necessary for web development. The guide covers essential topics like EC2 instance setup, DNS configuration, HTML structure, input elements, and CSS styling.
