@@ -377,7 +377,7 @@ const jsonData = {
   city: "New York",
   hobbies: ["reading", "traveling", "sports"],
 };
-
+```
 
 Here's the complete README Markdown for JavaScript, incorporating all the sections, including arrays, JSON, exceptions, regular expressions, rest and spread, destructuring, and scope, this, and closures:
 
