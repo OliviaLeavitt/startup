@@ -596,6 +596,177 @@ function outer() {
 const closureFunction = outer();
 closureFunction(); // OUTPUT: I am private
 ```
+# JavaScript Concepts
+
+This document provides a deeper understanding of three essential JavaScript concepts: **Local Storage**, **Promises**, and **Async/Await**. 
+
+## Local Storage
+
+The browser's `localStorage` API allows for the persistent storage and retrieval of data (such as scores, usernames, etc.) on a user's browser across sessions and HTML page renderings. For instance, you can store a user's name on one HTML page and retrieve it later on a different page. This data remains available even when the user revisits the website in the future.
+
+Additionally, `localStorage` can serve as a cache for data when it cannot be obtained from the server. For example, you could store the last high scores obtained from a service and display them if the service is temporarily unavailable.
+
+### How to Use Local Storage
+
+Four main functions can be utilized with `localStorage`:
+
+| Function               | Meaning                                               |
+|------------------------|-------------------------------------------------------|
+| `setItem(name, value)` | Sets a named item's value into local storage          |
+| `getItem(name)`        | Retrieves a named item's value from local storage     |
+| `removeItem(name)`     | Removes a named item from local storage               |
+| `clear()`              | Clears all items in local storage                     |
+
+A local storage value must be of type string, number, or boolean. To store a JavaScript object or array, you must first convert it to a JSON string using `JSON.stringify()` on insertion and parse it back to JavaScript with `JSON.parse()` upon retrieval.
+
+### Example
+
+Open your startup website and run the following code in the browser's developer tools console window:
+
+```javascript
+let user = 'Alice';
+
+let myObject = {
+  name: 'Bob',
+  info: {
+    favoriteClass: 'CS 260',
+    likesCS: true,
+  },
+};
+
+let myArray = [1, 'One', true];
+
+localStorage.setItem('user', user);
+localStorage.setItem('object', JSON.stringify(myObject));
+localStorage.setItem('array', JSON.stringify(myArray));
+
+console.log(localStorage.getItem('user'));
+console.log(JSON.parse(localStorage.getItem('object')));
+console.log(JSON.parse(localStorage.getItem('array')));
+```
+Output
+```
+Alice
+{name: 'Bob', info: {favoriteClass: 'CS 260', likesCS: true}}
+[1, 'One', true]
+```
+You can view the current values set for your application by opening the Application tab in the developer tools and selecting Storage > Local Storage followed by your domain name. The developer tools also allow you to add, view, update, and delete any local storage values.
+
+### Promises
+The rendering process of your HTML executes on a single thread, meaning you cannot run long processing tasks on the main rendering thread. To manage long-running or blocking tasks, JavaScript uses Promises, allowing the main rendering thread to continue while actions execute in the background.
+
+Promise States
+A promise can be in one of three states:
+
+- Pending: Currently running asynchronously
+- Fulfilled: Completed successfully
+- Rejected: Failed to complete
+
+Example
+You can demonstrate asynchronous execution with the standard JavaScript setTimeout function, which creates a delay in executing code.
+
+```
+const delay = (msg, wait) => {
+  setTimeout(() => {
+    console.log(msg, wait);
+  }, 1000 * wait);
+};
+
+new Promise((resolve, reject) => {
+  // Code executing in the promise
+  for (let i = 0; i < 3; i++) {
+    delay('In promise', i);
+  }
+});
+
+// Code executing after the promise
+for (let i = 0; i < 3; i++) {
+  delay('After promise', i);
+}
+```
+Output
+```
+In promise 0
+After promise 0
+In promise 1
+After promise 1
+In promise 2
+After promise 2
+```
+#### Resolving and Rejecting Promises
+To set the state to fulfilled when a promise completes correctly or rejected when an error occurs, the promise executor function takes two functions as parameters, resolve and reject.
+
+Coin Toss Example
+```
+const coinToss = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    if (Math.random() > 0.5) {
+      resolve('success');
+    } else {
+      reject('error');
+    }
+  }, 10000);
+});
+
+console.log(coinToss); // OUTPUT: Promise {<pending>}
+```
+If you wait ten seconds and log the coinToss promise again, the state will either show as fulfilled or rejected.
+
+#### Chaining Promises
+You can handle the results of promises using .then(), .catch(), and .finally().
+coinToss
+  .then((result) => console.log(`Coin toss result: ${result}`))
+  .catch((err) => console.log(`Error: ${err}`))
+  .finally(() => console.log('Toss completed'));
+Output
+```
+Coin toss result: tails
+Toss completed
+```
+### JavaScript Async/Await
+Async/Await syntax provides a more concise representation for handling promises. The await keyword wraps the execution of a promise, eliminating the need to chain functions.
+
+Example of Coin Toss
+```
+const coinToss = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (Math.random() > 0.1) {
+        resolve(Math.random() > 0.5 ? 'heads' : 'tails');
+      } else {
+        reject('fell off table');
+      }
+    }, 1000);
+  });
+};
+
+// Using async/await
+try {
+  const result = await coinToss();
+  console.log(`Toss result ${result}`);
+} catch (err) {
+  console.error(`Error: ${err}`);
+} finally {
+  console.log(`Toss completed`);
+}
+```
+#### Important Restrictions
+You can only call await at the top level of the JavaScript code or within a function defined with the async keyword.
+
+#### Using Async with Fetch
+Using async/await can simplify working with multiple promises. Here’s an example that retrieves data using the Fetch API.
+```
+const httpResponse = await fetch('https://simon.cs260.click/api/user/me');
+const jsonResponse = await httpResponse.json();
+console.log(jsonResponse);
+console.log('done');
+```
+output
+```
+{email: 'bud@mail.com', authenticated: true}
+done
+```
+
 
 ## Useful Links
 - [GitHub Documentation](https://docs.github.com/en/github)
