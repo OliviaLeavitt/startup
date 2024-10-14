@@ -207,6 +207,9 @@ Selectors
 Box Model
 - Content: The actual content.
 - Padding: Space between content and border.
+  - ex padding: 1em 2em:
+      1em: This value sets the top and bottom padding. The size 1em is relative to the font size of the element, meaning if         the font size is 16 pixels, the padding will be 16 pixels.
+      2em: This value sets the left and right padding. Similarly, 2em is twice the font size of the element, so it will be          32 pixels if the font size is 16 pixels.
 - Border: Around the padding.
 - Margin: Space outside the border.
 
