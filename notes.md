@@ -1078,6 +1078,11 @@ const promise = new Promise((resolve, reject) => {
 
 promise.then(result => console.log(result)); // Output: "Success!" after 1 second
 
+Port 443 (HTTPS): This is the standard port used for secure web traffic, meaning all encrypted communication between a web server and a browser happens on this port. 
+Port 80 (HTTP): This port is used for unencrypted web traffic. 
+Port 22 (SSH): This port is used for secure remote access to a computer system, allowing users to log in and execute commands remotely. 
+
+
 
 ## Useful Links
 - [GitHub Documentation](https://docs.github.com/en/github)
