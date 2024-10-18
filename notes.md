@@ -1047,6 +1047,16 @@ It lists all files and directories, including hidden ones (those starting with a
 Top Level Domain (TLD): click
 Subdomain: banana.fruit.bozo (or just banana in this context)
 Root Domain: bozo.click
+
+What is a root domain?
+Simply put, a root domain is the main part of your website’s domain name. That’s the part of your website’s URL that comes after the “www” and includes the domain name’s extension, like “.com”, “.org”, “.net,” etc.
+
+Subdomains:
+On the other hand, a subdomain is like a subsection or a smaller part of the main website. A subdomain always belongs to a root domain. For example, careers.siteground.com is a subdomain of the base domain siteground.com.
+
+top level domain:
+top-level domain (TLD) is the suffix that follows the domain name, such as .com, .org, .edu, .gov, and so on. TLDs are also referred to as “domain extensions”. It is the last part of the website’s address and comes after the root domain.
+
 #### Is a web certificate necessary to use HTTPS?
 Yes, a web certificate (SSL/TLS certificate) is necessary to use HTTPS.
 
