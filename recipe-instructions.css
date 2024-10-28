@@ -116,10 +116,14 @@ li, #instructions {
     display: block;
 }
 
-/* Footer */
+/* Footer Styles */
 footer {
     background-color: #95a480; 
     color: #FCFAEE;
+    text-align: center;
+    font-family: 'Afacad Flux', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
 }
 
 footer p {
