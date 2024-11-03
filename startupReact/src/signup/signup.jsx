@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export function Signup() {
@@ -29,11 +29,9 @@ export function Signup() {
             <input type="password" id="confirmPassword" name="confirmPassword" className="form-control" placeholder="Confirm your password" required />
           </div>
 
-          {/* Submit Button */}
           <button type="submit" className="btn btn-custom btn-block">Sign Up</button>
         </form>
 
-        {/* Link to Login Page using React Router Link */}
         <p className="text-center mt-3">Already have an account? <Link to="/login">Login</Link></p>
       </main>
     </div>

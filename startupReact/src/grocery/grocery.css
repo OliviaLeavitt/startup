@@ -1,0 +1,229 @@
+/* General Styles */
+html {
+    scroll-behavior: smooth;
+    font-family: 'Afacad Flux', sans-serif;
+    background-color: #FCFAEE;
+    color: #333333;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #FCFAEE;
+    height: 100%;
+}
+
+/* Heading Styles */
+h2 {
+    font-family: 'Afacad Flux', sans-serif;
+    color: #333333;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+/* Label Styles */
+label {
+    font-weight: 400;  
+    font-size: 1.2rem; 
+    font-family: 'Afacad Flux', sans-serif;
+    color: #666666;   
+}
+
+/* Hero Section Styles */
+.hero h2 {
+    color: #333333;
+    font-weight: 700; 
+    font-size: 3rem; 
+    text-align: center;
+}
+
+.hero p {
+    font-weight: 400;  
+    font-size: 1.2rem; 
+    color: #666666;   
+    text-align: center;
+}
+
+/* Wrapper Styles */
+.wrapper {
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Form Control Styles */
+.form-control {
+    font-weight: 400;  
+    font-size: 1.2rem; 
+    font-family: 'Afacad Flux', sans-serif;
+    color: #666666; 
+}
+
+/* Column Styles */
+.col {
+    font-family: 'Afacad Flux', sans-serif;
+    color: #333333;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+/* Span Styles */
+span {
+    font-family: 'Afacad Flux', sans-serif;
+    color: #333333;
+    font-size: 1rem;
+}
+
+/* Navbar Styles */
+.navbar.navbar-expand-lg {
+    background-color: #95a480 !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-nav .nav-link {
+    color: #FCFAEE;
+    transition: color 0.3s ease;
+    font-weight: 500;
+}
+
+.navbar-nav .nav-link:hover:not(.no-hover) {
+    color: #FCFAEE;
+    background-color: rgba(218, 131, 89, 0.5);
+    border-radius: 5px;
+}
+
+.navbar-brand {
+    color: #FCFAEE;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.navbar-brand:hover {
+    color: #FCFAEE;
+    text-decoration: none;
+}
+
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar-toggler i {
+    color: #FCFAEE;
+}
+
+/* Notification Dropdown Styles */
+.notification-dropdown {
+    display: none;
+    position: absolute;
+    top: 40px;
+    background-color: rgba(218, 131, 89, 0.9);
+    color: #FCFAEE;
+    width: 250px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    padding: 0;
+}
+
+.notification {
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    font-weight: 400;
+}
+
+.notification:last-child {
+    border-bottom: none;
+}
+
+.nav-item:hover .notification-dropdown {
+    display: block;
+}
+
+/* Calendar Styles */
+.calendar {
+    display: flex;
+    flex-wrap: wrap;
+    border: 2px solid #da84595b;
+    border-radius: 5px;
+    background-color: #FCFAEE;
+}
+
+.day {
+    border: 1px solid #da84595b;
+    border-radius: 0;
+    padding: 10px;
+    background-color: #fffefc;
+    flex: 1 0 calc(100% / 7);
+    box-sizing: border-box;
+    min-height: 500px;
+}
+
+/* Button Styles */
+.btn.btn-sm.btn-success {
+    background-color: #95a480;
+    font-family: 'Afacad Flux', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+}
+
+.btn.btn-sm.btn-danger {
+    background-color: #D35400;
+    font-family: 'Afacad Flux', sans-serif;
+    color: #fffefc;
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+}
+
+.btn {
+    font-weight: 700;
+    font-size: 1rem;
+    margin: 5px;
+}
+
+#addMealPlanItemsBtn {
+    background-color: #DA8359;
+    font-family: 'Afacad Flux', sans-serif;
+    color: #fffefc;
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+}
+
+#addItemBtn {
+    background-color: #DA8359;
+    font-family: 'Afacad Flux', sans-serif;
+    color: #fffefc;
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #95a480; 
+    color: #FCFAEE;
+    text-align: center;
+    font-family: 'Afacad Flux', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+footer p {
+    margin: 0;
+    color: #FCFAEE; 
+}
+
+footer a {
+    text-decoration: underline; 
+    color: #FCFAEE; 
+}
+
+footer a:hover {
+    color: #DA8359; 
+}
