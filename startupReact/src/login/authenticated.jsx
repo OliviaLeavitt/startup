@@ -1,26 +1,27 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavLink } from 'react-router-dom';
+import './authenticated.css';
 
-export function Home(props) {
+
+export function Authenticated(props) {
   return (
     <div>
-
       {/* Hero Section */}
       <section className="hero text-white text-center d-flex align-items-center" style={{ height: '60vh', padding: '2rem 0' }}>
         <div className="container">
           <div className="hero-text">
             <h1 className="display-4">Welcome, {props.userName}!</h1>
             <p className="lead">Plan, shop, and enjoy delicious meals with MealMate.</p>
-            <div className="hero-buttons"></div>
-            <NavLink to="/how-it-works" className="btn btn-light btn-lg mr-3 how-it-works-btn">How it Works</NavLink>
-            <NavLink to="/mealplan" className="btn btn-secondary btn-lg plan-now-btn">Plan Now</NavLink>
+            <div className="hero-buttons">
+              <NavLink to="/how-it-works" className="btn btn-lg mr-3 how-it-works-btn">How it Works</NavLink>
+              <NavLink to="/mealplan" className="btn btn-secondary btn-lg plan-now-btn">Plan Now</NavLink>
+            </div>
           </div>
         </div>
       </section>
 
       {/* How it works section */}
-      <section id="simplify-meal-planning" className="how-it-works-section py-5 simplify-meal-planning">
+      <section id="simplify-meal-planning" className="how-it-works-section py-5">
         <div className="container">
           <h2 className="text-center mb-5">Simplify Meal Planning</h2>
           <div className="row">
@@ -35,6 +36,7 @@ export function Home(props) {
                 </div>
               </div>
             </div>
+
             {/* Card 2 */}
             <div className="col-md-4 mb-4">
               <div className="card h-100">
@@ -46,13 +48,14 @@ export function Home(props) {
                 </div>
               </div>
             </div>
+
             {/* Card 3 */}
             <div className="col-md-4 mb-4">
               <div className="card h-100">
                 <img src="family-meal-image.png" className="card-img-top" alt="Personalization and Collaboration" />
                 <div className="card-body">
                   <h3>Personalization and Collaboration</h3>
-                  <p>Share your meals with family, receive personalized meal recommendations.</p>
+                  <p>Share your meals with family and receive personalized meal recommendations.</p>
                   <NavLink to="/recipe" className="btn btn-custom">Learn more →</NavLink>
                 </div>
               </div>
@@ -60,8 +63,8 @@ export function Home(props) {
           </div>
         </div>
       </section>
-
-      
     </div>
   );
 }
+
+ 

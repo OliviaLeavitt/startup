@@ -1,24 +1,28 @@
 html {
-    scroll-behavior: smooth;
-    font-family: 'Afacad Flux', sans-serif;
+    scroll-behavior: smooth !important;
+    font-family: 'Afacad Flux', sans-serif !important;
 }
 
 /* Nav Bar*/
 .navbar.navbar-expand-lg {
     background-color: #95a480 !important;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+    padding: 0 20px; 
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
 
 .navbar-nav .nav-link {
-    color: #FCFAEE;
-    transition: color 0.3s ease;
-    font-weight: 500;
+    color: #FCFAEE !important;
+    transition: color 0.3s ease !important;
+    font-weight: 500 !important;
+    margin: 0 10px; /* Added margin for space between links */
 }
 
 .navbar-nav .nav-link:hover:not(.no-hover) {
-    color: #FCFAEE;
-    background-color: rgba(218, 131, 89, 0.5);
-    border-radius: 5px;
+    color: #FCFAEE !important;
+    background-color: rgba(218, 131, 89, 0.5) !important;
+    border-radius: 5px !important;
 }
 
 /* Logo */
@@ -50,15 +54,15 @@ html {
     background-color: rgba(218, 131, 89, 0.9);
     color: #FCFAEE;
     width: 250px;
-    border-radius: 5px;
+    border-radius: 5px !important;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     z-index: 1000;
     padding: 0;
 }
 
 .notification {
-    padding: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
     font-weight: 400;
 }
 
@@ -70,122 +74,6 @@ html {
     display: block;
 }
 
-/* Cards */
-.card {
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-.card:hover {
-    transform: scale(1.05);
-    transition: transform 0.3s ease;
-}
-
-.card-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-}
-
-/* Card Text */
-.card-body h3 {
-    font-weight: 600;
-    color: #333333;
-}
-
-.card-body p {
-    font-weight: 400;
-    color: #666666;
-}
-
-/* Card Buttons */
-.btn-custom {
-    background-color: rgba(218, 131, 89, 1);
-    color: #FCFAEE;
-    font-weight: 700;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.btn-custom:hover {
-    background-color: rgba(194, 118, 80, 1);
-    color: #FCFAEE;
-}
-
-/* Hero Section */
-.hero {
-    background-color: #FCFAEE;
-    height: 60vh;
-    padding: 2rem 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.hero .display-4 {
-    color: #333333;
-    font-weight: 700;
-    font-size: 3rem;
-}
-
-.hero .lead {
-    font-weight: 400;
-    font-size: 1.2rem;
-    color: #666666;
-}
-
-/* Simplify Meal Planning Section */
-.simplify-meal-planning {
-    font-family: 'Afacad Flux', sans-serif;
-}
-
-.simplify-meal-planning h2 {
-    color: #333333;
-    font-weight: 700;
-    font-size: 2rem;
-}
-
-.simplify-meal-planning p {
-    color: #666666;
-    font-weight: 400;
-}
-
-/* How It Works Button  */
-.how-it-works-btn {
-    color: #FFFFFF;
-    background-color: #D35400;
-    border: none;
-    font-weight: 600;
-    padding: 10px 20px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.how-it-works-btn:hover {
-    background-color: #ad4601;
-    color: #FCFAEE;
-    transform: translateY(-2px);
-}
-
-.btn {
-    font-weight: 700;
-    font-size: 1rem;
-}
-
-/* Plan Now Button */
-.plan-now-btn {
-    color: #FFFFFF;
-    background-color: #DA8359;
-    font-weight: 700;
-    padding: 10px 20px;
-    border-radius: 8px;
-    border: none;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.plan-now-btn:hover {
-    background-color: #C27650;
-    color: #FCFAEE;
-}
 
 /* Footer Styles */
 footer {

@@ -12,23 +12,29 @@ import { RecipeInstructions } from './recipeInstructions/recipeInstructions';
 import { AuthState } from './login/authState';
 
 export default function App() {
-  const [userName, setUserName] = useState(localStorage.getItem('userName') || '');
-  const [authState, setAuthState] = useState(userName ? AuthState.Authenticated : AuthState.Unauthenticated);
-  const [showNotifications, setShowNotifications] = useState(false);
+  const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
+  const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
+  const [authState, setAuthState] = React.useState(currentAuthState);
 
-  const handleToggleNotifications = () => setShowNotifications(!showNotifications);
+  function logout() {
+    localStorage.removeItem('userName');
+    setAuthState(AuthState.Unauthenticated);
+    setUserName('');
+  }
 
   return (
     <BrowserRouter>
       <header>
         <nav className="navbar navbar-expand-lg">
           <NavLink className="navbar-brand no-hover" to="/">MealMate</NavLink>
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <i className="fas fa-bars"></i>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
+          {authState === AuthState.Authenticated && (
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <i className="fas fa-bars"></i>
+            </button>
+          )}
+          <div className={`collapse navbar-collapse ${authState === AuthState.Authenticated ? '' : 'd-none'}`} id="navbarNav">
             <ul className="navbar-nav ml-auto">
-              {authState === AuthState.Authenticated ? (
+              {authState === AuthState.Authenticated && (
                 <>
                   <li className="nav-item">
                     <NavLink className="nav-link" to="/recipe">Recipes</NavLink>
@@ -40,38 +46,35 @@ export default function App() {
                     <NavLink className="nav-link" to="/grocery">Grocery List</NavLink>
                   </li>
                   <li className="nav-item">
-                    <NavLink className="nav-link rounded-3" to="/login" onClick={() => setAuthState(AuthState.Unauthenticated)}>
+                    <NavLink className="nav-link rounded-3" to="/" onClick={logout}>
                       Logout
                     </NavLink>
                   </li>
                 </>
-              ) : (
-                <li className="nav-item">
-                  <NavLink className="nav-link rounded-3" to="/login" onClick={() => setAuthState(AuthState.Unauthenticated)}>
-                    Login
-                  </NavLink>
-                </li>
               )}
-              <li className="nav-item">
-                <a className="nav-link no-hover" href="#" title="Notifications" onClick={handleToggleNotifications}>
-                  <i className="fa-solid fa-bell notification-icon"></i>
-                </a>
-                {showNotifications && (
-                  <div className="notification-dropdown">
-                    <div className="notification">[Friend's Name] added an item to the grocery list</div>
-                    <div className="notification">[Friend's Name] shared a recipe</div>
-                  </div>
-                )}
-              </li>
             </ul>
           </div>
         </nav>
       </header>
 
       <Routes>
-        <Route path="/" element={<Login onLogin={(userName) => { setAuthState(AuthState.Authenticated); setUserName(userName); }} />} />
+        <Route
+          path='/'
+          element={
+            <Login
+              userName={userName}
+              authState={authState}
+              onAuthChange={(userName, authState) => {
+                setAuthState(authState);
+                setUserName(userName);
+              }}
+              onLogout={logout} // Pass the logout function
+            />
+          }
+          exact
+        />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/home" element={<Home userName={userName} />} />
         <Route path="/grocery" element={<Grocery />} />
         <Route path="/mealplan" element={<MealPlan />} />
         <Route path="/recipe" element={<Recipe />} />
