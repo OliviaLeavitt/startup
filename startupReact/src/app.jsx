@@ -37,6 +37,16 @@ export default function App() {
               {authState === AuthState.Authenticated && (
                 <>
                   <li className="nav-item">
+                    <a className="nav-link no-hover" href="#" title="Notifications">
+                      <i className="fa-solid fa-bell notification-icon"></i>
+                    </a>
+      
+                      <div className="notification-dropdown">
+                        <div className="notification">[Friend's Name] added an item to the grocery list</div>
+                        <div className="notification">[Friend's Name] shared a recipe</div>
+                      </div>
+                  </li>
+                  <li className="nav-item">
                     <NavLink className="nav-link" to="/recipe">Recipes</NavLink>
                   </li>
                   <li className="nav-item">
@@ -68,7 +78,7 @@ export default function App() {
                 setAuthState(authState);
                 setUserName(userName);
               }}
-              onLogout={logout} // Pass the logout function
+              onLogout={logout}
             />
           }
           exact
