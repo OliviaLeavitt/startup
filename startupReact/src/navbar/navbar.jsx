@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
@@ -24,15 +23,6 @@ export function Navbar({ authState, logout }) {
           <ul className="navbar-nav ml-auto">
             {authState === 'Authenticated' && (
               <>
-                <li className="nav-item">
-                  <a className="nav-link" href="#" title="Notifications">
-                    <i className="fa-solid fa-bell notification-icon"></i>
-                  </a>
-                  <div className="notification-dropdown">
-                    <div className="notification">[Friend's Name] added an item to the grocery list</div>
-                    <div className="notification">[Friend's Name] shared a recipe</div>
-                  </div>
-                </li>
                 <li className="nav-item">
                   <NavLink className="nav-link" to="/recipe">Recipes</NavLink>
                 </li>

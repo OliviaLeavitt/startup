@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 import { Grocery } from './grocery/grocery';
@@ -10,8 +10,7 @@ import { Signup } from './signup/signup';
 import { Home } from './home/home';
 import { RecipeInstructions } from './recipeInstructions/recipeInstructions';
 import { AuthState } from './login/authState';
-import { Footer } from './footer/footer'
-import { Navbar } from './navbar/navbar';  
+import { Footer } from './footer/footer';
 
 export default function App() {
   const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
@@ -26,7 +25,47 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <Navbar authState={authState} logout={logout} /> {/* Use Navbar here */}
+      <header>
+        <nav className="navbar navbar-expand-lg">
+          <NavLink className="navbar-brand no-hover" to="/">MealMate</NavLink>
+          {authState === AuthState.Authenticated && (
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <i className="fas fa-bars"></i>
+            </button>
+          )}
+          <div className={`collapse navbar-collapse ${authState === AuthState.Authenticated ? '' : 'd-none'}`} id="navbarNav">
+            <ul className="navbar-nav ml-auto">
+              {authState === AuthState.Authenticated && (
+                <>
+                  <li className="nav-item">
+                    <a className="nav-link no-hover" href="#" title="Notifications">
+                      <i className="fa-solid fa-bell notification-icon"></i>
+                    </a>
+                    <div className="notification-dropdown">
+                      <div className="notification">[Friend's Name] added an item to the grocery list</div>
+                      <div className="notification">[Friend's Name] shared a recipe</div>
+                    </div>
+                  </li>
+                  <li className="nav-item">
+                    <NavLink className="nav-link" to="/recipe">Recipes</NavLink>
+                  </li>
+                  <li className="nav-item">
+                    <NavLink className="nav-link" to="/mealplan">Meal Planning</NavLink>
+                  </li>
+                  <li className="nav-item">
+                    <NavLink className="nav-link" to="/grocery">Grocery List</NavLink>
+                  </li>
+                  <li className="nav-item">
+                    <NavLink className="nav-link rounded-3" to="/" onClick={logout}>
+                      Logout
+                    </NavLink>
+                  </li>
+                </>
+              )}
+            </ul>
+          </div>
+        </nav>
+      </header>
 
       <Routes>
         <Route
@@ -42,6 +81,7 @@ export default function App() {
               onLogout={logout}
             />
           }
+          exact
         />
         <Route path="/signup" element={<Signup />} />
         <Route path="/home" element={<Home userName={userName} />} />
