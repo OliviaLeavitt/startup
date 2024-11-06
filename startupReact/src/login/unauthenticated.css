@@ -1,0 +1,82 @@
+/* Body Styles */
+body {
+    background-color: #FCFAEE;
+}
+
+/* Form Group Styles */
+.form-group {
+    background-color: #fffefc;
+}
+
+/* Text Styles */
+.text-center.mt-3 {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #333333;
+    font-family: 'Afacad Flux', sans-serif;
+}
+
+#welcomeMessage {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #333333;
+    font-family: 'Afacad Flux', sans-serif;
+}
+
+/* Button Custom Styles */
+.btn-custom {
+    background-color: #95a480;
+    border-color: #95a480;
+    color: #fffefc;
+    font-weight: 700;
+    font-size: 1rem;
+    font-family: 'Afacad Flux', sans-serif;
+}
+
+/* Card Styles */
+.card.shadow-lg.p-5 {
+    width: 600px;
+}
+
+/* Button Custom Hover Styles */
+.btn-custom:hover {
+    background-color: #8a9275;
+    border-color: #8a9275;
+    color: #fffefc;
+}
+
+/* Button Styles */
+.btn {
+    font-weight: 700;
+    font-size: 1rem;
+    font-family: 'Afacad Flux', sans-serif;
+}
+
+/* Heading Styles */
+h2 {
+    color: #333333;
+    font-weight: 700;
+    font-size: 3rem;
+    font-family: 'Afacad Flux', sans-serif;
+}
+
+/* Label Styles */
+label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #333333;
+    font-family: 'Afacad Flux', sans-serif;
+}
+
+/* Form styles */
+.form-control {
+    font-family: 'Afacad Flux', sans-serif;
+    font-size: 1rem;
+}
+
+/* Button Primary Block Styles */
+.btn.btn-primary.btn-block {
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: 'Afacad Flux', sans-serif;
+}

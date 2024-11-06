@@ -2,8 +2,20 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './authenticated.css';
 
-
 export function Authenticated(props) {
+  const [imageUrl, setImageUrl] = React.useState('');
+
+  React.useEffect(() => {
+    setImageUrl('/family-meal-image.png'); 
+  }, []);
+
+  const scrollToSection = () => {
+    const section = document.getElementById('simplify-meal-planning');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div>
       {/* Hero Section */}
@@ -13,7 +25,7 @@ export function Authenticated(props) {
             <h1 className="display-4">Welcome, {props.userName}!</h1>
             <p className="lead">Plan, shop, and enjoy delicious meals with MealMate.</p>
             <div className="hero-buttons">
-              <NavLink to="/how-it-works" className="btn btn-lg mr-3 how-it-works-btn">How it Works</NavLink>
+              <button onClick={scrollToSection} className="btn btn-lg mr-3 how-it-works-btn">How it Works</button>
               <NavLink to="/mealplan" className="btn btn-secondary btn-lg plan-now-btn">Plan Now</NavLink>
             </div>
           </div>
@@ -49,10 +61,10 @@ export function Authenticated(props) {
               </div>
             </div>
 
-            {/* Card 3 */}
+            {/* Card 3 - Displaying the image from public folder */}
             <div className="col-md-4 mb-4">
               <div className="card h-100">
-                <img src="family-meal-image.png" className="card-img-top" alt="Personalization and Collaboration" />
+                <img src={imageUrl} className="card-img-top" alt="Personalization and Collaboration" />
                 <div className="card-body">
                   <h3>Personalization and Collaboration</h3>
                   <p>Share your meals with family and receive personalized meal recommendations.</p>
@@ -66,5 +78,3 @@ export function Authenticated(props) {
     </div>
   );
 }
-
- 

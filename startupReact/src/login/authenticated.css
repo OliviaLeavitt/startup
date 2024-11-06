@@ -23,7 +23,7 @@ html {
 
 /* Logo */
 .navbar-brand {
-    color: #FCFAEE;
+    color: #FCFAEE !important;
     font-weight: 700;
     font-size: 1.5rem;
 }

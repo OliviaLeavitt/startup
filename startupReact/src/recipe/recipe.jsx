@@ -70,7 +70,7 @@ export function Recipe() {
                             <h5 className="card-title">Recipe Title {index + 1}</h5>
                           </div>
                         </Link>
-                        <button className="btn btn-primary mt-3 mb-2" style={{ fontSize: '0.9rem', padding: '0.4rem 1rem', margin: '0 10px' }}>Add to My Recipes</button>
+                        <button className="btn btn-primary mt-3 mb-2 addToMyRecipeButton" style={{ fontSize: '0.9rem', padding: '0.4rem 1rem', margin: '0 10px' }}>Add to My Recipes</button>
                       </div>
                     ))}
                   </div>
@@ -99,7 +99,7 @@ export function Recipe() {
                             <h5 className="card-title">Recipe Title {index + 1}</h5>
                           </div>
                         </Link>
-                        <button className="btn btn-primary mt-3 mb-2 btn-custom" style={{ fontSize: '0.9rem', padding: '0.4rem 1rem', margin: '0 10px' }}>Add to My Recipes</button>
+                        <button className="btn btn-primary mt-3 mb-2 btn-custom addToMyRecipeButton" style={{ fontSize: '0.9rem', padding: '0.4rem 1rem', margin: '0 10px' }}>Add to My Recipes</button>
                       </div>
                     ))}
                   </div>
