@@ -1,4 +1,3 @@
-// src/App.js
 import React, { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -11,8 +10,8 @@ import { Signup } from './signup/signup';
 import { Home } from './home/home';
 import { RecipeInstructions } from './recipeInstructions/recipeInstructions';
 import { AuthState } from './login/authState';
-import { Footer } from './footer/footer';
-import { Navbar } from './navbar/navbar';
+import { Footer } from './footer/footer'
+import { Navbar } from './navbar/navbar';  
 
 export default function App() {
   const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
@@ -27,7 +26,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <Navbar authState={authState} logout={logout} />
+      <Navbar authState={authState} logout={logout} /> {/* Use Navbar here */}
 
       <Routes>
         <Route

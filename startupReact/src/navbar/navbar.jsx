@@ -1,22 +1,23 @@
+
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 export function Navbar({ authState, logout }) {
   return (
     <header>
-      <nav className="navbar navbar-expand-lg">
-        <NavLink className="navbar-brand no-hover" to="/">MealMate</NavLink>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <NavLink className="navbar-brand" to="/">MealMate</NavLink>
         {authState === 'Authenticated' && (
           <button
             className="navbar-toggler"
             type="button"
-            data-toggle="collapse"
-            data-target="#navbarNav"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
             aria-controls="navbarNav"
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <i className="fas fa-bars"></i>
+            <span className="navbar-toggler-icon"></span>
           </button>
         )}
         <div className={`collapse navbar-collapse ${authState === 'Authenticated' ? '' : 'd-none'}`} id="navbarNav">
@@ -24,7 +25,7 @@ export function Navbar({ authState, logout }) {
             {authState === 'Authenticated' && (
               <>
                 <li className="nav-item">
-                  <a className="nav-link no-hover" href="#" title="Notifications">
+                  <a className="nav-link" href="#" title="Notifications">
                     <i className="fa-solid fa-bell notification-icon"></i>
                   </a>
                   <div className="notification-dropdown">
