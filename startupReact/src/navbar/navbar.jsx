@@ -1,12 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AuthState } from '../login/authState';
 
 const Navbar = ({ authState, logout }) => {
-  const [notifications] = useState([
+  const [notifications, setNotifications] = useState([
     { id: 1, message: "[Friend's Name] added an item to the grocery list" },
     { id: 2, message: "[Friend's Name] shared a recipe" }
   ]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setNotifications(prevNotifications => {
+        const newNotifications = [
+          ...prevNotifications,
+          { id: prevNotifications.length + 1, message: "New notification!" }
+        ];
+      
+        return newNotifications.slice(-5);
+      });
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <nav className="navbar navbar-expand-lg">
