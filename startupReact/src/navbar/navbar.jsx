@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AuthState } from '../login/authState';
 
 const Navbar = ({ authState, logout }) => {
+  const [notifications] = useState([
+    { id: 1, message: "[Friend's Name] added an item to the grocery list" },
+    { id: 2, message: "[Friend's Name] shared a recipe" }
+  ]);
+
   return (
     <nav className="navbar navbar-expand-lg">
       <NavLink className="navbar-brand no-hover" to="/">MealMate</NavLink>
@@ -28,8 +33,11 @@ const Navbar = ({ authState, logout }) => {
                   <i className="fa-solid fa-bell notification-icon"></i>
                 </a>
                 <div className="notification-dropdown">
-                  <div className="notification">[Friend's Name] added an item to the grocery list</div>
-                  <div className="notification">[Friend's Name] shared a recipe</div>
+                  {notifications.map((notification) => (
+                    <div key={notification.id} className="notification">
+                      {notification.message}
+                    </div>
+                  ))}
                 </div>
               </li>
               <li className="nav-item">
