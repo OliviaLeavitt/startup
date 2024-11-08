@@ -7,7 +7,6 @@ import { Login } from './login/login';
 import { MealPlan } from './mealplan/mealplan';
 import { Recipe } from './recipe/recipe';
 import { Signup } from './signup/signup';
-
 import { RecipeInstructions } from './recipeInstructions/recipeInstructions';
 import { AuthState } from './login/authState';
 import { Footer } from './footer/footer';
@@ -47,7 +46,6 @@ export default function App() {
           exact
         />
         <Route path="/signup" element={<Signup />} />
-
         <Route path="/grocery" element={<Grocery />} />
         <Route path="/mealplan" element={<MealPlan />} />
         <Route path="/recipe" element={<Recipe />} />
