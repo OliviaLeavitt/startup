@@ -22,6 +22,19 @@ const Navbar = ({ authState, logout }) => {
     return () => clearInterval(interval);
   }, []);
 
+  function handleLogout() {
+    fetch(`/api/auth/logout`, {
+      method: 'delete',
+    })
+      .catch(() => {
+        // Handle logout failure (e.g., offline fallback)
+      })
+      .finally(() => {
+        localStorage.removeItem('userName'); // Remove user-related data
+        logout(); // Call the passed `logout` function
+      });
+  }
+
   return (
     <nav className="navbar navbar-expand-lg">
       <NavLink className="navbar-brand no-hover" to="/">MealMate</NavLink>
@@ -64,9 +77,9 @@ const Navbar = ({ authState, logout }) => {
                 <NavLink className="nav-link" to="/grocery">Grocery List</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link rounded-3" to="/" onClick={logout}>
+                <a className="nav-link rounded-3" href="#" onClick={handleLogout}>
                   Logout
-                </NavLink>
+                </a>
               </li>
             </>
           )}

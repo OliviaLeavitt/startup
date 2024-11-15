@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import { MessageDialog } from './messageDialog';
-import './unauthenticated.css'; // Assuming you have your CSS styles in this file
+import './unauthenticated.css'; 
 
 export function Unauthenticated(props) {
   const [userName, setUserName] = React.useState(props.userName);
@@ -9,13 +9,11 @@ export function Unauthenticated(props) {
   const [displayError, setDisplayError] = React.useState(null);
 
   async function loginUser() {
-    localStorage.setItem('userName', userName);
-    props.onLogin(userName);
+    loginOrCreate(`/api/auth/login`);
   }
 
   async function createUser() {
-    localStorage.setItem('userName', userName);
-    props.onLogin(userName);
+    loginOrCreate(`/api/auth/create`);
   }
 
   return (
