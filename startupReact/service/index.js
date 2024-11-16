@@ -28,40 +28,35 @@ apiRouter.post('/auth/create', async (req, res) => {
 });
 
 app.get('/api/recipes', async (req, res) => {
-  const { cuisine, dietaryPreference, mealType, timeToMake } = req.query; // Destructure all query parameters
+  const { cuisine, dietaryPreference, mealType, timeToMake } = req.query; 
   console.log(cuisine, dietaryPreference, mealType, timeToMake);  // Log values for debugging
 
   const apiKey = '7f91fb8d63024795bcec8b9732208185';
   let apiUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}`;
 
-  // Add cuisine filter to the URL if specified
   if (cuisine && cuisine !== 'all') {
     apiUrl += `&cuisine=${cuisine}`;
   }
-
-  // Add dietary preference filter to the URL if specified
   if (dietaryPreference && dietaryPreference !== 'all') {
     apiUrl += `&diet=${dietaryPreference}`;
   }
-
-  // Add mealType filter to the URL if specified
   if (mealType && mealType !== 'all') {
     apiUrl += `&type=${mealType}`;
   }
-
-  // Add timeToMake filter to the URL if specified
   if (timeToMake && timeToMake !== 'all') {
-    apiUrl += `&maxReadyTime=${timeToMake}`;  // Spoonacular uses `maxReadyTime` for time to make
+    apiUrl += `&maxReadyTime=${timeToMake}`;
   }
 
+  // Fetch from Spoonacular API
   try {
-    console.log('API URL: ', apiUrl);  // Log the URL for debugging
+    console.log("API URL: ", apiUrl)
     const response = await fetch(apiUrl);
+    console.log('response: ', response)
     const data = await response.json();
-    res.json(data.results || []);  // Return the filtered recipes
+    res.json(data.results);  // Send the filtered recipes to the frontend
   } catch (error) {
-    console.error('Error fetching recipes:', error);
-    res.status(500).json({ error: 'Failed to fetch recipes' });
+    console.error('Error fetching from Spoonacular:', error);
+    res.status(500).send('Internal Server Error');
   }
 });
 
