@@ -139,7 +139,7 @@ export function Recipe() {
                   <option value="spanish">Spanish</option>
                   <option value="thai">Thai</option>
                   <option value="vietnamese">Vietnamese</option>
-                  {/* Add more cuisines as necessary */}
+            
                 </select>
               </div>
 
@@ -163,7 +163,7 @@ export function Recipe() {
                   <option value="primal">Primal</option>
                   <option value="low-fodmap">Low FODMAP</option>
                   <option value="whole30">Whole30</option>
-                  {/* Add more dietary preferences as necessary */}
+
                 </select>
               </div>
 

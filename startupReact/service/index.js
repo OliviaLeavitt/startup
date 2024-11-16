@@ -31,8 +31,8 @@ app.get('/api/recipes', async (req, res) => {
   const { cuisine, dietaryPreference, mealType, timeToMake } = req.query; 
   console.log(cuisine, dietaryPreference, mealType, timeToMake);  // Log values for debugging
 
-  const apiKey = '7f91fb8d63024795bcec8b9732208185';
-  let apiUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}`;
+  const apiKey = '8af18130a6e745af86d2389ff16a9e9c';
+  let apiUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&number=100&sort=popularity`;
 
   if (cuisine && cuisine !== 'all') {
     apiUrl += `&cuisine=${cuisine}`;
@@ -46,6 +46,8 @@ app.get('/api/recipes', async (req, res) => {
   if (timeToMake && timeToMake !== 'all') {
     apiUrl += `&maxReadyTime=${timeToMake}`;
   }
+
+  //to do add popularity sorting
 
   // Fetch from Spoonacular API
   try {
