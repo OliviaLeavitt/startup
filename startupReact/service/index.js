@@ -27,6 +27,33 @@ apiRouter.post('/auth/create', async (req, res) => {
   }
 });
 
+app.get('/api/recipes', async (req, res) => {
+  const { cuisine, dietaryPreference } = req.query;
+  console.log(cuisine)
+  const apiKey = '7f91fb8d63024795bcec8b9732208185';
+  let apiUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}`;
+
+  // Add cuisine filter to the URL if specified
+  if (cuisine && cuisine !== 'all') {
+    apiUrl += `&cuisine=${cuisine}`;
+  }
+
+  // Add dietary preference filter to the URL if specified
+  if (dietaryPreference && dietaryPreference !== 'all') {
+    apiUrl += `&diet=${dietaryPreference}`;
+  }
+
+  try {
+    console.log('url: ', apiUrl)
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    res.json(data.results || []); // Return the filtered recipes
+  } catch (error) {
+    console.error('Error fetching recipes:', error);
+    res.status(500).json({ error: 'Failed to fetch recipes' });
+  }
+});
+
 // GetAuth login an existing user
 apiRouter.post('/auth/login', async (req, res) => {
   const user = users[req.body.email];

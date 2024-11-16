@@ -1,10 +1,70 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './recipe.css/'
-
+import './recipe.css';
 
 export function Recipe() {
+  const [recipes, setRecipes] = React.useState([]);
+  const [currentPage, setCurrentPage] = React.useState(0);
+  const [searchTerm, setSearchTerm] = React.useState('');
+  const [cuisine, setCuisine] = React.useState('all');
+  const [dietaryPreference, setDietaryPreference] = React.useState('all');
+  const recipesPerPage = 4;
+
+  // Fetch recipes on component mount
+  React.useEffect(() => {
+    fetch('/api/recipes')
+      .then((response) => response.json())
+      .then((data) => {
+        setRecipes(data);
+      })
+      .catch((error) => console.error('Error fetching recipes:', error));
+  }, []);
+
+  // Function to handle the "next" button click
+  const handleNextPage = () => {
+    if ((currentPage + 1) * recipesPerPage < recipes.length) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  // Function to handle the "previous" button click
+  const handlePrevPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  // Slice the recipes array to display the correct page
+  const displayedRecipes = recipes.slice(currentPage * recipesPerPage, (currentPage + 1) * recipesPerPage);
+
+  // Function to apply filters
+  const handleFilter = () => {
+    fetch('/api/recipes', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ cuisine, dietaryPreference }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setRecipes(data);
+        setCurrentPage(0); // Reset to the first page after filtering
+      })
+      .catch((error) => console.error('Error applying filters:', error));
+  };
+
+  // Search handler
+  const handleSearch = () => {
+    if (searchTerm.trim() === '') {
+      return;
+    }
+
+    const filteredRecipes = recipes.filter((recipe) =>
+      recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setRecipes(filteredRecipes);
+  };
+
   return (
     <div>
       <main className="container mt-4">
@@ -15,9 +75,18 @@ export function Recipe() {
             <p className="lead">Explore a variety of cuisines and dietary options tailored to your taste.</p>
             <div className="d-flex justify-content-center">
               <div className="input-group mb-3" style={{ maxWidth: '500px', width: '100%' }}>
-                <input type="text" className="form-control" id="recipe-search" placeholder="Search for recipes..." />
+                <input
+                  type="text"
+                  className="form-control"
+                  id="recipe-search"
+                  placeholder="Search for recipes..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
                 <div className="input-group-append">
-                  <button className="btn btn-custom" id="search-button">Search</button>
+                  <button className="btn btn-custom" id="search-button" onClick={handleSearch}>
+                    Search
+                  </button>
                 </div>
               </div>
             </div>
@@ -31,16 +100,20 @@ export function Recipe() {
             <div className="form-row">
               <div className="form-group col-md-6">
                 <label htmlFor="cuisine">Cuisine:</label>
-                <select id="cuisine" className="form-control">
+                <select id="cuisine" className="form-control" onChange={(e) => setCuisine(e.target.value)}>
                   <option value="all">All</option>
                   <option value="italian">Italian</option>
-                  <option value="mexican">Mexican</option>
+                  <option value="mexican">mexican</option>
                   <option value="asian">Asian</option>
                 </select>
               </div>
               <div className="form-group col-md-6">
                 <label htmlFor="dietary-preference">Dietary Preference:</label>
-                <select id="dietary-preference" className="form-control">
+                <select
+                  id="dietary-preference"
+                  className="form-control"
+                  onChange={(e) => setDietaryPreference(e.target.value)}
+                >
                   <option value="all">All</option>
                   <option value="vegan">Vegan</option>
                   <option value="vegetarian">Vegetarian</option>
@@ -48,71 +121,59 @@ export function Recipe() {
                 </select>
               </div>
             </div>
-            <button className="btn btn-secondary" id="filter-button">Filter</button>
+            <button className="btn btn-secondary" id="filter-button" onClick={handleFilter}>
+              Filter
+            </button>
           </div>
         </section>
 
         {/* Filtered Recipes Section */}
-        <section className="filtered-recipes-section py-5">
-          <div className="wrapper">
-            <div className="container text-center">
-              <h2 className="mb-4">Filtered Recipes</h2>
-              <p className="mb-5">Explore filtered recipes tailored just for you, making your cooking experience effortless!</p>
-              <div className="d-flex align-items-center justify-content-center">
-                <button className="btn btn-secondary d-none d-md-block" id="prevButton" style={{ margin: '0 10px' }}><i className="fas fa-chevron-left"></i></button>
-                <div className="recipe-cards-container overflow-auto">
+        {(cuisine !== 'all' || dietaryPreference !== 'all') && (
+          <section className="filtered-recipes-section py-5">
+            <div className="wrapper">
+              <div className="container text-center">
+                <h2 className="mb-4">Filtered Recipes</h2>
+                <p className="mb-5">Explore filtered recipes tailored just for you!</p>
+                <div className="d-flex align-items-center justify-content-center">
+                  <button
+                    className="btn btn-secondary"
+                    id="prevButton"
+                    onClick={handlePrevPage}
+                    style={{ margin: '0 10px' }}
+                    disabled={currentPage === 0}
+                  >
+                    <i className="fas fa-chevron-left"></i>
+                  </button>
+
                   <div className="card-group">
-                    {[...Array(4)].map((_, index) => (
+                    {displayedRecipes.map((recipe, index) => (
                       <div className="card mx-2 text-decoration-none" key={index}>
-                        <Link to="/recipeInstructions"> {/* Use Link instead of a */}
-                          <img src="recipe-image.jpg" className="card-img-top" alt={`Recipe Image ${index + 1}`} />
+                        <Link to="/recipeInstructions">
+                          <img src={recipe.image} className="card-img-top" alt={recipe.title} />
                           <div className="card-body">
-                            <h5 className="card-title">Recipe Title {index + 1}</h5>
+                            <h5 className="card-title">{recipe.title}</h5>
                           </div>
                         </Link>
-                        <button className="btn btn-primary mt-3 mb-2 addToMyRecipeButton" style={{ fontSize: '0.9rem', padding: '0.4rem 1rem', margin: '0 10px' }}>Add to My Recipes</button>
+                        <button className="btn btn-primary mt-3 mb-2 addToMyRecipeButton">
+                          Add to My Recipes
+                        </button>
                       </div>
                     ))}
                   </div>
+
+                  <button
+                    className="btn btn-secondary"
+                    id="nextButton"
+                    onClick={handleNextPage}
+                    disabled={(currentPage + 1) * recipesPerPage >= recipes.length}
+                  >
+                    <i className="fas fa-chevron-right"></i>
+                  </button>
                 </div>
-                <button className="btn btn-secondary d-none d-md-block" id="nextButton" style={{ margin: '0 10px' }}><i className="fas fa-chevron-right"></i></button>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* Recommended Recipes Section */}
-        <section className="recommended-recipes-section py-5">
-          <div className="wrapper">
-            <div className="container text-center">
-              <h2 className="mb-4">Recommended Recipes</h2>
-              <p className="mb-5">These recipes are fetched from our database based on your preferences.</p>
-              <div className="d-flex align-items-center justify-content-center">
-                <button className="btn btn-secondary d-none d-md-block" id="prevButton" style={{ margin: '0 10px' }}><i className="fas fa-chevron-left"></i></button>
-                <div className="recipe-cards-container overflow-auto">
-                  <div className="card-group">
-                    {[...Array(4)].map((_, index) => (
-                      <div className="card mx-2 text-decoration-none" key={index}>
-                        <Link to="/recipeInstructions"> {/* Use Link instead of a */}
-                          <img src="recipe-image.jpg" className="card-img-top" alt={`Recipe Image ${index + 1}`} />
-                          <div className="card-body">
-                            <h5 className="card-title">Recipe Title {index + 1}</h5>
-                          </div>
-                        </Link>
-                        <button className="btn btn-primary mt-3 mb-2 btn-custom addToMyRecipeButton" style={{ fontSize: '0.9rem', padding: '0.4rem 1rem', margin: '0 10px' }}>Add to My Recipes</button>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <button className="btn btn-secondary d-none d-md-block" id="nextButton" style={{ margin: '0 10px' }}><i className="fas fa-chevron-right"></i></button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          test
-        </section>
+          </section>
+        )}
       </main>
     </div>
   );
