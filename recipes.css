@@ -80,6 +80,7 @@ p {
     font-weight: 700;  
     font-size: 1rem; 
     font-family: 'Afacad Flux', sans-serif;
+    border-radius: 8px !important;
 }
 
 .btn.btn-primary {

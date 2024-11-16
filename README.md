@@ -130,4 +130,24 @@ For this deliverable, I properly styled the application into its final appearanc
 - Application text content: Focused on clarity with consistent font sizes and colors for all text elements.
 - Application images: All images are responsive and maintain proper ratios.
 - Placeholder data: Styled the login form to display "Welcome, username!" and included a bell icon for WebSocket data.
-- Recommended recipes section: I designed the recommended recipes section in my CSS to serve as a placeholder for future data from a third-party web service. When the application is set up to connect to an external recipe service, this section will automatically update to display the recommended recipes. 
+- Recommended recipes section: I designed the recommended recipes section in my CSS to serve as a placeholder for future data from a third-party web service. When the application is set up to connect to an external recipe service, this section will automatically update to display the recommended recipes.
+
+## React Startup
+I created this deliverable using JavaScript and React, allowing the application to function fully for a user, with placeholders set up for future technologies.
+- Bundling and transpiling – completed!
+- Components – Implemented the main components: login, meal planner, and recipe search, with placeholder mocks for websocket and login.
+- When you press enter or the login button it takes you to a authenticated page that is basically the home page.
+- Database – Displayed user meal plans and saved recipes, currently stored and retrieved from local storage, with plans to replace this with a database data later.
+- WebSocket Simulation - I used the setInterval function to add new notifications to the list every five seconds. In the future, this will be replaced with WebSocket messages to automatically receive updates from the server.
+-Application Logic - The app allows users to add, edit, and remove items from the grocery list, updating the list dynamically based on user actions.
+- Router - The app uses React Router to handle routing between different components such as Login, Signup, Grocery, Meal Plan, Recipe, and Recipe Instructions. The routing ensures that users are directed to the appropriate page based on their authentication state.
+- Hooks - The app uses React's useState hook to keep track of and update things like the username and login status. This helps the app update the screen automatically when something changes.
+
+
+
+
+
+
+
+
+
