@@ -143,6 +143,39 @@ I created this deliverable using JavaScript and React, allowing the application 
 - Router - The app uses React Router to handle routing between different components such as Login, Signup, Grocery, Meal Plan, Recipe, and Recipe Instructions. The routing ensures that users are directed to the appropriate page based on their authentication state.
 - Hooks - The app uses React's useState hook to keep track of and update things like the username and login status. This helps the app update the screen automatically when something changes.
 
+## Startup Service
+
+## Backend Service (Node.js/Express)
+- **Status**: Done!
+- Set up a Node.js/Express service to handle user authentication, recipe management, and scoring.
+
+---
+
+## Frontend Served via Express Static Middleware
+- **Status**: Done!
+- Served HTML, CSS, and JavaScript via Express static middleware, making the app available to the browser.
+
+---
+
+## Service Endpoints
+
+### Authentication:
+- `POST /api/auth/create` - Registers a new user.
+- `POST /api/auth/login` - Logs in an existing user.
+- `DELETE /api/auth/logout` - Logs out the user.
+
+### Recipe Management:
+- `GET /api/recipes` - Fetches recipes from Spoonacular API.
+- `POST /api/addToMyRecipes` - Adds a recipe to the user's list.
+
+## Third-Party API
+- **Spoonacular API**: Fetched recipes using the Spoonacular API to search by cuisine, dietary preferences, etc.
+
+---
+
+## Frontend API Calls
+- Used `fetch()` to call the backend for user authentication and recipe management.
+
 
 
 

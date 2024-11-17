@@ -23,7 +23,7 @@ apiRouter.post('/addToMyRecipes', (req, res) => {
     return res.status(400).json({ success: false, message: 'Recipe ID is required' });
   }
 
-  myRecipes.push(recipeId);  // Add the recipe ID to the list
+  myRecipes.push(recipeId); 
   res.json({ success: true, message: 'Recipe added to your list!' });
   console.log(myRecipes)
 });
@@ -64,7 +64,7 @@ app.get('/api/recipes', async (req, res) => {
   try {
     const response = await fetch(apiUrl);
     const data = await response.json();
-    res.json(data.results);  // Send the filtered recipes to the frontend
+    res.json(data.results);
   } catch (error) {
     console.error('Error fetching from Spoonacular:', error);
     res.status(500).send('Internal Server Error');
