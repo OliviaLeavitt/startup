@@ -4,6 +4,7 @@ const app = express();
 
 let users = {};
 let scores = [];
+let myRecipes = [];
 
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
 
@@ -13,6 +14,20 @@ app.use(express.static('public'));
 
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
+
+
+apiRouter.post('/addToMyRecipes', (req, res) => {
+  const { recipeId } = req.body;
+
+  if (!recipeId) {
+    return res.status(400).json({ success: false, message: 'Recipe ID is required' });
+  }
+
+  myRecipes.push(recipeId);  // Add the recipe ID to the list
+  res.json({ success: true, message: 'Recipe added to your list!' });
+  console.log(myRecipes)
+});
+
 
 // CreateAuth a new user
 apiRouter.post('/auth/create', async (req, res) => {

@@ -2,10 +2,25 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+// Utility function to clean and parse HTML
+const parseHtmlContent = (content) => {
+  if (!content) return '';
+
+  // Replace <b> tags and other unnecessary tags with bolded text
+  const cleanedContent = content
+    .replace(/<b>/g, '') // Replace <b> with markdown bold (**)
+    .replace(/<\/b>/g, '') // Replace </b> with markdown bold
+    .replace(/<em>/g, '') // Replace <em> with markdown italics (*)
+    .replace(/<\/em>/g, '') // Replace </em> with markdown italics
+    .replace(/<\/?[^>]+(>|$)/g, ''); // Remove any remaining HTML tags
+
+  return cleanedContent;
+};
+
 export function RecipeInstructions() {
   const { id } = useParams();
-  const [instructions, setInstructions] = React.useState(null);  
-  const [error, setError] = React.useState(null);  
+  const [instructions, setInstructions] = React.useState(null);
+  const [error, setError] = React.useState(null);
   const [recipe, setRecipe] = React.useState(null);
 
   React.useEffect(() => {
@@ -19,18 +34,41 @@ export function RecipeInstructions() {
       .then((data) => {
         setRecipe(data);
         const steps = data.analyzedInstructions[0]?.steps || [];
-        setInstructions(steps);  
+        setInstructions(steps);
       })
       .catch((error) => {
         setError(error.message);
       });
   }, [id]);
 
+  // Handler for the "Add to My Recipes" button
+  const handleAddToMyRecipes = () => {
+    fetch('/api/addToMyRecipes', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ recipeId: id }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          alert(`${recipe.title} has been added to your recipes!`);
+        } else {
+          alert('Failed to add recipe to your list.');
+        }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        alert('There was an error adding the recipe.');
+      });
+  };
+
   return (
     <div>
       {/* Recipe Details Section */}
       <section id="recipe-details" className="container mt-5">
-        <h1 id="recipe-title" className="text-center mb-4">
+        <h1 id="recipe-title" className="mb-4 text-left">
           {recipe ? recipe.title : 'Loading...'}
         </h1>
 
@@ -38,14 +76,16 @@ export function RecipeInstructions() {
         <div className="row mb-4">
           {/* Time to Make */}
           <div className="col-md-6 mb-3">
-            <h5>Time to Make</h5>
-            <p>{recipe?.readyInMinutes ? `${recipe.readyInMinutes} minutes` : 'Time not available'}</p>
+            <h5 className="text-left">Time to Make</h5>
+            <p className="text-left">{recipe?.readyInMinutes ? `${recipe.readyInMinutes} minutes` : 'Time not available'}</p>
           </div>
 
           {/* Recipe Summary */}
           <div className="col-md-12">
-            <h5>Recipe Summary</h5>
-            <p>{recipe?.summary ? recipe.summary : 'No summary available for this recipe.'}</p>
+            <h5 className="text-left">Recipe Summary</h5>
+            <p className="text-left">
+              {recipe?.summary ? parseHtmlContent(recipe.summary) : 'No summary available for this recipe.'}
+            </p>
           </div>
         </div>
 
@@ -60,8 +100,8 @@ export function RecipeInstructions() {
         )}
 
         {/* Ingredients Section */}
-        <h2>Ingredients</h2>
-        <ul id="ingredients-list" className="list-unstyled">
+        <h2 className="text-left">Ingredients</h2>
+        <ul id="ingredients-list" className="list-unstyled text-left">
           {recipe?.extendedIngredients?.map((ingredient) => (
             <li key={ingredient.id}>
               • {ingredient.original}
@@ -70,21 +110,28 @@ export function RecipeInstructions() {
         </ul>
 
         {/* Instructions Section */}
-        <h2>Instructions</h2>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
+        {instructions && instructions.length > 0 && (
+          <>
+            <h2 className="text-left">Instructions</h2>
+            {error && <p style={{ color: 'red' }}>{error}</p>}
+            <div id="instructions" className="text-left">
+              <ul>
+                {instructions.map((step, index) => (
+                  <li key={index}>{step.step}</li>
+                ))}
+              </ul>
+            </div>
+          </>
+        )}
 
-        <div id="instructions">
-          {instructions ? (
-            <ol>
-              {instructions.map((step) => (
-                <li key={step.number}>
-                  <strong>Step {step.number}:</strong> {step.step}
-                </li>
-              ))}
-            </ol>
-          ) : (
-            <p>Loading instructions...</p>
-          )}
+        {/* Add to My Recipes Button */}
+        <div className="d-flex justify-content-start mt-4">
+          <button
+            onClick={handleAddToMyRecipes}
+            className="btn btn-primary btn-lg me-4"
+          >
+            Add to My Recipes
+          </button>
         </div>
       </section>
 
