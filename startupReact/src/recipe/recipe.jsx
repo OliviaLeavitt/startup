@@ -238,7 +238,7 @@ export function Recipe() {
                   <div className="card-group">
                     {displayedRecipes.map((recipe, index) => (
                       <div className="card mx-2 text-decoration-none" key={index}>
-                        <Link to="/recipeInstructions">
+                        <Link to={`/recipeInstructions/${recipe.id}`}>
                           <img src={recipe.image} className="card-img-top" alt={recipe.title} />
                           <div className="card-body">
                             <h5 className="card-title">{recipe.title}</h5>

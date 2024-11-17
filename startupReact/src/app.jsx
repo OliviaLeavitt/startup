@@ -49,7 +49,7 @@ export default function App() {
         <Route path="/grocery" element={<Grocery />} />
         <Route path="/mealplan" element={<MealPlan />} />
         <Route path="/recipe" element={<Recipe />} />
-        <Route path="/recipeInstructions" element={<RecipeInstructions />} />
+        <Route path="/recipeInstructions/:id" element={<RecipeInstructions />} /> 
         <Route path="*" element={<NotFound />} />
       </Routes>
 
