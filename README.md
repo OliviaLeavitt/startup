@@ -147,8 +147,7 @@ I created this deliverable using JavaScript and React, allowing the application 
 
 ## Backend Service (Node.js/Express)
 - **Status**: Done!
-- Set up a Node.js/Express service to handle user authentication, recipe management, and scoring.
-
+- Set up a Node.js/Express service to handle user authentication, recipe management
 ---
 
 ## Frontend Served via Express Static Middleware
