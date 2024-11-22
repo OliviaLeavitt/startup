@@ -1,6 +1,9 @@
 const express = require('express');
-const uuid = require('uuid');
+const cookieParser = require('cookie-parser');
+const bcrypt = require('bcrypt');
 const app = express();
+const DB = require('./database.js'); 
+const authCookieName = 'token';
 
 let users = {};
 let scores = [];
