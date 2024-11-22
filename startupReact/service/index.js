@@ -6,7 +6,7 @@ let users = {};
 let scores = [];
 let myRecipes = [];
 
-const port = process.argv.length > 2 ? process.argv[2] : 3000;
+const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
 app.use(express.json());
 
