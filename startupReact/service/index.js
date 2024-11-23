@@ -78,16 +78,15 @@ secureApiRouter.use(async (req, res, next) => {
 });
 
 
-apiRouter.post('/addToMyRecipes', (req, res) => {
+apiRouter.post('/addToMyRecipes', async (req, res) => {
   const { recipeId } = req.body;
 
   if (!recipeId) {
     return res.status(400).json({ success: false, message: 'Recipe ID is required' });
   }
 
-  myRecipes.push(recipeId); 
+  await DB.addRecipeId(recipeId); 
   res.json({ success: true, message: 'Recipe added to your list!' });
-  console.log(myRecipes)
 });
 
 app.get('/api/recipes', async (req, res) => {

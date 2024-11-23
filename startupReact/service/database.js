@@ -7,7 +7,7 @@ const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostna
 const client = new MongoClient(url, {tls:true, serverSelectionTimeoutMS:3000, autoSelectFamily: false,});
 const db = client.db('startup');
 const userCollection = db.collection('user');
-const scoreCollection = db.collection('score');
+const usersRecipeIds = db.collection('recipeIds');
 
 // This will asynchronously test the connection and exit the process if it fails
 (async function testConnection() {
@@ -40,8 +40,10 @@ async function createUser(email, password) {
   return user;
 }
 
-async function addScore(score) {
-  return scoreCollection.insertOne(score);
+async function addRecipeId(recipeId) {
+  const recipe = { recipeId };  // Ensure you're passing an object
+  const result = await db.collection('recipes').insertOne(recipe);
+  return result;
 }
 
 function getHighScores() {
@@ -58,6 +60,6 @@ module.exports = {
   getUser,
   getUserByToken,
   createUser,
-  addScore,
+  addRecipeId,
   getHighScores,
 };
