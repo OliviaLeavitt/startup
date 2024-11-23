@@ -81,8 +81,4 @@ module.exports = {
   createUser,
   addRecipeId,
   getUserSavedRecipes,
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> 2810120894fc9f4b4138a8ec0d44530469915324
