@@ -345,16 +345,17 @@ export function Recipe() {
       <p className="mb-5">Here are the recipes you’ve saved!</p>
       <div className="row">
         {savedRecipes.length > 0 ? (
-          savedRecipes.map((recipe) => (
-            <div key={recipe.id} className="col-md-3 mb-3">
-              <div className="card">
-                <Link to={`/recipeInstructions/${recipe.id}`} className="text-decoration-none">
+          savedRecipes.map((recipe, index) => (
+            <div key={index} className="col-md-3 mb-3">
+              <div className="card" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+                <Link to={`/recipeInstructions/${recipe.id}`} className="text-decoration-none" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
                   <img
-                    src={recipe.image || 'path/to/default-image.jpg'} // Fallback image
+                    src={recipe.image}
                     className="card-img-top"
                     alt={recipe.title}
+                    style={{ height: '200px', objectFit: 'cover' }}
                   />
-                  <div className="card-body">
+                  <div className="card-body" style={{ flexGrow: '1' }}>
                     <h5 className="card-title">{recipe.title}</h5>
                     <p className="card-text">{recipe.shortDescription}</p>
                   </div>
@@ -369,8 +370,6 @@ export function Recipe() {
     </div>
   </div>
 </section>
-
-
 
 
       </main>
