@@ -78,15 +78,28 @@ secureApiRouter.use(async (req, res, next) => {
 });
 
 
+// In your route handler
 apiRouter.post('/addToMyRecipes', async (req, res) => {
   const { recipeId } = req.body;
+  
+  const authToken = req.cookies[authCookieName];
+
+  const user = await DB.getUserByToken(authToken);
+
+  if (!user) {
+    return res.status(401).json({ success: false, message: 'Unauthorized' });
+  }
 
   if (!recipeId) {
     return res.status(400).json({ success: false, message: 'Recipe ID is required' });
   }
 
-  await DB.addRecipeId(recipeId); 
-  res.json({ success: true, message: 'Recipe added to your list!' });
+  try {
+    await DB.addRecipeId(user._id, recipeId); 
+    res.json({ success: true, message: 'Recipe added to your list!' });
+  } catch (error) {
+    res.status(500).json({ success: false, message: 'Error adding recipe to your list' });
+  }
 });
 
 app.get('/api/recipes', async (req, res) => {
