@@ -343,11 +343,23 @@ export function Recipe() {
     <div className="container text-center">
       <h2 className="mb-4">My Saved Recipes</h2>
       <p className="mb-5">Here are the recipes you’ve saved!</p>
-      <div className="d-flex flex-column align-items-center">
+      <div className="row">
         {savedRecipes.length > 0 ? (
-          savedRecipes.map((recipe, index) => (
-            <div key={index} className="saved-recipe-card mb-3">
-              <h5 className="saved-recipe-title">{recipe.title}</h5>
+          savedRecipes.map((recipe) => (
+            <div key={recipe.id} className="col-md-3 mb-3">
+              <div className="card">
+                <Link to={`/recipeInstructions/${recipe.id}`} className="text-decoration-none">
+                  <img
+                    src={recipe.image || 'path/to/default-image.jpg'} // Fallback image
+                    className="card-img-top"
+                    alt={recipe.title}
+                  />
+                  <div className="card-body">
+                    <h5 className="card-title">{recipe.title}</h5>
+                    <p className="card-text">{recipe.shortDescription}</p>
+                  </div>
+                </Link>
+              </div>
             </div>
           ))
         ) : (
@@ -357,6 +369,7 @@ export function Recipe() {
     </div>
   </div>
 </section>
+
 
 
 
