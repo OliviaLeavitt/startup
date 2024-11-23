@@ -1,7 +1,6 @@
 const express = require('express');
 const uuid = require('uuid');
 const app = express();
-const cookieParser = require('cookie-parser');
 
 let users = {};
 let scores = [];
@@ -15,8 +14,6 @@ app.use(express.static('public'));
 
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
-
-app.use(cookieParser());
 
 
 apiRouter.post('/addToMyRecipes', (req, res) => {
