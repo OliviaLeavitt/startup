@@ -25,9 +25,6 @@ app.set('trust proxy', true);
 const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
-let users = {};
-let scores = [];
-let myRecipes = [];
 
 apiRouter.post('/auth/create', async (req, res) => {
   if (await DB.getUser(req.body.email)) {
@@ -77,16 +74,55 @@ secureApiRouter.use(async (req, res, next) => {
   }
 });
 
+apiRouter.get('/getMyRecipes', async (req, res) => {
+  const authToken = req.cookies[authCookieName];
 
+  // Retrieve user from token
+  const user = await DB.getUserByToken(authToken);
+
+  if (!user) {
+    return res.status(401).json({ success: false, message: 'Unauthorized' });
+  }
+
+  try {
+    // Retrieve the user's saved recipe IDs from the database
+    const savedRecipes = await DB.getUserSavedRecipes(user._id);
+
+    if (savedRecipes && savedRecipes.recipes) {
+      res.json({ success: true, recipes: savedRecipes.recipes });
+    } else {
+      res.status(404).json({ success: false, message: 'No saved recipes found' });
+    }
+  } catch (error) {
+    console.error('Error retrieving saved recipes:', error);
+    res.status(500).json({ success: false, message: 'Error retrieving saved recipes' });
+  }
+});
+
+
+
+// In your route handler
 apiRouter.post('/addToMyRecipes', async (req, res) => {
   const { recipeId } = req.body;
+  
+  const authToken = req.cookies[authCookieName];
+
+  const user = await DB.getUserByToken(authToken);
+
+  if (!user) {
+    return res.status(401).json({ success: false, message: 'Unauthorized' });
+  }
 
   if (!recipeId) {
     return res.status(400).json({ success: false, message: 'Recipe ID is required' });
   }
 
-  await DB.addRecipeId(recipeId); 
-  res.json({ success: true, message: 'Recipe added to your list!' });
+  try {
+    await DB.addRecipeId(user._id, recipeId); 
+    res.json({ success: true, message: 'Recipe added to your list!' });
+  } catch (error) {
+    res.status(500).json({ success: false, message: 'Error adding recipe to your list' });
+  }
 });
 
 app.get('/api/recipes', async (req, res) => {

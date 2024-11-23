@@ -34,32 +34,51 @@ async function createUser(email, password) {
     email: email,
     password: passwordHash,
     token: uuid.v4(),
+    recipes: [],
   };
   await userCollection.insertOne(user);
 
   return user;
 }
 
-async function addRecipeId(recipeId) {
-  const recipe = { recipeId };  // Ensure you're passing an object
-  const result = await db.collection('recipes').insertOne(recipe);
-  return result;
+async function addRecipeId(userId, recipeId) {
+  try {
+    const result = await userCollection.updateOne(
+      { _id: userId },  // Find the user by their ID
+      { $addToSet: { recipes: recipeId } }  // Add recipeId to the recipes array only if it's not already present
+    );
+    return result;
+  } catch (error) {
+    console.error('Error adding recipe ID to user:', error);
+  }
 }
 
-function getHighScores() {
-  const query = { score: { $gt: 0, $lt: 900 } };
-  const options = {
-    sort: { score: -1 },
-    limit: 10,
-  };
-  const cursor = scoreCollection.find(query, options);
-  return cursor.toArray();
+
+async function getUserSavedRecipes(userId) {
+  try {
+    // Find the user by their ID and return the 'recipes' array
+    const user = await userCollection.findOne({ _id: userId }, { projection: { recipes: 1 } });
+
+    if (!user) {
+      return { message: "User not found." };
+    }
+
+    // Return the list of saved recipe IDs
+    return { recipes: user.recipes };
+  } catch (error) {
+    console.error('Error retrieving saved recipes for user:', error);
+    return { message: "There was an error retrieving your saved recipes." };
+  }
 }
+
+
+
+
 
 module.exports = {
   getUser,
   getUserByToken,
   createUser,
   addRecipeId,
-  getHighScores,
+  getUserSavedRecipes,
 };

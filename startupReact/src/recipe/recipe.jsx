@@ -12,17 +12,89 @@ export function Recipe() {
   const [mealType, setMealType] = React.useState('all');
   const [timeToMake, setTimeToMake] = React.useState('all');
   const [filteredRecipes, setFilteredRecipes] = React.useState([]);
+  const [savedRecipes, setSavedRecipes] = React.useState([]);
+  const [recipeIds, setRecipeIds] = React.useState([]);  // Added missing state
+  const [loading, setLoading] = React.useState(true);    // Added missing state
   const recipesPerPage = 4;
 
+  // Fetch initial recipes
   React.useEffect(() => {
     fetch('/api/recipes')
       .then((response) => response.json())
       .then((data) => {
         setRecipes(data);
         setFilteredRecipes(data);
+        setLoading(false);
       })
-      .catch((error) => console.error('Error fetching recipes:', error));
+      .catch((error) => {
+        console.error('Error fetching recipes:', error);
+        setLoading(false);
+      });
   }, []);
+
+  // Fetch saved recipe IDs
+  React.useEffect(() => {
+    const fetchRecipeIds = async () => {
+      try {
+        const response = await fetch('/api/getMyRecipes');
+        const data = await response.json();
+        console.log('Fetched recipe IDs:', data);  // Add this log
+        setRecipeIds(data.recipes);  // Assuming data is an array of IDs
+      } catch (error) {
+        console.error('Error fetching recipe IDs:', error);
+      }
+    };
+
+    fetchRecipeIds();
+  }, []);
+
+  // Fetch recipe details once recipe IDs are set
+  React.useEffect(() => {
+    if (recipeIds.length > 0) {
+      const fetchRecipes = async () => {
+        try {
+          const recipeDetails = await Promise.all(
+            recipeIds.map(async (id) => {
+              const response = await fetch(`/api/recipeInstructions/${id}`);
+              return await response.json();
+            })
+          );
+          setSavedRecipes(recipeDetails);  // Save the recipe details
+          console.log('Saved recipes:', recipeDetails);  // Log saved recipes
+        } catch (error) {
+          console.error('Error fetching saved recipes:', error);
+        } finally {
+          setLoading(false);
+        }
+      };
+
+      fetchRecipes();
+    }
+  }, [recipeIds]);  // Depend on recipeIds
+
+  // Function to fetch recipe name (if needed)
+  const fetchRecipeName = async (id) => {
+    const response = await fetch(`/api/recipeInstructions/${id}`);
+    const data = await response.json();
+    return data.title;  // Return the recipe name (title)
+  };
+
+  // Function to fetch and display recipe names
+  const fetchAllRecipeNames = async () => {
+    const names = [];
+    for (const id of recipeIds) {
+      const name = await fetchRecipeName(id);
+      names.push(name);
+    }
+    console.log(names);  // Log all the fetched names
+  };
+
+  // Call the function to fetch and display recipe names
+  React.useEffect(() => {
+    if (recipeIds.length > 0) {
+      fetchAllRecipeNames();
+    }
+  }, [recipeIds]);  // Run when recipeIds are updated
 
   const handleNextPage = () => {
     if ((currentPage + 1) * recipesPerPage < filteredRecipes.length) {
@@ -258,11 +330,36 @@ export function Recipe() {
                   >
                     <i className="fas fa-chevron-right"></i>
                   </button>
+
                 </div>
               </div>
             </div>
           </section>
         )}
+
+{/* Saved Recipes Section */}
+<section className="saved-recipes-section py-5">
+  <div className="wrapper">
+    <div className="container text-center">
+      <h2 className="mb-4">My Saved Recipes</h2>
+      <p className="mb-5">Here are the recipes you’ve saved!</p>
+      <div className="d-flex flex-column align-items-center">
+        {savedRecipes.length > 0 ? (
+          savedRecipes.map((recipe, index) => (
+            <div key={index} className="saved-recipe-card mb-3">
+              <h5 className="saved-recipe-title">{recipe.title}</h5>
+            </div>
+          ))
+        ) : (
+          <p>No saved recipes found.</p>
+        )}
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
       </main>
     </div>
   );
