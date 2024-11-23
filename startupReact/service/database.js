@@ -54,20 +54,31 @@ async function addRecipeId(userId, recipeId) {
 }
 
 
-function getHighScores() {
-  const query = { score: { $gt: 0, $lt: 900 } };
-  const options = {
-    sort: { score: -1 },
-    limit: 10,
-  };
-  const cursor = scoreCollection.find(query, options);
-  return cursor.toArray();
+async function getUserSavedRecipes(userId) {
+  try {
+    // Find the user by their ID and return the 'recipes' array
+    const user = await userCollection.findOne({ _id: userId }, { projection: { recipes: 1 } });
+
+    if (!user) {
+      return { message: "User not found." };
+    }
+
+    // Return the list of saved recipe IDs
+    return { recipes: user.recipes };
+  } catch (error) {
+    console.error('Error retrieving saved recipes for user:', error);
+    return { message: "There was an error retrieving your saved recipes." };
+  }
 }
+
+
+
+
 
 module.exports = {
   getUser,
   getUserByToken,
   createUser,
   addRecipeId,
-  getHighScores,
+  getUserSavedRecipes,
 };
