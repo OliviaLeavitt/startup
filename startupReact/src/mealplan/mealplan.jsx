@@ -1,12 +1,56 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './mealplan.css/'
+import './mealplan.css';
 
 export function MealPlan() {
+  const [savedRecipes, setSavedRecipes] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedRecipe, setSelectedRecipe] = useState(null);
+  const [mealPlan, setMealPlan] = useState({});
+
+  // Fetch saved recipes
+  useEffect(() => {
+    const fetchSavedRecipes = async () => {
+      try {
+        const response = await fetch('/api/getMyRecipes');
+        const data = await response.json();
+        const recipeIds = data.recipes;
+
+        if (recipeIds.length > 0) {
+          const recipeDetails = await Promise.all(
+            recipeIds.map(async (id) => {
+              const res = await fetch(`/api/recipeInstructions/${id}`);
+              return await res.json();
+            })
+          );
+          setSavedRecipes(recipeDetails);
+        }
+      } catch (error) {
+        console.error('Error fetching saved recipes:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchSavedRecipes();
+  }, []);
+
+  // Function to handle adding a recipe to the calendar
+  const handleAddToCalendar = (recipe) => {
+    setSelectedRecipe(recipe); // Store selected recipe
+  };
+
+  // Function to handle assigning the recipe to a specific meal slot
+  const assignRecipeToSlot = (day, meal) => {
+    setMealPlan((prevPlan) => ({
+      ...prevPlan,
+      [`${day}-${meal}`]: selectedRecipe,
+    }));
+    setSelectedRecipe(null); // Clear selection after assigning
+  };
+
   return (
     <div>
-
-      {/* Main Content */}
       <div className="container-fluid">
         <div className="row">
           {/* Sidebar for Recipes */}
@@ -14,48 +58,55 @@ export function MealPlan() {
             <div className="sidebar-sticky">
               <h4>My Recipes</h4>
               <div className="recipe-container" style={{ maxHeight: '400px', overflowY: 'auto' }}>
-                {[...Array(3)].map((_, index) => (
-                  <div className="card recipe-card" key={index}>
-                    <img src="recipe-image.jpg" className="card-img-top" alt="Placeholder Recipe" />
-                    <div className="card-body">
-                      <h5 className="card-title">Recipe Name</h5>
-                      <div className="d-flex justify-content-between">
-                        <button className="btn btn-share btn-sm mr-2">Share Recipe</button>
-                        <button className="btn btn-calendar btn-sm">Add to Calendar</button>
+                {loading ? (
+                  <p>Loading saved recipes...</p>
+                ) : savedRecipes.length > 0 ? (
+                  savedRecipes.map((recipe, index) => (
+                    <div className="card recipe-card mb-3" key={recipe.id || index}>
+                      <img src={recipe.image || 'recipe-image.jpg'} className="card-img-top" alt={recipe.title || 'Recipe'} />
+                      <div className="card-body">
+                        <h5 className="card-title">{recipe.title}</h5>
+                        <button
+                          className="btn btn-calendar btn-sm"
+                          onClick={() => handleAddToCalendar(recipe)}
+                        >
+                          Add to Calendar
+                        </button>
                       </div>
                     </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-3">
-                <button className="btn btn-block mb-2">Make Shopping List</button>
-                <button className="btn btn-block">Invite Friend</button>
+                  ))
+                ) : (
+                  <p>No saved recipes found.</p>
+                )}
               </div>
             </div>
           </nav>
 
+          {/* Main Planner Section */}
           <main className="col-md-9 ml-sm-auto col-lg-9 px-4">
             <div className="hero">
               <h2>Your Meal Planner</h2>
             </div>
 
-            <div className="navigation mb-3 d-flex justify-content-between align-items-center">
-              <button className="btn btn-secondary" id="prevWeek">Prev</button>
-              <span className="week-date" style={{ fontWeight: 'bold' }}>Week of Oct 7 - Oct 13</span>
-              <button className="btn btn-secondary" id="nextWeek">Next</button>
-            </div>
-
-            {/* Calendar Section */}
             <div className="calendar">
               {['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].map((day) => (
                 <div className="day" key={day}>
                   <h5>{day}</h5>
-                  <div className="meal-box">Breakfast</div>
-                  <div className="meal-box">Lunch</div>
-                  <div className="meal-box">Dinner</div>
-                  <div className="meal-box">Snacks</div>
-                  <div className="meal-box">Dessert</div>
+                  {['Breakfast', 'Lunch', 'Dinner', 'Snacks', 'Dessert'].map((meal) => (
+                    <div
+                      className="meal-box"
+                      key={meal}
+                      onClick={() => selectedRecipe && assignRecipeToSlot(day, meal)} // Assign recipe on click
+                      style={{ cursor: selectedRecipe ? 'pointer' : 'default', position: 'relative' }}
+                    >
+                      {meal}
+                      {mealPlan[`${day}-${meal}`] && (
+                        <div className="assigned-recipe">
+                          <small>{mealPlan[`${day}-${meal}`].title}</small>
+                        </div>
+                      )}
+                    </div>
+                  ))}
                 </div>
               ))}
             </div>
@@ -65,3 +116,4 @@ export function MealPlan() {
     </div>
   );
 }
+

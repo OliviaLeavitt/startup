@@ -347,15 +347,14 @@ export function Recipe() {
         {savedRecipes.length > 0 ? (
           savedRecipes.map((recipe, index) => (
             <div key={index} className="col-md-3 mb-3">
-              <div className="card" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-                <Link to={`/recipeInstructions/${recipe.id}`} className="text-decoration-none" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+              <div className="card">
+                <Link to={`/recipeInstructions/${recipe.id}`} className="text-decoration-none">
                   <img
                     src={recipe.image}
                     className="card-img-top"
                     alt={recipe.title}
-                    style={{ height: '200px', objectFit: 'cover' }}
                   />
-                  <div className="card-body" style={{ flexGrow: '1' }}>
+                  <div className="card-body">
                     <h5 className="card-title">{recipe.title}</h5>
                     <p className="card-text">{recipe.shortDescription}</p>
                   </div>
@@ -370,6 +369,7 @@ export function Recipe() {
     </div>
   </div>
 </section>
+
 
 
       </main>
