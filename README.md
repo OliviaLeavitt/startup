@@ -175,6 +175,51 @@ I created this deliverable using JavaScript and React, allowing the application 
 ## Frontend API Calls
 - Used `fetch()` to call the backend for user authentication and recipe management.
 
+## **MealMate Startup Deliverable: User Authentication and Database**
+
+This deliverable demonstrates user authentication features and data storage functionality in **MealMate** using MongoDB Atlas.
+
+---
+
+### **Overview:**
+
+For this deliverable, user accounts and saved recipes are associated with authenticated users. The saved recipes are stored securely in a MongoDB database.
+
+---
+
+### **Project Features and Status:**
+
+- **MongoDB Atlas Database Setup:**  
+  - Database created and connected to the application.
+
+- **Data Storage:**  
+  - Stores user data and saved recipes in MongoDB.
+
+- **User Registration:**  
+  - New users can create accounts. User credentials are stored securely in the database.
+
+- **Existing User Management:**  
+  - When an existing user logs in, their saved recipes are retrieved and displayed.
+
+- **Data Association:**  
+  - Saved recipes are linked to the authenticated user. Each user's saved recipes are stored separately.
+
+- **Credential Storage:**  
+  - User credentials and recipe data are securely stored in MongoDB.
+
+- **Access Control:**  
+  - Users must be logged in to save or view recipes.  
+  - Restricted functionality on the frontend—saving or accessing recipes is not allowed without authentication.
+
+---
+
+### 🔐 **Security Notes:**
+- Passwords are hashed before storage.  
+- Users cannot access other users' data.
+
+---
+
+This implementation ensures a secure and personalized experience for users managing their meal plans and saved recipes.
 
 
 
