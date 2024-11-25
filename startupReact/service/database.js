@@ -9,6 +9,32 @@ const db = client.db('startup');
 const userCollection = db.collection('user');
 const usersRecipeIds = db.collection('recipeIds');
 
+
+async function saveMealPlan(userId, mealPlan) {
+  try {
+    // Update or insert the meal plan for the user
+    await userCollection.updateOne(
+      { _id: userId }, // Identify the user by their ID
+      { $set: { mealPlan } }, // Set the new meal plan
+      { upsert: true } // If no document is found, create a new one
+    );
+  } catch (error) {
+    console.error('Error saving meal plan:', error);
+    throw error;
+  }
+}
+
+async function getMealPlan(userId) {
+  try {
+    // Find the user and retrieve the meal plan
+    const user = await userCollection.findOne({ _id: userId });
+    return user ? user.mealPlan : {};  // Return the meal plan or an empty object
+  } catch (error) {
+    console.error('Error getting meal plan:', error);
+    throw error;
+  }
+}
+
 // This will asynchronously test the connection and exit the process if it fails
 (async function testConnection() {
   await client.connect();
@@ -81,4 +107,6 @@ module.exports = {
   createUser,
   addRecipeId,
   getUserSavedRecipes,
+  saveMealPlan,
+  getMealPlan,
 };

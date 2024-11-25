@@ -1,48 +1,38 @@
 /* General Styles */
 body {
     background-color: #FCFAEE;
+    font-family: 'Afacad Flux', sans-serif;
 }
 
 h1 {
     text-align: center;
-    font-family: 'Afacad Flux', sans-serif;
     color: #333333;
     font-weight: 700;
     font-size: 3rem;
 }
 
 h2 {
-    font-family: 'Afacad Flux', sans-serif;
     color: #333333;
     font-weight: 700;
     font-size: 2rem;
 }
 
-.form-group.col-md-6 {
-    font-weight: 400;  
-    font-size: 1.2rem; 
-    font-family: 'Afacad Flux', sans-serif;
-    color: #666666;   
-}
-
 p {
     font-weight: 400;  
     font-size: 1.2rem; 
-    font-family: 'Afacad Flux', sans-serif;
     color: #666666;   
+    margin-bottom: 15px;
 }
 
-.card-title {
-    font-weight: 700;  
+.form-group.col-md-6 {
+    font-weight: 400;  
     font-size: 1.2rem; 
-    font-family: 'Afacad Flux', sans-serif;
-    color: #333333;   
+    color: #666666;
 }
 
 .lead {
     font-weight: 400;  
     font-size: 1.2rem; 
-    font-family: 'Afacad Flux', sans-serif;
     color: #666666;   
     text-align: center;
     margin-bottom: 50px;
@@ -51,7 +41,6 @@ p {
 .form-control {
     font-weight: 400;  
     font-size: 1.2rem; 
-    font-family: 'Afacad Flux', sans-serif;
     color: #666666;    
 }
 
@@ -60,7 +49,6 @@ p {
 }
 
 /* Button Styles */
-
 .btn-custom {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
     transition: box-shadow 0.3s ease; 
@@ -79,7 +67,6 @@ p {
     color: #FCFAEE;
     font-weight: 700;  
     font-size: 1rem; 
-    font-family: 'Afacad Flux', sans-serif;
 }
 
 .addToMyRecipeButton {
@@ -90,51 +77,49 @@ p {
 
 .addToMyRecipeButton:hover {
     background-color: #963d01 !important;
-    border: none;
-    color: #FCFAEE;
 }
 
 /* Card Styles */
-.card.mx-2 {
-    border: none; 
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
-    transition: transform 0.2s ease, box-shadow 0.2s ease; 
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 8px; /* Optional: Adds rounded corners */
+  overflow: hidden; /* Hide any overflow from card content */
 }
 
-.card a {
-    text-decoration: none; 
-    color: inherit; 
+.card-img-top {
+  object-fit: cover;
+  height: 150px; /* Adjust the image height */
 }
 
-.card a:hover {
-    text-decoration: underline; 
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  padding: 15px;
 }
 
-.card.mx-2:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); 
+.card-body h5 {
+  margin-bottom: 10px; /* Space between title and description */
 }
 
-/* Wrapper Styles */
-.wrapper {
-    border: none;
-    border-radius: 10px; 
-    padding: 20px; 
-    background-color: #ffffff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
-    margin-bottom: 20px; 
-    transition: transform 0.2s, box-shadow 0.2s; 
+.card-body p {
+  margin-bottom: 10px;
+  flex-grow: 1; /* Allow the paragraph to grow and fill space */
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Vendor-prefixed line-clamp for compatibility with Webkit browsers */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Show ellipsis (...) when truncated */
+  
+  /* Standard version of line-clamp for browsers that support it */
+  line-clamp: 3;
+  box-orient: vertical;
 }
 
-
-
-/* Button Focus Styles */
-.btn.btn-primary.mt-3.mb-2.btn:focus {
-    outline: none; 
-    box-shadow: none; 
-}
-
-.btn {
-    font-weight: 700;
+.card-body .btn {
+  margin-top: auto; /* Push button to the bottom */
+  align-self: flex-start;
 }

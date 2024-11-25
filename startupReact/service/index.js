@@ -25,6 +25,33 @@ app.set('trust proxy', true);
 const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
+apiRouter.post('/api/saveMealPlan', async (req, res) => {
+  const { userId, mealPlan } = req.body;  // Get data from request
+  
+  try {
+    // Example using MongoDB to save the meal plan
+    await saveMealPlan(userId, mealPlan);
+    
+    res.status(200).send({ message: 'Meal plan saved successfully!' });
+  } catch (error) {
+    console.error('Error saving meal plan:', error);
+    res.status(500).send({ error: 'Internal server error' });
+  }
+});
+
+// Endpoint to load the meal plan
+apiRouter.get('/api/getMealPlan', async (req, res) => {
+  const { userId } = req.query;  // Get userId from the request query
+
+  try {
+    const mealPlan = await getMealPlan(userId);
+    res.json({ mealPlan });
+  } catch (error) {
+    console.error('Error loading meal plan:', error);
+    res.status(500).json({ error: 'Error loading meal plan' });
+  }
+});
+
 
 apiRouter.post('/auth/create', async (req, res) => {
   if (await DB.getUser(req.body.email)) {

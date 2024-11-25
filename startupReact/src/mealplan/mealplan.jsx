@@ -7,8 +7,9 @@ export function MealPlan() {
   const [loading, setLoading] = useState(true);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
   const [mealPlan, setMealPlan] = useState({});
+  const [userId, setUserId] = useState('user123'); // Example user ID, replace with actual user data
 
-  // Fetch saved recipes
+  // Fetch saved recipes (you already have this part)
   useEffect(() => {
     const fetchSavedRecipes = async () => {
       try {
@@ -35,6 +36,26 @@ export function MealPlan() {
     fetchSavedRecipes();
   }, []);
 
+  
+
+  // Fetch and load the meal plan when the component mounts
+  useEffect(() => {
+    const loadMealPlan = async () => {
+      try {
+        const response = await fetch(`/api/getMealPlan?userId=${userId}`);
+        const data = await response.json();
+
+        if (data.mealPlan) {
+          setMealPlan(data.mealPlan);
+        }
+      } catch (error) {
+        console.error('Error loading meal plan:', error);
+      }
+    };
+
+    loadMealPlan();
+  }, [userId]); // Reload meal plan if userId changes
+
   // Function to handle adding a recipe to the calendar
   const handleAddToCalendar = (recipe) => {
     setSelectedRecipe(recipe); // Store selected recipe
@@ -47,6 +68,31 @@ export function MealPlan() {
       [`${day}-${meal}`]: selectedRecipe,
     }));
     setSelectedRecipe(null); // Clear selection after assigning
+  };
+
+  // Function to save the meal plan to the backend
+  const saveMealPlanToBackend = async () => {
+    try {
+      const response = await fetch('/api/saveMealPlan', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userId: userId,  // Replace with the actual user ID
+          mealPlan: mealPlan,  // Send the meal plan object
+        }),
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        alert(result.message); // Alert or handle success
+      } else {
+        alert('Error saving meal plan');
+      }
+    } catch (error) {
+      console.error('Error sending meal plan to backend:', error);
+    }
   };
 
   return (
@@ -110,10 +156,14 @@ export function MealPlan() {
                 </div>
               ))}
             </div>
+
+            {/* Button to save the meal plan */}
+            <button className="btn btn-primary" onClick={saveMealPlanToBackend}>
+              Save Meal Plan
+            </button>
           </main>
         </div>
       </div>
     </div>
   );
 }
-
