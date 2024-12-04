@@ -5,50 +5,41 @@ const app = express();
 const DB = require('./database.js');
 
 const authCookieName = 'token';
-
-// The service port may be set on the command line
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
-
-// JSON body parsing using built-in middleware
 app.use(express.json());
-
-// Use the cookie parser middleware for tracking authentication tokens
 app.use(cookieParser());
-
-// Serve up the applications static content
 app.use(express.static('public'));
-
-// Trust headers that are forwarded from the proxy so we can determine IP addresses
 app.set('trust proxy', true);
-
-// Router for service endpoints
 const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
-apiRouter.post('/api/saveMealPlan', async (req, res) => {
-  const { userId, mealPlan } = req.body;  // Get data from request
+apiRouter.post('/saveMeal', async (req, res) => {
+  const { date, meal } = req.body;
   
-  try {
-    // Example using MongoDB to save the meal plan
-    await saveMealPlan(userId, mealPlan);
-    
-    res.status(200).send({ message: 'Meal plan saved successfully!' });
-  } catch (error) {
-    console.error('Error saving meal plan:', error);
-    res.status(500).send({ error: 'Internal server error' });
+  const authToken = req.cookies[authCookieName]; // Get token from cookies
+
+  if (!authToken) {
+    return res.status(401).json({ success: false, message: 'Unauthorized' });
   }
-});
 
-// Endpoint to load the meal plan
-apiRouter.get('/api/getMealPlan', async (req, res) => {
-  const { userId } = req.query;  // Get userId from the request query
+  // Find the user associated with the token
+  const user = await DB.getUserByToken(authToken);
+
+  if (!user) {
+    return res.status(401).json({ success: false, message: 'User not found or invalid token' });
+  }
+
+  if (!date || !meal) {
+    return res.status(400).json({ success: false, message: 'Date and meal are required' });
+  }
 
   try {
-    const mealPlan = await getMealPlan(userId);
-    res.json({ mealPlan });
+    // Save the meal to the user's meal plan
+    await DB.addMealToUserMealPlan(user._id, date, meal); // Save to meal plan collection
+
+    res.json({ success: true, message: 'Meal saved successfully!' });
   } catch (error) {
-    console.error('Error loading meal plan:', error);
-    res.status(500).json({ error: 'Error loading meal plan' });
+    res.status(500).json({ success: false, message: 'Error saving meal' });
   }
 });
 
@@ -58,17 +49,13 @@ apiRouter.post('/auth/create', async (req, res) => {
     res.status(409).send({ msg: 'Existing user' });
   } else {
     const user = await DB.createUser(req.body.email, req.body.password);
-
-    // Set the cookie
     setAuthCookie(res, user.token);
-
     res.send({
       id: user._id,
     });
   }
 });
 
-// GetAuth token for the provided credentials
 apiRouter.post('/auth/login', async (req, res) => {
   const user = await DB.getUser(req.body.email);
   if (user) {
@@ -81,13 +68,11 @@ apiRouter.post('/auth/login', async (req, res) => {
   res.status(401).send({ msg: 'Unauthorized' });
 });
 
-// DeleteAuth token if stored in cookie
 apiRouter.delete('/auth/logout', (_req, res) => {
   res.clearCookie(authCookieName);
   res.status(204).end();
 });
 
-// secureApiRouter verifies credentials for endpoints
 const secureApiRouter = express.Router();
 apiRouter.use(secureApiRouter);
 
@@ -104,15 +89,12 @@ secureApiRouter.use(async (req, res, next) => {
 apiRouter.get('/getMyRecipes', async (req, res) => {
   const authToken = req.cookies[authCookieName];
 
-  // Retrieve user from token
   const user = await DB.getUserByToken(authToken);
 
   if (!user) {
     return res.status(401).json({ success: false, message: 'Unauthorized' });
   }
-
   try {
-    // Retrieve the user's saved recipe IDs from the database
     const savedRecipes = await DB.getUserSavedRecipes(user._id);
 
     if (savedRecipes && savedRecipes.recipes) {
@@ -126,9 +108,6 @@ apiRouter.get('/getMyRecipes', async (req, res) => {
   }
 });
 
-
-
-// In your route handler
 apiRouter.post('/addToMyRecipes', async (req, res) => {
   const { recipeId } = req.body;
   
@@ -208,17 +187,15 @@ app.get('/api/recipeInstructions/:id', async (req, res) => {
   }
 });
 
-// Default error handler
 app.use(function (err, req, res, next) {
   res.status(500).send({ type: err.name, message: err.message });
 });
 
-// Return the application's default page if the path is unknown
 app.use((_req, res) => {
   res.sendFile('index.html', { root: 'public' });
 });
 
-// setAuthCookie in the HTTP response
+
 function setAuthCookie(res, authToken) {
   res.cookie(authCookieName, authToken, {
     secure: true,
