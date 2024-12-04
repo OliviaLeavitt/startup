@@ -4,13 +4,10 @@ import './mealplan.css';
 import { useMealPlanLogic } from './logic/mealPlanLogic'; 
 import { RecipeSidebar } from './RecipeSidebar';  // Import the RecipeSidebar component
 import { MealPlanner } from './Mealplanner';   // Import the MealPlanner component
+import { SaveButton } from './SaveButton';  // Import the SaveButton component
 
 export function MealPlan() {
   const [userId] = useState('user123');
-
-    useEffect(() => {
-    console.log("User ID is: ", userId);
-  }, [userId]);
   
   const {
     savedRecipes,
@@ -42,9 +39,7 @@ export function MealPlan() {
           />
 
           {/* Button to save the meal plan */}
-          <button className="btn btn-primary" onClick={saveMealPlanToBackend}>
-            Save Meal Plan
-          </button>
+          <SaveButton onClick={saveMealPlanToBackend} />
         </div>
       </div>
     </div>

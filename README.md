@@ -175,7 +175,7 @@ I created this deliverable using JavaScript and React, allowing the application 
 ## Frontend API Calls
 - Used `fetch()` to call the backend for user authentication and recipe management.
 
-## **MealMate Startup Deliverable: User Authentication and Database**
+## **DB/Login deliverable**
 
 This deliverable demonstrates user authentication features and data storage functionality in **MealMate** using MongoDB Atlas.
 

@@ -11,7 +11,6 @@ export function RecipeCards({ recipes }) {
             <div className="card">
               <img src={recipe.image} className="card-img-top" alt={recipe.title} />
               <div className="card-body">
-                {/* Link the title to the recipe instructions page */}
                 <Link to={`/recipeInstructions/${recipe.id}`} className="card-title text-decoration-none">
                   <h5>{recipe.title}</h5>
                 </Link>
