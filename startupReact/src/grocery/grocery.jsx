@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { AddItemForm } from './AddItemForm';
-import { MealPlanSection } from './MealPlanSection';
 import { GroceryList } from './GroceryList';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './grocery.css';
@@ -64,13 +63,6 @@ export function Grocery() {
     setGroceryList(groceryList.filter(item => item.id !== id));
   };
 
-  const handleEditItem = (id) => {
-    const itemToEdit = groceryList.find(item => item.id === id);
-    setItemName(itemToEdit.name);
-    setItemQuantity(itemToEdit.quantity);
-    handleRemoveItem(id); 
-  };
-
   return (
     <div>
       <main className="container my-4">
@@ -88,11 +80,9 @@ export function Grocery() {
             handleAddItem={handleAddItem}
           />
 
-          <MealPlanSection />
 
           <GroceryList 
             groceryList={groceryList} 
-            handleEditItem={handleEditItem} 
             handleRemoveItem={handleRemoveItem} 
           />
         </section>

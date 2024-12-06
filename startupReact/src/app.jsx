@@ -6,6 +6,7 @@ import { Grocery } from './grocery/grocery';
 import { Login } from './login/login';
 import { MealPlan } from './mealplan/mealplan';
 import { Recipe } from './recipe/recipe';
+import { Chat } from './chat/chat';
 
 import { RecipeInstructions } from './recipeInstructions/recipeInstructions';
 import { AuthState } from './login/authState';
@@ -46,6 +47,7 @@ export default function App() {
           exact
         />
 
+        <Route path="/chat" element={<Chat />} />
         <Route path="/grocery" element={<Grocery />} />
         <Route path="/mealplan" element={<MealPlan />} />
         <Route path="/recipe" element={<Recipe />} />

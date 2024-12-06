@@ -68,6 +68,9 @@ const Navbar = ({ authState, logout }) => {
                 </div>
               </li>
               <li className="nav-item">
+                <NavLink className="nav-link" to="/chat">Chat</NavLink>
+              </li>
+              <li className="nav-item">
                 <NavLink className="nav-link" to="/recipe">Recipes</NavLink>
               </li>
               <li className="nav-item">

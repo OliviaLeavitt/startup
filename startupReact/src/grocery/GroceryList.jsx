@@ -1,7 +1,7 @@
 import React from 'react';
 import './grocery.css';
 
-export function GroceryList({ groceryList, handleEditItem, handleRemoveItem }) {
+export function GroceryList({ groceryList, handleRemoveItem }) {
   return (
     <div className="card wrapper">
       <div className="card-body">
@@ -23,7 +23,7 @@ export function GroceryList({ groceryList, handleEditItem, handleRemoveItem }) {
                   <span>{item.quantity}</span>
                 </div>
                 <div className="col">
-                  <button className="btn btn-sm btn-success" onClick={() => handleEditItem(item.id)}>Edit</button>
+
                   <button className="btn btn-sm btn-danger" onClick={() => handleRemoveItem(item.id)}>Remove</button>
                 </div>
               </div>
