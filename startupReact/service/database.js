@@ -9,6 +9,7 @@ const db = client.db('startup');
 const userCollection = db.collection('user');
 const usersRecipeIds = db.collection('recipeIds');
 const mealPlanCollection = db.collection('mealPlans'); // Define mealPlans collection
+const groceriesCollection = db.collection('groceries')
 
 
 async function getMealsByDate(userId, date) {
@@ -35,6 +36,22 @@ async function getMealsByDate(userId, date) {
   }
 }
 
+async function saveGroceryItem(userId, name, quantity) {
+  try {
+    const result = await groceriesCollection.updateOne(
+      { userId: userId },
+      { $push: { groceries: { name, quantity } } }, 
+      { upsert: true } 
+    );
+    return result;
+  } catch (error) {
+    console.error('Error saving grocery to users groceries:', error);
+  }
+}
+
+function getUser(email) {
+  return userCollection.findOne({ email: email });
+}
 
 
 async function addMealToUserMealPlan(userId, date, meal) {
@@ -104,4 +121,5 @@ module.exports = {
   getUserSavedRecipes,
   addMealToUserMealPlan,
   getMealsByDate,
+  saveGroceryItem
 };

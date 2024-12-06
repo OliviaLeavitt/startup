@@ -59,6 +59,28 @@ apiRouter.post('/saveMeal', async (req, res) => {
   }
 });
 
+apiRouter.post('/saveGroceryItem', async (req, res) => {
+  const { name, quantity } = req.body;
+  const authToken = req.cookies[authCookieName];
+  if (!authToken) {
+    return res.status(401).json({ success: false, message: 'Unauthorized' });
+  }
+  const user = await DB.getUserByToken(authToken);
+  if (!user) {
+    return res.status(401).json({ success: false, message: 'User not found or invalid token' });
+  }
+  if (!name || !quantity) {
+    return res.status(400).json({ success: false, message: 'name and quantity are required' });
+  }
+  try {
+    await DB.saveGroceryItem(user._id, name, quantity); // Save to meal plan collection
+
+    res.json({ success: true, message: 'Grocery saved successfully!' });
+  } catch (error) {
+    res.status(500).json({ success: false, message: 'Error saving grocery' });
+  }
+});
+
 
 apiRouter.post('/auth/create', async (req, res) => {
   if (await DB.getUser(req.body.email)) {

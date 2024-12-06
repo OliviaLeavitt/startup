@@ -14,14 +14,36 @@ export function Grocery() {
     { id: 3, name: 'Eggs', quantity: '12 pack' }
   ]);
 
+  const handleGrocerySave = async (groceryName, groceryQuantity) => {
+    if (!groceryName || !groceryQuantity) {
+      console.log('Grocery item or quantity missing. Exiting save operation.');
+      return;
+    }
+
+    console.log(`Saving grocery item: ${groceryName}, Quantity: ${groceryQuantity}`);
+
+    try {
+      const response = await fetch('/api/saveGroceryItem', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: groceryName, quantity: groceryQuantity }),
+      });
+
+      if (response.ok) {
+        console.log('Grocery item saved successfully');
+        // Update the UI with the newly saved grocery item
+        setGroceryList([...groceryList, { name: groceryName, quantity: groceryQuantity }]);
+      } else {
+        console.error('Failed to save grocery item');
+      }
+    } catch (error) {
+      console.error('Error saving grocery item:', error);
+    }
+  };
+
   const handleAddItem = () => {
     if (itemName && itemQuantity) {
-      const newItem = {
-        id: groceryList.length + 1,
-        name: itemName,
-        quantity: itemQuantity
-      };
-      setGroceryList([...groceryList, newItem]);
+      handleGrocerySave(itemName, itemQuantity);
       setItemName('');
       setItemQuantity('');
     }
