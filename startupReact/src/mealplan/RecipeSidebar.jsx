@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function RecipeSidebar({ savedRecipes, loading, handleAddToCalendar }) {
+export function RecipeSidebar({ savedRecipes, loading, handleMealSave }) {
   return (
     <nav id="sidebar" className="col-md-3 sidebar">
       <div className="sidebar-sticky">
@@ -20,7 +20,7 @@ export function RecipeSidebar({ savedRecipes, loading, handleAddToCalendar }) {
                   <h5 className="card-title">{recipe.title}</h5>
                   <button
                     className="btn btn-calendar btn-sm"
-                    onClick={() => handleAddToCalendar(recipe)}
+                    onClick={() => handleMealSave(recipe.title)}
                   >
                     Add to Calendar
                   </button>

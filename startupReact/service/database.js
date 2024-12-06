@@ -10,21 +10,39 @@ const userCollection = db.collection('user');
 const usersRecipeIds = db.collection('recipeIds');
 const mealPlanCollection = db.collection('mealPlans'); // Define mealPlans collection
 
-// This will asynchronously test the connection and exit the process if it fails
-(async function testConnection() {
-  await client.connect();
-  await db.command({ ping: 1 });
-})().catch((ex) => {
-  console.log(`Unable to connect to database with ${url} because ${ex.message}`);
-  process.exit(1);
-});
+
+async function getMealsByDate(userId, date) {
+  console.log(`Fetching meals for user ID: ${userId}, Date: ${date}`);
+  try {
+    // Use $elemMatch to filter documents where at least one element in 'meals' matches the date
+    const mealsData = await mealPlanCollection.find({
+      userId: userId,
+      meals: { $elemMatch: { date: date } }
+    }).toArray();
+
+    if (mealsData.length > 0) {
+      // Extract and flatten the meals matching the date
+      const meals = mealsData[0].meals.filter(meal => meal.date === date);
+      console.log(`Retrieved meals: ${JSON.stringify(meals)}`);
+      return meals;
+    } else {
+      console.log('No meals found for this date.');
+      return [];
+    }
+  } catch (error) {
+    console.error('Error retrieving meals:', error);
+    throw error;
+  }
+}
+
+
 
 async function addMealToUserMealPlan(userId, date, meal) {
   try {
     const result = await mealPlanCollection.updateOne(
       { userId: userId },
-      { $push: { meals: { date, meal } } }, // Adds a new meal with the date
-      { upsert: true } // If the user doesn't have a meal plan, create one
+      { $push: { meals: { date, meal } } }, 
+      { upsert: true } 
     );
     return result;
   } catch (error) {
@@ -84,5 +102,6 @@ module.exports = {
   createUser,
   addRecipeId,
   getUserSavedRecipes,
-  addMealToUserMealPlan
+  addMealToUserMealPlan,
+  getMealsByDate,
 };

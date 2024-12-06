@@ -13,28 +13,44 @@ app.set('trust proxy', true);
 const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
-apiRouter.post('/saveMeal', async (req, res) => {
-  const { date, meal } = req.body;
-  
-  const authToken = req.cookies[authCookieName]; // Get token from cookies
+apiRouter.get('/getMeals/:date', async (req, res) => {
+  const { date } = req.params;
+  const authToken = req.cookies[authCookieName];
+  console.log(`Request to fetch meals for date: ${date}, Auth token: ${authToken ? 'Present' : 'Missing'}`);
 
-  if (!authToken) {
+  const user = await DB.getUserByToken(authToken);
+  if (!user) {
+    console.warn(`Unauthorized access attempt on ${date}`);
     return res.status(401).json({ success: false, message: 'Unauthorized' });
   }
 
-  // Find the user associated with the token
-  const user = await DB.getUserByToken(authToken);
+  console.log(`Authorized user: ${user._id}`);
 
+  try {
+    const meals = await DB.getMealsByDate(user._id, date);
+    console.log(`Sending response with meals: ${JSON.stringify(meals)}`);
+    res.json(meals);
+  } catch (error) {
+    console.error('Error in /getMeals route:', error);
+    res.status(500).json({ success: false, message: 'Error retrieving meals.' });
+  }
+});
+
+
+apiRouter.post('/saveMeal', async (req, res) => {
+  const { date, meal } = req.body;
+  const authToken = req.cookies[authCookieName];
+  if (!authToken) {
+    return res.status(401).json({ success: false, message: 'Unauthorized' });
+  }
+  const user = await DB.getUserByToken(authToken);
   if (!user) {
     return res.status(401).json({ success: false, message: 'User not found or invalid token' });
   }
-
   if (!date || !meal) {
     return res.status(400).json({ success: false, message: 'Date and meal are required' });
   }
-
   try {
-    // Save the meal to the user's meal plan
     await DB.addMealToUserMealPlan(user._id, date, meal); // Save to meal plan collection
 
     res.json({ success: true, message: 'Meal saved successfully!' });
