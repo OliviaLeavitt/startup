@@ -11,6 +11,27 @@ const usersRecipeIds = db.collection('recipeIds');
 const mealPlanCollection = db.collection('mealPlans'); // Define mealPlans collection
 const groceriesCollection = db.collection('groceries')
 
+async function getGroceries(userId) {
+  console.log(`Fetching groceries for user ID: ${userId}`);
+  try {
+    // Query the database for the groceries of the given user
+    const groceryData = await groceriesCollection.find({ userId: userId }).toArray();
+
+    if (groceryData.length > 0) {
+      const groceries = groceryData[0].groceries;  // Return groceries for the user
+      console.log(`Retrieved groceries: ${JSON.stringify(groceries)}`);
+      return groceries;
+    } else {
+      console.log('No groceries found.');
+      return [];  // Return empty array if no groceries exist
+    }
+  } catch (error) {
+    console.error('Error retrieving groceries:', error);
+    throw error;  // Propagate the error
+  }
+}
+
+
 
 async function getMealsByDate(userId, date) {
   console.log(`Fetching meals for user ID: ${userId}, Date: ${date}`);
@@ -121,5 +142,6 @@ module.exports = {
   getUserSavedRecipes,
   addMealToUserMealPlan,
   getMealsByDate,
-  saveGroceryItem
+  saveGroceryItem,
+  getGroceries,
 };

@@ -13,6 +13,31 @@ app.set('trust proxy', true);
 const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
+
+apiRouter.get('/getGroceries', async (req, res) => {
+  const authToken = req.cookies[authCookieName];
+  console.log(`Request to fetch groceries, Auth token: ${authToken ? 'Present' : 'Missing'}`);
+
+  const user = await DB.getUserByToken(authToken);
+  if (!user) {
+    console.warn(`Unauthorized access attempt on ${new Date()}`);
+    return res.status(401).json({ success: false, message: 'Unauthorized' });
+  }
+
+  console.log(`Authorized user: ${user._id}`);
+
+  try {
+    // Fetch groceries from DB based on user ID
+    const groceries = await DB.getGroceries(user._id);  
+    console.log(`Sending response with groceries: ${JSON.stringify(groceries)}`);
+    res.json(groceries);  // Send groceries list as a response
+  } catch (error) {
+    console.error('Error in /getGroceries route:', error);
+    res.status(500).json({ success: false, message: 'Error retrieving groceries.' });
+  }
+});
+
+
 apiRouter.get('/getMeals/:date', async (req, res) => {
   const { date } = req.params;
   const authToken = req.cookies[authCookieName];
