@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AddItemForm } from './AddItemForm';
 import { MealPlanSection } from './MealPlanSection';
 import { GroceryList } from './GroceryList';
@@ -8,11 +8,22 @@ import './grocery.css';
 export function Grocery() {
   const [itemName, setItemName] = useState('');
   const [itemQuantity, setItemQuantity] = useState('');
-  const [groceryList, setGroceryList] = useState([
-    { id: 1, name: 'Apples', quantity: '6 apples' },
-    { id: 2, name: 'Milk', quantity: '1 gallon' },
-    { id: 3, name: 'Eggs', quantity: '12 pack' }
-  ]);
+  const [groceryList, setGroceryList] = useState([]);
+
+  useEffect(() => { 
+    const fetchGroceries = async () => { 
+      try { 
+        const response = await fetch('/api/getGroceries'); 
+        const data = await response.json(); 
+        console.log('Fetched groceries:', data); 
+        setGroceryList(data);  // Update the grocery list with the fetched data 
+      } catch (error) { 
+        console.error('Error fetching groceries:', error); 
+      } 
+    }; 
+
+    fetchGroceries();  // Call the function to fetch groceries when the component mounts 
+  }, []);  // Empty dependency array means this runs only once after initial render 
 
   const handleGrocerySave = async (groceryName, groceryQuantity) => {
     if (!groceryName || !groceryQuantity) {
