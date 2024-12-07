@@ -13,31 +13,6 @@ app.set('trust proxy', true);
 const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
-// apiRouter.delete('/api/removeGroceryItem', async (req, res) => {
-//   const { name } = req.body;
-//   const authToken = req.cookies[authCookieName];
-//   console.log(`Request to remove grocery item, Auth token: ${authToken ? 'Present' : 'Missing'}`);
-  
-//   const user = await DB.getUserByToken(authToken);
-  
-//   if (!user) {
-//     console.warn(`Unauthorized access attempt on ${new Date()}`);
-//     return res.status(401).json({ success: false, message: 'Unauthorized' });
-//   }
-
-//   try {
-//     const result = await DB.removeGroceryItem(user._id, name);
-    
-//     if (result.success) {
-//       res.status(200).json({ message: result.message });
-//     } else {
-//       res.status(404).json({ message: result.message });
-//     }
-//   } catch (error) {
-//     console.error('Error removing grocery item:', error);
-//     res.status(500).json({ message: 'Error removing grocery item' });
-//   }
-// });
 
 apiRouter.delete('/removeGroceryItem', async (req, res) => {
   const { name, quantity } = req.body;
@@ -53,7 +28,7 @@ apiRouter.delete('/removeGroceryItem', async (req, res) => {
     return res.status(400).json({ success: false, message: 'name and quantity are required' });
   }
   try {
-    await DB.removeGroceryItem(user._id, name, quantity); // Save to meal plan collection
+    await DB.removeGroceryItem(user._id, name, quantity); 
 
     res.json({ success: true, message: 'Grocery removed successfully!' });
   } catch (error) {
@@ -76,10 +51,9 @@ apiRouter.get('/getGroceries', async (req, res) => {
   console.log(`Authorized user: ${user._id}`);
 
   try {
-    // Fetch groceries from DB based on user ID
     const groceries = await DB.getGroceries(user._id);  
     console.log(`Sending response with groceries: ${JSON.stringify(groceries)}`);
-    res.json(groceries);  // Send groceries list as a response
+    res.json(groceries);
   } catch (error) {
     console.error('Error in /getGroceries route:', error);
     res.status(500).json({ success: false, message: 'Error retrieving groceries.' });
@@ -125,7 +99,7 @@ apiRouter.post('/saveMeal', async (req, res) => {
     return res.status(400).json({ success: false, message: 'Date and meal are required' });
   }
   try {
-    await DB.addMealToUserMealPlan(user._id, date, meal); // Save to meal plan collection
+    await DB.addMealToUserMealPlan(user._id, date, meal); 
 
     res.json({ success: true, message: 'Meal saved successfully!' });
   } catch (error) {
@@ -147,7 +121,7 @@ apiRouter.post('/saveGroceryItem', async (req, res) => {
     return res.status(400).json({ success: false, message: 'name and quantity are required' });
   }
   try {
-    await DB.saveGroceryItem(user._id, name, quantity); // Save to meal plan collection
+    await DB.saveGroceryItem(user._id, name, quantity);
 
     res.json({ success: true, message: 'Grocery saved successfully!' });
   } catch (error) {
