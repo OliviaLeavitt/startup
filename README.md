@@ -221,6 +221,30 @@ For this deliverable, user accounts and saved recipes are associated with authen
 
 This implementation ensures a secure and personalized experience for users managing their meal plans and saved recipes.
 
+## Chat Feature WebSocket Deliverable
+
+For this deliverable, I made a real-time chat feature using WebSocket, allowing users to communicate with each other while planning their meals and sharing tips or recipes instantly.
+
+### Features Implemented:
+
+- **Backend listens for WebSocket connection** – ✅ Done!  
+  The backend is set up to listen for incoming WebSocket connections, allowing users to send and receive messages in real-time.
+
+- **Frontend establishes WebSocket connection** – ✅ Done!  
+  The frontend successfully establishes a WebSocket connection, enabling communication between the user and the server.
+
+- **Chat messages sent over WebSocket connection** – ✅ Done!  
+  Users can send chat messages in real-time, and these messages are broadcast to all connected users.
+
+- **Chat messages displayed in real-time** – ✅ Done!  
+  Messages from users are displayed instantly in the chat interface, providing a seamless, interactive experience as users plan their meals and collaborate.
+
+### Key Takeaways:
+- This WebSocket chat feature makes it easy for users to communicate while working on meal plans, making collaboration smoother and more enjoyable.
+- I’m really happy with how updates turned out. It's fun to see messages pop up instantly, making the meal planning experience feel even more connected.
+
+### What's Next:
+- I plan to enhance the chat by adding features like notifications for new messages or the ability to create different chat rooms for various meal planning topics, but for now, the real-time messaging is a success.
 
 
 
