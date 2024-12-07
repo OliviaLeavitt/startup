@@ -2,13 +2,8 @@ const { WebSocketServer } = require('ws');
 const express = require('express');
 const app = express();
 
-// Serve up our webSocket client HTML
-app.use(express.static('./public'));
 
-const port = process.argv.length > 2 ? process.argv[2] : 3000;
-server = app.listen(port, () => {
-  console.log(`Listening on ${port}`);
-});
+function peerProxy (server) {
 
 // Create a websocket object
 const wss = new WebSocketServer({ noServer: true });
@@ -64,3 +59,6 @@ setInterval(() => {
     }
   });
 }, 10000);
+}
+
+module.exports = { peerProxy }
