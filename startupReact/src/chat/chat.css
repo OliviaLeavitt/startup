@@ -1,0 +1,13 @@
+#chat-title {
+    text-align: center;
+    color: #333333 !important; 
+    font-weight: 700;
+    font-size: 3rem;
+}
+
+.bg-custom-message {
+  background-color: white;
+  color: #333333;  
+}
+
+
