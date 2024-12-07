@@ -92,7 +92,7 @@ export function Grocery() {
         <section>
           <div className="hero mb-4 wrapper">
             <h2 className="mb-4">Grocery List</h2>
-            <p className="mb-5">Create your grocery list or generate one from the recipes in your meal plan</p>
+            <p className="mb-5">Create your grocery list, add items, check off purchases, and organize for a smarter shopping experience.</p>
           </div>
 
           <AddItemForm 

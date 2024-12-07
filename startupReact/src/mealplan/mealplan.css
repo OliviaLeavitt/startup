@@ -13,16 +13,43 @@ body {
     height: 100%;
 }
 
-h4 {
-    font-weight: 700;
-    font-size: 1.2rem;
-    color: #333333;
+/* Sidebar Styles */
+#sidebar {
+    background-color: #95a480; /* Green color */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* More prominent shadow */
+    border-radius: 12px; /* Rounded corners */
+    max-width: 300px;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden !important;
+    padding: 15px;
 }
 
-h5 {
-    font-weight: 700;
-    font-size: 1.2rem;
-    color: #333333;
+#sidebar h4 {
+    color: #333333; /* White text for the title */
+    font-weight: bold;
+}
+
+#sidebar .btn-light {
+    background-color: #ffd700; /* Gold color */
+    color: #003366; /* Dark blue text */
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+#sidebar .btn-light:hover {
+    background-color: #ffcc00; /* Lighter gold on hover */
+    color: #ffffff;
+}
+
+.sidebar-sticky {
+    position: sticky;
+    top: 0;
+}
+
+/* Recipe Container */
+.recipe-container {
+    margin-top: 20px;
 }
 
 /* Hero Styles */
@@ -42,23 +69,6 @@ h5 {
     color: #333333;
     font-weight: 700;
     font-size: 3rem;
-}
-
-
-/* Sidebar Styles */
-#sidebar {
-    max-width: 300px;
-    height: 100vh;
-    overflow-y: auto;
-    overflow-x: hidden !important;
-    background-color: #fffefc;
-    padding: 15px;
-    border-radius: 8px;
-}
-
-.sidebar-sticky {
-    position: sticky;
-    top: 0;
 }
 
 /* Recipe Card Styles */
@@ -86,7 +96,6 @@ h5 {
 }
 
 /* Button Styles */
-
 .btn.btn-block.mb-2 {
     background-color: #ad4601;
 }
@@ -95,14 +104,11 @@ h5 {
     background-color: #DA8359;
 }
 
-
-
 .btn {
     font-weight: 700;
     font-size: 1rem;
     color: white;
     border: none;
-    background-color: aqua;
 }
 
 .btn:hover {
@@ -128,7 +134,6 @@ h5 {
 .btn.btn-block.mb-2:hover {
     background-color: #963d01;
 }
-
 
 #prevWeek,
 #nextWeek {
