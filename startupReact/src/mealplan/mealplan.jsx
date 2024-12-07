@@ -41,32 +41,38 @@ export function MealPlan() {
   };
 
   // Save a new meal
-  const handleMealSave = async (recipeTitle) => {
-    if (!recipeTitle) {
-      console.log('No meal entered. Exiting save operation.');
-      return;
+const handleMealSave = async (mealTitle) => {
+  // If called by the calendar button (Add to Calendar)
+  if (!mealTitle) {
+    mealTitle = meal; // Use the meal input value if mealTitle isn't passed
+  }
+
+  if (!mealTitle) {
+    console.log('No meal entered. Exiting save operation.');
+    return;
+  }
+
+  const dateString = date.toISOString().split('T')[0];
+  console.log(`Saving meal: ${mealTitle} for date: ${dateString}`);
+
+  try {
+    const response = await fetch('/api/saveMeal', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ date: dateString, meal: mealTitle }),
+    });
+
+    if (response.ok) {
+      console.log('Meal saved successfully');
+      setMeals([...meals, { date: dateString, meal: mealTitle }]);
+      setMeal(''); // Clear the input field after saving
+    } else {
+      console.error('Failed to save meal');
     }
-
-    const dateString = date.toISOString().split('T')[0];
-    console.log(`Saving meal: ${recipeTitle} for date: ${dateString}`);
-
-    try {
-      const response = await fetch('/api/saveMeal', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ date: dateString, meal: recipeTitle }),
-      });
-
-      if (response.ok) {
-        console.log('Meal saved successfully');
-        setMeals([...meals, { date: dateString, meal: recipeTitle }]);
-      } else {
-        console.error('Failed to save meal');
-      }
-    } catch (error) {
-      console.error('Error saving meal:', error);
-    }
-  };
+  } catch (error) {
+    console.error('Error saving meal:', error);
+  }
+};
 
   return (
     <div>
@@ -128,7 +134,7 @@ export function MealPlan() {
                 onChange={(e) => setMeal(e.target.value)}
                 placeholder="Enter meal"
               />
-              <button onClick={handleMealSave}>Save Meal</button>
+              <button onClick={() => handleMealSave()}>Save Meal</button>
             </div>
 
             {/* Display Meals for the Selected Date */}
