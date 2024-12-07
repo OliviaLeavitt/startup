@@ -6,10 +6,46 @@ const config = require('./dbConfig.json');
 const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostname}`;
 const client = new MongoClient(url, { tls: true, serverSelectionTimeoutMS: 3000, autoSelectFamily: false });
 const db = client.db('startup');
-const userCollection = db.collection('user');
-const usersRecipeIds = db.collection('recipeIds');
+const userCollection = db.collection('user')
 const mealPlanCollection = db.collection('mealPlans'); // Define mealPlans collection
 const groceriesCollection = db.collection('groceries')
+
+// async function removeGroceryItem(userId, itemName) {
+//   try {
+//     const result = await groceriesCollection.updateOne(
+//       { userId: userId },
+//       { $pull: { groceries: { name: itemName } } }
+//     );
+
+//     if (result.modifiedCount > 0) {
+//       console.log(`Successfully removed ${itemName} from groceries for user ID: ${userId}`);
+//       return { success: true, message: `Removed ${itemName}` };
+//     } else {
+//       console.log(`No matching grocery item found for user ID: ${userId}`);
+//       return { success: false, message: `Item ${itemName} not found` };
+//     }
+//   } catch (error) {
+//     console.error('Error removing grocery item:', error);
+//     return { success: false, message: 'Error removing grocery item' };
+//   }
+// }
+
+async function removeGroceryItem(userId, name, quantity) {
+  try {
+    const result = await groceriesCollection.updateOne(
+      { userId: userId },
+      { $pull: { groceries: { name, quantity } } }, 
+    );
+    return result;
+  } catch (error) {
+    console.error('Error removing grocery item:', error);
+  }
+}
+
+function getUser(email) {
+  return userCollection.findOne({ email: email });
+}
+
 
 async function getGroceries(userId) {
   console.log(`Fetching groceries for user ID: ${userId}`);
@@ -144,4 +180,5 @@ module.exports = {
   getMealsByDate,
   saveGroceryItem,
   getGroceries,
+  removeGroceryItem,
 };

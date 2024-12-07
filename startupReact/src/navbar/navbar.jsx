@@ -1,26 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { AuthState } from '../login/authState';
 
 const Navbar = ({ authState, logout }) => {
-  const [notifications, setNotifications] = useState([
-    { id: 1, message: "[Friend's Name] added an item to the grocery list" },
-    { id: 2, message: "[Friend's Name] shared a recipe" }
-  ]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setNotifications(prevNotifications => {
-        const newNotifications = [
-          ...prevNotifications,
-          { id: prevNotifications.length + 1, message: "New notification!" }
-        ];
-      
-        return newNotifications.slice(-5);
-      });
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
 
   function handleLogout() {
     fetch(`/api/auth/logout`, {
@@ -56,16 +38,6 @@ const Navbar = ({ authState, logout }) => {
           {authState === AuthState.Authenticated && (
             <>
               <li className="nav-item">
-                <a className="nav-link no-hover" href="#" title="Notifications">
-                  <i className="fa-solid fa-bell notification-icon"></i>
-                </a>
-                <div className="notification-dropdown">
-                  {notifications.map((notification) => (
-                    <div key={notification.id} className="notification">
-                      {notification.message}
-                    </div>
-                  ))}
-                </div>
               </li>
               <li className="nav-item">
                 <NavLink className="nav-link" to="/chat">Chat</NavLink>

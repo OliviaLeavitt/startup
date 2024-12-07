@@ -59,8 +59,31 @@ export function Grocery() {
     }
   };
 
-  const handleRemoveItem = (id) => {
-    setGroceryList(groceryList.filter(item => item.id !== id));
+  const handleRemoveItem = async (groceryName, groceryQuantity) => {
+    if (!groceryName || !groceryQuantity) {
+      console.log('Grocery item or quantity missing. Exiting remove operation.');
+      return;
+    }
+
+    console.log(`Removing grocery item: ${groceryName}, Quantity: ${groceryQuantity}`);
+
+    try {
+      const response = await fetch('/api/removeGroceryItem', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: groceryName, quantity: groceryQuantity }),
+      });
+
+      if (response.ok) {
+        console.log('Grocery item removed successfully');
+        // Update the UI by removing the grocery item from the list
+        setGroceryList(groceryList.filter(item => item.name !== groceryName || item.quantity !== groceryQuantity));
+      } else {
+        console.error('Failed to remove grocery item');
+      }
+    } catch (error) {
+      console.error('Error removing grocery item:', error);
+    }
   };
 
   return (
@@ -79,7 +102,6 @@ export function Grocery() {
             setItemQuantity={setItemQuantity}
             handleAddItem={handleAddItem}
           />
-
 
           <GroceryList 
             groceryList={groceryList} 

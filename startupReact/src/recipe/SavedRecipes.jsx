@@ -1,4 +1,3 @@
-// SavedRecipes.js
 import React from 'react';
 import { RecipeCards } from './RecipeCards';
 

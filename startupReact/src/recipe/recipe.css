@@ -69,57 +69,8 @@ p {
     font-size: 1rem; 
 }
 
-.addToMyRecipeButton {
-    background-color: #D35400 !important;
-    border: none;
-    color: #FCFAEE;
-}
-
-.addToMyRecipeButton:hover {
-    background-color: #963d01 !important;
-}
-
 /* Card Styles */
 .card {
-  display: flex;
-  flex-direction: column;
   height: 100%;
-  border-radius: 8px; /* Optional: Adds rounded corners */
-  overflow: hidden; /* Hide any overflow from card content */
-}
-
-.card-img-top {
-  object-fit: cover;
-  height: 150px; /* Adjust the image height */
-}
-
-.card-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex-grow: 1;
-  padding: 15px;
-}
-
-.card-body h5 {
-  margin-bottom: 10px; /* Space between title and description */
-}
-
-.card-body p {
-  margin-bottom: 10px;
-  flex-grow: 1; /* Allow the paragraph to grow and fill space */
-  display: -webkit-box;
-  -webkit-line-clamp: 3; /* Vendor-prefixed line-clamp for compatibility with Webkit browsers */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis; /* Show ellipsis (...) when truncated */
-  
-  /* Standard version of line-clamp for browsers that support it */
-  line-clamp: 3;
-  box-orient: vertical;
-}
-
-.card-body .btn {
-  margin-top: auto; /* Push button to the bottom */
-  align-self: flex-start;
+  border-radius: 8px;
 }

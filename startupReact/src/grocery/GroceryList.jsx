@@ -23,8 +23,10 @@ export function GroceryList({ groceryList, handleRemoveItem }) {
                   <span>{item.quantity}</span>
                 </div>
                 <div className="col">
-
-                  <button className="btn btn-sm btn-danger" onClick={() => handleRemoveItem(item.id)}>Remove</button>
+                  {/* Pass item.name and item.quantity to handleRemoveItem */}
+                  <button className="btn btn-sm btn-danger" onClick={() => handleRemoveItem(item.name, item.quantity)}>
+                    Remove
+                  </button>
                 </div>
               </div>
             </li>

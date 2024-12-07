@@ -13,6 +13,55 @@ app.set('trust proxy', true);
 const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
+// apiRouter.delete('/api/removeGroceryItem', async (req, res) => {
+//   const { name } = req.body;
+//   const authToken = req.cookies[authCookieName];
+//   console.log(`Request to remove grocery item, Auth token: ${authToken ? 'Present' : 'Missing'}`);
+  
+//   const user = await DB.getUserByToken(authToken);
+  
+//   if (!user) {
+//     console.warn(`Unauthorized access attempt on ${new Date()}`);
+//     return res.status(401).json({ success: false, message: 'Unauthorized' });
+//   }
+
+//   try {
+//     const result = await DB.removeGroceryItem(user._id, name);
+    
+//     if (result.success) {
+//       res.status(200).json({ message: result.message });
+//     } else {
+//       res.status(404).json({ message: result.message });
+//     }
+//   } catch (error) {
+//     console.error('Error removing grocery item:', error);
+//     res.status(500).json({ message: 'Error removing grocery item' });
+//   }
+// });
+
+apiRouter.delete('/removeGroceryItem', async (req, res) => {
+  const { name, quantity } = req.body;
+  const authToken = req.cookies[authCookieName];
+  if (!authToken) {
+    return res.status(401).json({ success: false, message: 'Unauthorized' });
+  }
+  const user = await DB.getUserByToken(authToken);
+  if (!user) {
+    return res.status(401).json({ success: false, message: 'User not found or invalid token' });
+  }
+  if (!name || !quantity) {
+    return res.status(400).json({ success: false, message: 'name and quantity are required' });
+  }
+  try {
+    await DB.removeGroceryItem(user._id, name, quantity); // Save to meal plan collection
+
+    res.json({ success: true, message: 'Grocery removed successfully!' });
+  } catch (error) {
+    res.status(500).json({ success: false, message: 'Error removing grocery' });
+  }
+});
+
+
 
 apiRouter.get('/getGroceries', async (req, res) => {
   const authToken = req.cookies[authCookieName];

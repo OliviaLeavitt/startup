@@ -14,7 +14,6 @@ export function useRecipes() {
   const [loading, setLoading] = useState(true);
   const recipesPerPage = 4;
 
-  // Fetch initial recipes
   useEffect(() => {
     fetch('/api/recipes')
       .then((response) => response.json())
@@ -29,7 +28,6 @@ export function useRecipes() {
       });
   }, []);
 
-  // Fetch saved recipe IDs
   useEffect(() => {
     const fetchRecipeIds = async () => {
       try {
@@ -44,7 +42,6 @@ export function useRecipes() {
     fetchRecipeIds();
   }, []);
 
-  // Fetch saved recipes
   useEffect(() => {
     if (recipeIds.length > 0) {
       const fetchRecipes = async () => {
