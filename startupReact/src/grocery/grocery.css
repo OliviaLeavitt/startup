@@ -99,7 +99,7 @@ span {
 
 /* Button Styles */
 #addItemBtn, #addMealPlanItemsBtn {
-    background-color: #DA8359 !important; 
+    background-color: #DA8359 !important;
     font-family: 'Afacad Flux', sans-serif !important;
     color: #fffefc !important;
     font-weight: 700 !important;
@@ -165,4 +165,46 @@ span {
     h2 {
         font-size: 1.6rem;
     }
+
+    .calendar {
+        flex-direction: column;
+    }
+
+    .day {
+        flex: 1 0 100%;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .form-control {
+        font-size: 1rem;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.1rem;
+    }
+
+    .col-4 {
+        font-size: 0.9rem;
+        text-align: center;
+    }
+
+    .list-group-item {
+        padding: 10px 15px;
+    }
+
+    /* Prevent text wrapping in "Remove" button */
+.remove-btn {
+  font-size: 3vw; /* Make font size responsive based on viewport width */
+  max-width: 100%; /* Ensure the button does not exceed its container */
+  white-space: nowrap; /* Prevent wrapping, even if the text shrinks */
+}
 }

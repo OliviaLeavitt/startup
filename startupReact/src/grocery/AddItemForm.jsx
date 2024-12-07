@@ -27,7 +27,7 @@ export function AddItemForm({ itemName, setItemName, itemQuantity, setItemQuanti
             onChange={(e) => setItemQuantity(e.target.value)}
           />
         </div>
-        <button className="btn btn-primary" onClick={handleAddItem}>Add Item</button>
+        <button className="btn btn-primary w-100" onClick={handleAddItem}>Add Item</button>
       </div>
     </div>
   );

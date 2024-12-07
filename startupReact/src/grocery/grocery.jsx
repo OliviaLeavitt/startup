@@ -9,20 +9,20 @@ export function Grocery() {
   const [itemQuantity, setItemQuantity] = useState('');
   const [groceryList, setGroceryList] = useState([]);
 
-  useEffect(() => { 
-    const fetchGroceries = async () => { 
-      try { 
-        const response = await fetch('/api/getGroceries'); 
-        const data = await response.json(); 
-        console.log('Fetched groceries:', data); 
-        setGroceryList(data);  // Update the grocery list with the fetched data 
-      } catch (error) { 
-        console.error('Error fetching groceries:', error); 
-      } 
-    }; 
+  useEffect(() => {
+    const fetchGroceries = async () => {
+      try {
+        const response = await fetch('/api/getGroceries');
+        const data = await response.json();
+        console.log('Fetched groceries:', data);
+        setGroceryList(data);
+      } catch (error) {
+        console.error('Error fetching groceries:', error);
+      }
+    };
 
-    fetchGroceries();  // Call the function to fetch groceries when the component mounts 
-  }, []);  // Empty dependency array means this runs only once after initial render 
+    fetchGroceries();
+  }, []);
 
   const handleGrocerySave = async (groceryName, groceryQuantity) => {
     if (!groceryName || !groceryQuantity) {
@@ -41,7 +41,6 @@ export function Grocery() {
 
       if (response.ok) {
         console.log('Grocery item saved successfully');
-        // Update the UI with the newly saved grocery item
         setGroceryList([...groceryList, { name: groceryName, quantity: groceryQuantity }]);
       } else {
         console.error('Failed to save grocery item');
@@ -76,7 +75,6 @@ export function Grocery() {
 
       if (response.ok) {
         console.log('Grocery item removed successfully');
-        // Update the UI by removing the grocery item from the list
         setGroceryList(groceryList.filter(item => item.name !== groceryName || item.quantity !== groceryQuantity));
       } else {
         console.error('Failed to remove grocery item');
@@ -87,28 +85,22 @@ export function Grocery() {
   };
 
   return (
-    <div>
-      <main className="container my-4">
-        <section>
-          <div className="hero mb-4 wrapper">
-            <h2 className="mb-4">Grocery List</h2>
-            <p className="mb-5">Create your grocery list, add items, check off purchases, and organize for a smarter shopping experience.</p>
-          </div>
+    <div className="container my-4">
+      <section>
+        <div className="hero mb-4 shadow-sm p-4 bg-white">
+          <h2 className="text-center mb-4">Grocery List</h2>
+        </div>
 
-          <AddItemForm 
-            itemName={itemName}
-            setItemName={setItemName}
-            itemQuantity={itemQuantity}
-            setItemQuantity={setItemQuantity}
-            handleAddItem={handleAddItem}
-          />
+        <AddItemForm
+          itemName={itemName}
+          setItemName={setItemName}
+          itemQuantity={itemQuantity}
+          setItemQuantity={setItemQuantity}
+          handleAddItem={handleAddItem}
+        />
 
-          <GroceryList 
-            groceryList={groceryList} 
-            handleRemoveItem={handleRemoveItem} 
-          />
-        </section>
-      </main>
+        <GroceryList groceryList={groceryList} handleRemoveItem={handleRemoveItem} />
+      </section>
     </div>
   );
 }
